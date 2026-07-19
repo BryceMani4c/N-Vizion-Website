@@ -47,8 +47,17 @@
 
             /* ── Pillars ── */
             .pillars-section { padding: 3.5rem 0 1.5rem; }
-            .pillar-item { text-align: center; padding: 1.25rem; }
-            .pillar-icon { font-size: 1.75rem; color: #c9a84c; margin-bottom: 0.75rem; display: block; }
+            .pillar-item { text-align: center; padding: 1.5rem 1.75rem; }
+            .pillar-icon {
+                font-family: 'Raleway', sans-serif;
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: #c9a84c;
+                margin-bottom: 0.85rem;
+                display: block;
+                letter-spacing: 0.05em;
+                line-height: 1;
+            }
             .pillar-item h4 {
                 font-family: 'Raleway', sans-serif;
                 font-weight: 800;
@@ -56,19 +65,17 @@
                 letter-spacing: 0.17em;
                 text-transform: uppercase;
                 color: #c9a84c;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.6rem;
             }
             .pillar-item p {
                 font-family: 'Lora', serif;
                 font-size: 0.9rem;
                 color: #8a8a8a;
                 margin-bottom: 0;
-                line-height: 1.7;
-            }
-            .pillar-divider {
-                width: 1px;
-                background: rgba(201,168,76,0.2);
-                align-self: stretch;
+                line-height: 1.75;
+                max-width: 260px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             /* ── Custom Form ── */
@@ -143,7 +150,7 @@
             }
             .prayer-form textarea {
                 resize: vertical;
-                min-height: 140px;
+                min-height: 220px;
             }
 
             /* Radio group */
@@ -228,11 +235,6 @@
                 display: none;
                 text-align: center;
                 padding: 3rem 1rem;
-            }
-            #thank-you .ty-icon {
-                font-size: 3rem;
-                display: block;
-                margin-bottom: 1.25rem;
             }
             #thank-you h3 {
                 font-family: 'Raleway', sans-serif;
@@ -335,36 +337,26 @@
         <!-- Commitment pillars -->
         <section class="pillars-section">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <div class="row align-items-stretch g-0">
-                            <div class="col-md-4">
-                                <div class="pillar-item">
-                                    <span class="pillar-icon">&#128274;</span>
-                                    <h4>Confidential</h4>
-                                    <p>Your request is shared only with our dedicated prayer team and handled with the utmost care and discretion.</p>
-                                </div>
-                            </div>
-                            <div class="col-auto d-none d-md-block">
-                                <div class="pillar-divider"></div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pillar-item">
-                                    <span class="pillar-icon">&#9829;</span>
-                                    <h4>Personal</h4>
-                                    <p>Real people, genuinely interceding on your behalf. Every request is prayed over — no one falls through the cracks.</p>
-                                </div>
-                            </div>
-                            <div class="col-auto d-none d-md-block">
-                                <div class="pillar-divider"></div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pillar-item">
-                                    <span class="pillar-icon">&#10024;</span>
-                                    <h4>Faithful</h4>
-                                    <p>We believe in a God who answers prayer. Submit with faith and expectation — miracles still happen.</p>
-                                </div>
-                            </div>
+                <div class="row justify-content-center text-center">
+                    <div class="col-md-4 col-sm-10">
+                        <div class="pillar-item">
+                            <span class="pillar-icon">&#9670;&#65038;</span>
+                            <h4>Confidential</h4>
+                            <p>Your request is shared only with our dedicated prayer team and handled with the utmost care and discretion.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-10">
+                        <div class="pillar-item">
+                            <span class="pillar-icon">&#9829;&#65038;</span>
+                            <h4>Personal</h4>
+                            <p>Real people, genuinely interceding on your behalf. Every request is prayed over — no one falls through the cracks.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-10">
+                        <div class="pillar-item">
+                            <span class="pillar-icon">&#10013;&#65038;</span>
+                            <h4>Faithful</h4>
+                            <p>We believe in a God who answers prayer. Submit with faith and expectation — miracles still happen.</p>
                         </div>
                     </div>
                 </div>
@@ -386,7 +378,6 @@
 
                             <!-- Thank-you state (hidden until submit) -->
                             <div id="thank-you">
-                                <span class="ty-icon">&#128591;</span>
                                 <div class="ty-divider"></div>
                                 <h3><span>Request Received</span>We're Praying For You</h3>
                                 <p>"The prayer of a righteous person is powerful and effective." — James 5:16</p>
@@ -448,7 +439,7 @@
                                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mt-2">
                                     <button type="submit" class="btn-submit" id="submit-btn">Send My Request</button>
                                     <span style="font-family:'Lora',serif; font-size:0.8rem; color:#555; font-style:italic;">
-                                        &#128274; Your request is kept confidential
+                                        Your request is kept confidential
                                     </span>
                                 </div>
 
@@ -479,7 +470,7 @@
         </section>
 
         <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; N-Vizion Church 2024</p></div>
+            <div class="container"><p class="m-0 small">Copyright &copy; N-Vizion Church 2026</p></div>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

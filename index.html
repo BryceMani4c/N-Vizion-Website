@@ -3,27 +3,126 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
+        <meta name="description" content="N-Vizion Church — Sunday service at 11:00 AM in Sparta, TN" />
         <meta name="author" content="" />
-        <title>Business Casual - Start Bootstrap Theme</title>
+        <title>N-Vizion Church</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .divider-gold {
+                width: 60px;
+                height: 2px;
+                background-color: #c9a84c;
+                margin: 1.5rem auto;
+            }
+
+            /* ── Service info band ── */
+            .service-band {
+                background: linear-gradient(135deg, rgba(201,168,76,0.13) 0%, rgba(201,168,76,0.04) 100%);
+                border-top: 1px solid rgba(201,168,76,0.27);
+                border-bottom: 1px solid rgba(201,168,76,0.27);
+                padding: 3rem 0;
+            }
+            .service-grid {
+                display: flex;
+                justify-content: center;
+                align-items: stretch;
+                gap: 0;
+                flex-wrap: wrap;
+            }
+            .service-item {
+                text-align: center;
+                padding: 1rem 3rem;
+                border-right: 1px solid rgba(201,168,76,0.2);
+            }
+            .service-item:last-child { border-right: none; }
+            @media (max-width: 576px) {
+                .service-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1.25rem 1.5rem; }
+                .service-item:last-child { border-bottom: none; }
+            }
+            .service-item .label {
+                font-family: 'Raleway', sans-serif;
+                font-weight: 800;
+                font-size: 0.72rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: #c9a84c;
+                margin-bottom: 0.4rem;
+            }
+            .service-item .value {
+                font-family: 'Lora', serif;
+                font-size: 1.1rem;
+                color: #e8e8e8;
+                line-height: 1.5;
+            }
+            .service-item .sub {
+                font-family: 'Raleway', sans-serif;
+                font-size: 0.72rem;
+                color: #666;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                margin-top: 0.2rem;
+            }
+
+            /* ── Quick links row ── */
+            .quick-links {
+                padding: 3rem 0;
+            }
+            .quick-link-card {
+                background-color: #111111;
+                border: 1px solid rgba(201,168,76,0.15);
+                border-radius: 0.375rem;
+                padding: 2rem 1.5rem;
+                text-align: center;
+                text-decoration: none;
+                display: block;
+                height: 100%;
+                transition: border-color 0.2s, transform 0.15s;
+            }
+            .quick-link-card:hover {
+                border-color: rgba(201,168,76,0.5);
+                transform: translateY(-3px);
+                text-decoration: none;
+            }
+            .quick-link-card .ql-symbol {
+                font-family: 'Raleway', sans-serif;
+                font-size: 1.3rem;
+                font-weight: 800;
+                color: #c9a84c;
+                display: block;
+                margin-bottom: 0.75rem;
+            }
+            .quick-link-card h4 {
+                font-family: 'Raleway', sans-serif;
+                font-weight: 800;
+                font-size: 0.78rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                color: #c9a84c;
+                margin-bottom: 0.5rem;
+            }
+            .quick-link-card p {
+                font-family: 'Lora', serif;
+                font-size: 0.88rem;
+                color: #6c6c6c;
+                margin-bottom: 0;
+                line-height: 1.65;
+            }
+        </style>
     </head>
     <body>
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
-                <span class="site-heading-upper text-primary mb-3">A Free Bootstrap Business Theme</span>
-                <span class="site-heading-lower">Business Casual</span>
+                <span class="site-heading-upper text-primary mb-3">You Are Welcome Here</span>
+                <span class="site-heading-lower">N-Vizion Church</span>
             </h1>
         </header>
-        <!-- Navigation-->
+
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
-                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">N-Vizion</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
@@ -37,42 +136,120 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Intro image + Kingdom message -->
         <section class="page-section clearfix">
             <div class="container">
                 <div class="intro">
-                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="..." />
+                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="N-Vizion Church" />
                     <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                         <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Fresh Coffee</span>
-                            <span class="section-heading-lower">Worth Drinking</span>
+                            <span class="section-heading-upper">Preaching the Gospel</span>
+                            <span class="section-heading-lower">of the Kingdom</span>
                         </h2>
-                        <p class="mb-3">Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it!</p>
-                        <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="#!">Visit Us Today!</a></div>
+                        <p class="mb-3" style="font-family:'Lora',serif; color:#b0b0b0; line-height:1.8;">
+                            At N-Vizion Church we are unapologetically committed to the uncompromised Word of God. We preach the Kingdom — the rule and reign of Jesus Christ — in every season, every service, every message.
+                        </p>
+                        <div class="intro-button mx-auto">
+                            <a class="btn btn-primary btn-xl" href="Media.html">Watch &amp; Listen</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Service info band -->
+        <div class="service-band">
+            <div class="container">
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="label">Sunday Service</div>
+                        <div class="value">11:00 AM</div>
+                        <div class="sub">Central Time</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="label">Location</div>
+                        <div class="value">180 Churchill Drive</div>
+                        <div class="sub">Sparta, TN 38583</div>
+                    </div>
+                    <div class="service-item">
+                        <div class="label">Every Week</div>
+                        <div class="value">All Are Welcome</div>
+                        <div class="sub">No reservation needed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripture CTA band -->
         <section class="page-section cta">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
                         <div class="cta-inner bg-faded text-center rounded">
                             <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Our Promise</span>
-                                <span class="section-heading-lower">To You</span>
+                                <span class="section-heading-upper">Matthew 6:33</span>
+                                <span class="section-heading-lower">Seek First His Kingdom</span>
                             </h2>
-                            <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!</p>
+                            <p class="mb-0" style="font-family:'Lora',serif; font-style:italic;">
+                                "But seek first the kingdom of God and his righteousness, and all these things will be added to you."
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Quick links -->
+        <section class="quick-links">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12 text-center">
+                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">Get Connected</h3>
+                        <div class="divider-gold"></div>
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-3 col-sm-6">
+                        <a class="quick-link-card" href="Media.html">
+                            <span class="ql-symbol">&#9654;&#65038;</span>
+                            <h4>Media</h4>
+                            <p>Follow along with our latest posts and updates on Facebook.</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a class="quick-link-card" href="Prayer Request.html">
+                            <span class="ql-symbol">&#10013;&#65038;</span>
+                            <h4>Prayer</h4>
+                            <p>Submit a prayer request and let our team stand with you in faith.</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a class="quick-link-card" href="Give.html">
+                            <span class="ql-symbol">&#9829;&#65038;</span>
+                            <h4>Give</h4>
+                            <p>Support the mission of N-Vizion Church with a secure online gift.</p>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <a class="quick-link-card" href="Events.html">
+                            <span class="ql-symbol">&#9670;&#65038;</span>
+                            <h4>Events</h4>
+                            <p>See what's happening at N-Vizion and get involved in the community.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2023</p></div>
+            <div class="container">
+                <p class="m-0 small">180 Churchill Drive &bull; Sparta, TN 38583</p>
+                <p class="m-0 small mt-1">Copyright &copy; N-Vizion Church 2026</p>
+            </div>
         </footer>
-        <!-- Bootstrap core JS-->
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>

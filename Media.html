@@ -3,310 +3,94 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Media and social updates from N-Vizion Church" />
+        <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>N-Vizion Church - Media</title>
+        <title>Business Casual - Start Bootstrap Theme</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <style>
-            /* ── Media page styles ── */
-            .divider-gold {
-                width: 60px;
-                height: 2px;
-                background-color: #c9a84c;
-                margin: 1.5rem auto;
-            }
-
-            /* ── Scripture band ── */
-            .scripture-band {
-                background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 100%);
-                border-top: 1px solid rgba(201,168,76,0.25);
-                border-bottom: 1px solid rgba(201,168,76,0.25);
-                padding: 2.75rem 0;
-            }
-            .scripture-text {
-                font-family: 'Lora', serif;
-                font-style: italic;
-                font-size: 1.25rem;
-                line-height: 1.9;
-                color: #e8e8e8;
-                max-width: 640px;
-                margin: 0 auto;
-            }
-            .scripture-ref {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 700;
-                font-size: 0.8rem;
-                letter-spacing: 0.15em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                margin-top: 1rem;
-            }
-
-            /* ── Facebook feed wrapper ── */
-            .feed-section {
-                padding: 4rem 0;
-            }
-            .feed-card {
-                background-color: #111111;
-                border: 1px solid rgba(201,168,76,0.2);
-                border-radius: 0.5rem;
-                overflow: hidden;
-                box-shadow: 0 12px 48px rgba(0,0,0,0.55);
-                /* center the fb-page widget inside */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 0;
-            }
-            .feed-card-header {
-                width: 100%;
-                background-color: #1a1a1a;
-                padding: 1.1rem 1.5rem;
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                border-bottom: 1px solid rgba(201,168,76,0.15);
-            }
-            .feed-card-header .fb-icon {
-                width: 28px;
-                height: 28px;
-                background-color: #1877f2;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-shrink: 0;
-            }
-            .feed-card-header .fb-icon svg {
-                width: 16px;
-                height: 16px;
-                fill: #fff;
-            }
-            .feed-card-header span {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 700;
-                font-size: 0.8rem;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                color: #b0b0b0;
-            }
-            .feed-card-header a {
-                margin-left: auto;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 700;
-                font-size: 0.75rem;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                text-decoration: none;
-                border: 1px solid rgba(201,168,76,0.4);
-                padding: 0.3rem 0.85rem;
-                border-radius: 0.25rem;
-                transition: background-color 0.2s, color 0.2s;
-            }
-            .feed-card-header a:hover {
-                background-color: #c9a84c;
-                color: #0d0d0d;
-            }
-            .feed-card-body {
-                width: 100%;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                background-color: #111111;
-                overflow: hidden;
-            }
-            .feed-card-body iframe {
-                display: block;
-                width: 100%;
-                min-height: 1100px;
-                border: none;
-                max-width: 500px;
-            }
-
-            /* ── Social links row ── */
-            .social-links-row {
-                display: flex;
-                justify-content: center;
-                gap: 1.25rem;
-                flex-wrap: wrap;
-                margin-top: 2rem;
-            }
-            .social-link-btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.6rem;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 700;
-                font-size: 0.78rem;
-                letter-spacing: 0.13em;
-                text-transform: uppercase;
-                color: #e8e8e8;
-                text-decoration: none;
-                background-color: #1a1a1a;
-                border: 1px solid rgba(201,168,76,0.25);
-                padding: 0.65rem 1.4rem;
-                border-radius: 0.25rem;
-                transition: border-color 0.2s, color 0.2s, background-color 0.2s;
-            }
-            .social-link-btn svg {
-                width: 18px;
-                height: 18px;
-                fill: currentColor;
-                flex-shrink: 0;
-            }
-            .social-link-btn:hover {
-                border-color: #c9a84c;
-                color: #c9a84c;
-                background-color: rgba(201,168,76,0.07);
-            }
-        </style>
     </head>
     <body>
-
         <header>
             <h1 class="site-heading text-center text-faded d-none d-lg-block">
-                <span class="site-heading-upper text-primary mb-3">Stay Connected</span>
-                <span class="site-heading-lower">Media</span>
+                <span class="site-heading-upper text-primary mb-3">A Free Bootstrap Business Theme</span>
+                <span class="site-heading-lower">Business Casual</span>
             </h1>
         </header>
-
-        <!-- Navigation -->
+        <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
-                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">N-Vizion</a>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Events.html">Events</a></li>
-                        <li class="nav-item active px-lg-4"><a class="nav-link text-uppercase" href="Media.html">Media</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Prayer Request.html">Prayer Request</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Give.html">Give</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Products</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Store</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
-        <!-- Hero intro -->
-        <section class="page-section" style="padding-bottom:2rem;">
+        <section class="page-section">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="section-heading mb-3">
-                            <span class="section-heading-upper">What We're Up To</span>
-                            <span class="section-heading-lower">Latest From N-Vizion</span>
-                        </h2>
-                        <div class="divider-gold"></div>
-                        <p style="font-family:'Lora',serif; color:#b0b0b0; font-size:1.05rem; max-width:580px; margin:0 auto;">
-                            Follow along as we share updates, messages, announcements, and moments from our community. Everything happening at N-Vizion Church, live from our Facebook page.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Scripture band -->
-        <div class="scripture-band">
-            <div class="container">
-                <div class="text-center">
-                    <p class="scripture-text">
-                        "And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together, but encouraging one another."
-                    </p>
-                    <p class="scripture-ref">Hebrews 10:24–25</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Facebook Live Feed -->
-        <section class="feed-section">
-            <div class="container">
-                <div class="row justify-content-center mb-4">
-                    <div class="col-12 text-center">
-                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">
-                            Live Facebook Feed
-                        </h3>
-                        <div class="divider-gold"></div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-7 col-md-9">
-
-                        <!-- Feed card wrapper -->
-                        <div class="feed-card">
-                            <div class="feed-card-header">
-                                <!-- Facebook "f" icon -->
-                                <div class="fb-icon">
-                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
-                                    </svg>
-                                </div>
-                                <span>N-Vizion Church</span>
-                                <a href="https://www.facebook.com/p/N-Vizion-Church-100090860762618/" target="_blank" rel="noopener noreferrer">Follow</a>
-                            </div>
-                            <div class="feed-card-body">
-                                <!-- Facebook Page Plugin (iframe method) -->
-                                <iframe
-                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090860762618&tabs=timeline%2Cphotos&width=500&height=1100&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
-                                    width="500"
-                                    height="1100"
-                                    style="border:none;overflow:hidden;width:100%;"
-                                    scrolling="no"
-                                    frameborder="0"
-                                    allowfullscreen="true"
-                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                                    title="N-Vizion Church Facebook Feed"
-                                ></iframe>
-                            </div>
-                        </div>
-
-                        <!-- Social follow links -->
-                        <div class="social-links-row">
-                            <a class="social-link-btn" href="https://www.facebook.com/p/N-Vizion-Church-100090860762618/" target="_blank" rel="noopener noreferrer">
-                                <!-- Facebook icon -->
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
-                                </svg>
-                                Follow on Facebook
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA bottom band -->
-        <section class="page-section cta">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner bg-faded text-center rounded">
-                            <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Join the Conversation</span>
-                                <span class="section-heading-lower">We'd Love to Hear From You</span>
+                <div class="product-item">
+                    <div class="product-item-title d-flex">
+                        <div class="bg-faded p-5 d-flex ms-auto rounded">
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">Blended to Perfection</span>
+                                <span class="section-heading-lower">Coffees & Teas</span>
                             </h2>
-                            <p class="mb-4" style="font-family:'Lora',serif;">
-                                Like, comment, and share our posts to help spread the word about what God is doing through N-Vizion Church. Your engagement helps us reach more people in our community.
-                            </p>
-                            <a class="btn btn-primary btn-xl" href="https://www.facebook.com/p/N-Vizion-Church-100090860762618/" target="_blank" rel="noopener noreferrer">
-                                Visit Our Facebook Page
-                            </a>
                         </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-01.jpg" alt="..." />
+                    <div class="product-item-description d-flex me-auto">
+                        <div class="bg-faded p-5 rounded"><p class="mb-0">We take pride in our work, and it shows. Every time you order a beverage from us, we guarantee that it will be an experience worth having. Whether it's our world famous Venezuelan Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of speciality sourced black coffee, you will be coming back for more.</p></div>
                     </div>
                 </div>
             </div>
         </section>
-
+        <section class="page-section">
+            <div class="container">
+                <div class="product-item">
+                    <div class="product-item-title d-flex">
+                        <div class="bg-faded p-5 d-flex me-auto rounded">
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">Delicious Treats, Good Eats</span>
+                                <span class="section-heading-lower">Bakery & Kitchen</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-02.jpg" alt="..." />
+                    <div class="product-item-description d-flex ms-auto">
+                        <div class="bg-faded p-5 rounded"><p class="mb-0">Our seasonal menu features delicious snacks, baked goods, and even full meals perfect for breakfast or lunchtime. We source our ingredients from local, oragnic farms whenever possible, alongside premium vendors for specialty goods.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <div class="product-item">
+                    <div class="product-item-title d-flex">
+                        <div class="bg-faded p-5 d-flex ms-auto rounded">
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">From Around the World</span>
+                                <span class="section-heading-lower">Bulk Speciality Blends</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="assets/img/products-03.jpg" alt="..." />
+                    <div class="product-item-description d-flex me-auto">
+                        <div class="bg-faded p-5 rounded"><p class="mb-0">Travelling the world for the very best quality coffee is something take pride in. When you visit us, you'll always find new blends from around the world, mainly from regions in Central and South America. We sell our blends in smaller to large bulk quantities. Please visit us in person for more details.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; N-Vizion Church 2024</p></div>
+            <div class="container"><p class="m-0 small">Copyright &copy; N-Vizion Church 2026</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
