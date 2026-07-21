@@ -1,0 +1,314 @@
+/*
+ * N-Vizion Church — Mobile Stylesheet
+ * Loaded after styles.css on every page.
+ * Covers all custom components across the site at three breakpoints:
+ *   md  ≤ 991px  (tablets in portrait, large phones landscape)
+ *   sm  ≤ 767px  (phones landscape / small tablets)
+ *   xs  ≤ 575px  (phones portrait — primary mobile target)
+ */
+
+/* ─────────────────────────────────────────────
+   GLOBAL
+───────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .page-section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .section-heading-lower { font-size: 2.25rem; }
+}
+
+@media (max-width: 767px) {
+    .page-section { padding-top: 2.75rem; padding-bottom: 2.75rem; }
+    .section-heading-lower {
+        font-size: 1.85rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    .section-heading-upper { font-size: 0.7rem; letter-spacing: 0.15em; }
+}
+
+@media (max-width: 575px) {
+    .page-section { padding-top: 2.25rem; padding-bottom: 2.25rem; }
+    .section-heading-lower { font-size: 1.45rem; }
+
+    /* Prevent horizontal overflow */
+    body { overflow-x: hidden; }
+    .container { padding-left: 1.1rem; padding-right: 1.1rem; }
+
+    /* Guard all headings against overflow */
+    .section-heading-lower,
+    .section-heading-upper,
+    h2, h3, h4 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* CTA inner box */
+    .cta-inner { padding: 2rem 1.25rem !important; }
+    .cta-inner p { font-size: 0.9rem !important; }
+}
+
+/* ─────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────── */
+@media (max-width: 991px) {
+    /* Give the collapsed nav some breathing room */
+    #navbarSupportedContent .navbar-nav { padding: 0.75rem 0; }
+    #navbarSupportedContent .nav-item { text-align: center; padding: 0 !important; }
+    #navbarSupportedContent .nav-link { padding: 0.6rem 1rem !important; }
+}
+
+/* ─────────────────────────────────────────────
+   HOME PAGE — service band
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .service-grid { flex-direction: column; }
+    .service-item {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(201,168,76,0.2);
+        padding: 1.1rem 1rem;
+        width: 100%;
+    }
+    .service-item:last-child { border-bottom: none; }
+    .service-item .value { font-size: 1rem; }
+}
+
+/* ─────────────────────────────────────────────
+   HOME PAGE — Get Connected social cards
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .quick-link-card { padding: 1.5rem 1.1rem; }
+    .quick-link-card h4 { font-size: 0.8rem; }
+    .quick-link-card p { font-size: 0.85rem; }
+}
+
+/* ─────────────────────────────────────────────
+   ABOUT PAGE — pastor section (photo + letter)
+───────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .pastor-photo {
+        max-height: 380px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .pastor-photo { max-height: 280px; }
+
+    .welcome-card { padding: 1.75rem 1.25rem !important; }
+    .welcome-card p { font-size: 0.95rem; }
+    .welcome-signature { font-size: 0.68rem; }
+}
+
+/* ─────────────────────────────────────────────
+   ABOUT PAGE — belief cards
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .belief-card { padding: 1.5rem 1.25rem; }
+    .belief-card p { font-size: 0.88rem; }
+}
+
+/* ─────────────────────────────────────────────
+   ABOUT PAGE — Life at N-Vizion gallery
+───────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .gallery-photo[style*="height:420px"] {
+        height: 260px !important;
+    }
+    .gallery-photo-tall { height: 240px !important; }
+}
+
+@media (max-width: 575px) {
+    .gallery-photo[style*="height:420px"] {
+        height: 200px !important;
+    }
+    .gallery-photo-tall { height: 200px !important; }
+    .gallery-photo-short { height: 160px !important; }
+    .gallery-caption { font-size: 0.6rem; }
+}
+
+/* ─────────────────────────────────────────────
+   ABOUT PAGE — visit strip
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .visit-strip { padding: 1.25rem 1rem; }
+    .visit-item {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(201,168,76,0.15);
+        padding: 0.85rem 1rem;
+    }
+    .visit-item:last-child { border-bottom: none !important; }
+    .visit-item .v-value { font-size: 0.95rem; }
+}
+
+/* ─────────────────────────────────────────────
+   GIVE PAGE — giving card
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .giving-card { padding: 2.25rem 1.25rem !important; }
+
+    .btn-give {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 1.5rem !important;
+    }
+
+    .secure-badges {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.65rem !important;
+    }
+
+    .give-way-card { padding: 1.5rem 1.1rem; }
+    .give-way-card p { font-size: 0.88rem; }
+}
+
+/* ─────────────────────────────────────────────
+   GIVE PAGE — scripture band
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .scripture-text, .promise-text {
+        font-size: 1rem !important;
+        line-height: 1.75 !important;
+    }
+    .scripture-band, .promise-band { padding: 2rem 0; }
+}
+
+/* ─────────────────────────────────────────────
+   PRAYER REQUEST PAGE — pillars
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .pillar-item { padding: 1rem 1rem; }
+    .pillar-icon { font-size: 1.2rem; }
+    .pillar-item h4 { font-size: 0.72rem; }
+    .pillar-item p { font-size: 0.85rem; max-width: 100%; }
+}
+
+/* ─────────────────────────────────────────────
+   PRAYER REQUEST PAGE — form
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .prayer-form { padding: 1.75rem 1.1rem !important; }
+    .prayer-form .form-row { grid-template-columns: 1fr !important; gap: 0 !important; }
+    .prayer-form textarea { min-height: 180px !important; }
+
+    /* Radio buttons: stack on very narrow screens */
+    .radio-group {
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+
+    /* Submit row: stack button and note */
+    .d-flex.align-items-center.justify-content-between.flex-wrap {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.75rem;
+    }
+
+    .btn-submit {
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem 1.5rem !important;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   MESSAGES PAGE — coming-soon card
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .coming-soon-card { padding: 2.25rem 1.25rem !important; }
+    .coming-soon-card p { font-size: 0.92rem; }
+    .coming-soon-symbol { font-size: 1.5rem; }
+
+    .btn-youtube {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.78rem !important;
+    }
+
+    /* Notify strip: stack on mobile */
+    .notify-strip {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.25rem 1rem;
+    }
+    .notify-strip .btn-youtube {
+        align-self: center;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   MESSAGES PAGE — video placeholder grid
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .video-card-body { padding: 0.85rem 1rem 1.1rem; }
+    .video-card-title { font-size: 0.82rem; }
+    .grid-label { font-size: 0.7rem; letter-spacing: 0.14em; }
+}
+
+/* ─────────────────────────────────────────────
+   MAINTENANCE PAGES (Events placeholder)
+───────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .maintenance-card { padding: 2.75rem 1.75rem; }
+    .maintenance-symbol { font-size: 2rem; }
+    .maintenance-card p { font-size: 0.92rem; }
+}
+
+@media (max-width: 575px) {
+    .maintenance-card {
+        padding: 2rem 1.1rem !important;
+        /* Ensure nothing bleeds outside the card */
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    /* Shrink the [ ! ] badge */
+    .maintenance-symbol {
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        margin-bottom: 1rem;
+    }
+
+    /* Headings inside the card — keep them tight */
+    .maintenance-card .section-heading-upper {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+    }
+    .maintenance-card .section-heading-lower {
+        font-size: 1.25rem !important;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .maintenance-card .divider-gold { margin: 1rem auto; }
+
+    .maintenance-card p {
+        font-size: 0.88rem;
+        line-height: 1.75;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Stack the two buttons full-width */
+    .maintenance-card .d-flex {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem !important;
+    }
+    .maintenance-card .btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.85rem 1rem !important;
+        font-size: 0.78rem !important;
+        letter-spacing: 0.12em;
+    }
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+@media (max-width: 575px) {
+    .footer { padding: 2rem 0 !important; }
+    .footer p { font-size: 0.72rem; }
+}

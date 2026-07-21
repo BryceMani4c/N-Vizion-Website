@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="N-Vizion Church — About page coming soon" />
+        <meta name="description" content="About N-Vizion Church — Pastor Derek and Jody Bolinger, Sparta, TN" />
         <meta name="author" content="" />
         <title>N-Vizion Church - About</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/mobile.css" rel="stylesheet" />
         <style>
             .divider-gold {
                 width: 60px;
@@ -17,30 +18,175 @@
                 background-color: #c9a84c;
                 margin: 1.5rem auto;
             }
-            .maintenance-card {
+
+            /* ── Scripture / quote band ── */
+            .scripture-band {
+                background: linear-gradient(135deg, rgba(201,168,76,0.13) 0%, rgba(201,168,76,0.04) 100%);
+                border-top: 1px solid rgba(201,168,76,0.27);
+                border-bottom: 1px solid rgba(201,168,76,0.27);
+                padding: 3rem 0;
+            }
+            .scripture-text {
+                font-family: 'Lora', serif;
+                font-style: italic;
+                font-size: 1.25rem;
+                line-height: 1.9;
+                color: #e8e8e8;
+                max-width: 660px;
+                margin: 0 auto;
+            }
+            .scripture-ref {
+                font-family: 'Raleway', sans-serif;
+                font-weight: 700;
+                font-size: 0.8rem;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: #c9a84c;
+                margin-top: 1rem;
+            }
+
+            /* ── Welcome section ── */
+            .welcome-card {
                 background-color: #111111;
                 border: 1px solid rgba(201,168,76,0.2);
                 border-radius: 0.5rem;
-                padding: 4rem 3rem;
-                text-align: center;
+                padding: 3rem 3.25rem;
                 box-shadow: 0 12px 48px rgba(0,0,0,0.5);
             }
-            .maintenance-symbol {
+            .welcome-card p {
+                font-family: 'Lora', serif;
+                font-size: 1.05rem;
+                color: #b0b0b0;
+                line-height: 1.9;
+                margin-bottom: 1.25rem;
+            }
+            .welcome-card p:last-child { margin-bottom: 0; }
+            .welcome-signature {
                 font-family: 'Raleway', sans-serif;
-                font-size: 2.5rem;
                 font-weight: 800;
+                font-size: 0.78rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: #c9a84c;
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+                border-top: 1px solid rgba(201,168,76,0.15);
+            }
+
+            /* ── Belief pillars ── */
+            .belief-card {
+                background-color: #111111;
+                border: 1px solid rgba(201,168,76,0.12);
+                border-radius: 0.4rem;
+                padding: 2rem 1.75rem;
+                height: 100%;
+                transition: border-color 0.2s ease;
+            }
+            .belief-card:hover {
+                border-color: rgba(201,168,76,0.4);
+            }
+            .belief-symbol {
+                font-family: 'Raleway', sans-serif;
+                font-size: 1.3rem;
+                font-weight: 900;
                 color: #c9a84c;
                 display: block;
-                margin-bottom: 1.5rem;
-                letter-spacing: 0.1em;
+                margin-bottom: 1rem;
             }
-            .maintenance-card p {
+            .belief-card h4 {
+                font-family: 'Raleway', sans-serif;
+                font-weight: 800;
+                font-size: 0.8rem;
+                letter-spacing: 0.17em;
+                text-transform: uppercase;
+                color: #c9a84c;
+                margin-bottom: 0.75rem;
+            }
+            .belief-card p {
+                font-family: 'Lora', serif;
+                font-size: 0.92rem;
+                color: #8a8a8a;
+                line-height: 1.8;
+                margin-bottom: 0;
+            }
+
+            /* ── Visit info strip ── */
+            .visit-strip {
+                background-color: #111111;
+                border: 1px solid rgba(201,168,76,0.15);
+                border-radius: 0.375rem;
+                padding: 2rem 2.5rem;
+            }
+            .visit-item {
+                text-align: center;
+                padding: 0.75rem 1.5rem;
+                border-right: 1px solid rgba(201,168,76,0.15);
+            }
+            .visit-item:last-child { border-right: none; }
+            @media (max-width: 768px) {
+                .visit-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+                .visit-item:last-child { border-bottom: none; }
+            }
+            .visit-item .v-label {
+                font-family: 'Raleway', sans-serif;
+                font-weight: 800;
+                font-size: 0.68rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: #c9a84c;
+                margin-bottom: 0.35rem;
+            }
+            .visit-item .v-value {
                 font-family: 'Lora', serif;
                 font-size: 1rem;
-                color: #8a8a8a;
-                line-height: 1.85;
-                max-width: 480px;
-                margin: 0 auto 2rem;
+                color: #e8e8e8;
+                line-height: 1.5;
+            }
+            .visit-item .v-sub {
+                font-family: 'Raleway', sans-serif;
+                font-size: 0.68rem;
+                color: #555;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                margin-top: 0.15rem;
+            }
+
+            /* ── Pastor photo ── */
+            .pastor-photo {
+                width: 100%;
+                border-radius: 0.5rem;
+                border: 1px solid rgba(201,168,76,0.2);
+                box-shadow: 0 12px 40px rgba(0,0,0,0.55);
+                object-fit: cover;
+                max-height: 520px;
+            }
+
+            /* ── Life at N-Vizion gallery ── */
+            .gallery-section { padding: 1rem 0 2rem; }
+            .gallery-photo {
+                width: 100%;
+                border-radius: 0.4rem;
+                border: 1px solid rgba(201,168,76,0.15);
+                object-fit: cover;
+                display: block;
+                transition: border-color 0.2s ease, transform 0.2s ease;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            }
+            .gallery-photo:hover {
+                border-color: rgba(201,168,76,0.45);
+                transform: translateY(-3px);
+            }
+            .gallery-photo-tall  { height: 380px; }
+            .gallery-photo-short { height: 240px; }
+            .gallery-caption {
+                font-family: 'Raleway', sans-serif;
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: #444;
+                text-align: center;
+                margin-top: 0.6rem;
             }
         </style>
     </head>
@@ -61,7 +207,7 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
                         <li class="nav-item active px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Events.html">Events</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Media.html">Media</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Media.html">Messages</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Prayer Request.html">Prayer Request</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Give.html">Give</a></li>
                     </ul>
@@ -69,21 +215,220 @@
             </div>
         </nav>
 
-        <section class="page-section">
+        <!-- Hero intro -->
+        <section class="page-section" style="padding-bottom: 2rem;">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-7 col-md-9">
-                        <div class="maintenance-card">
-                            <span class="maintenance-symbol">[ ! ]</span>
-                            <h2 class="section-heading mb-3">
-                                <span class="section-heading-upper">We'll Be Right Back</span>
-                                <span class="section-heading-lower">Under Maintenance</span>
-                            </h2>
-                            <div class="divider-gold"></div>
+                    <div class="col-lg-8 text-center">
+                        <h2 class="section-heading mb-3">
+                            <span class="section-heading-upper">You Are Welcome Here</span>
+                            <span class="section-heading-lower">Who We Are</span>
+                        </h2>
+                        <div class="divider-gold"></div>
+                        <p style="font-family:'Lora',serif; color:#b0b0b0; font-size:1.05rem; max-width:580px; margin:0 auto; line-height:1.85;">
+                            N-Vizion Church is a non-denominational body of believers in Sparta, Tennessee — built on the uncompromised Word of God and the proclamation of His Kingdom.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scripture band -->
+        <div class="scripture-band">
+            <div class="container text-center">
+                <p class="scripture-text">"Your kingdom come, your will be done, on earth as it is in heaven."</p>
+                <p class="scripture-ref">Matthew 6:10</p>
+            </div>
+        </div>
+
+        <!-- Welcome from the Bolingers -->
+        <section class="page-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 text-center">
+                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">A Word from Our Pastor</h3>
+                        <div class="divider-gold"></div>
+                    </div>
+                </div>
+                <div class="row align-items-center g-5 justify-content-center">
+                    <!-- Family photo -->
+                    <div class="col-lg-4 col-md-6 text-center">
+                        <img src="assets/img/about-family.jpg" alt="Pastor Derek and Jody Bolinger and their family" class="pastor-photo" />
+                        <p class="gallery-caption" style="margin-top:0.75rem;">The Bolinger Family</p>
+                    </div>
+                    <!-- Welcome letter -->
+                    <div class="col-lg-7 col-md-10">
+                        <div class="welcome-card">
                             <p>
-                                This page is currently being built. Check back soon — we're working hard to bring you our full story, vision, and leadership team.
+                                On behalf of our family — myself, my wife Jody, and our children — welcome to N-Vizion Church. Whether you are searching for the first time, returning after a long season away, or simply hungry for more of God, you have found a place where you are wanted, where you belong, and where the door is always open.
                             </p>
-                            <a class="btn btn-primary btn-xl" href="index.html">Back to Home</a>
+                            <p>
+                                Our heart is for every person who walks through our doors to encounter the living God — not a religion, not a set of rules, but the person of Jesus Christ of Nazareth. We believe that a real encounter with Him changes everything: your past, your present, and your eternity.
+                            </p>
+                            <p>
+                                Our ultimate goal is to make heaven our home and to spend eternity with our Lord and Savior Jesus Christ. But we also believe God never intended for His people to simply endure life until then. He calls us to a victorious, Kingdom life — here, on this earth, right now. "On earth as it is in heaven" is not just a line in a prayer. It is a promise and a commission.
+                            </p>
+                            <p>
+                                If you are seeking, if you are hungry, or even if you just want to see what this is all about — come as you are. We would love to walk this journey with you.
+                            </p>
+                            <div class="welcome-signature">
+                                Pastor Derek Bolinger &bull; N-Vizion Church &bull; Sparta, TN
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What we believe -->
+        <section class="page-section" style="padding-top: 1rem;">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 text-center">
+                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">What We Believe</h3>
+                        <div class="divider-gold"></div>
+                    </div>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="belief-card">
+                            <span class="belief-symbol">&#9670;&#65038;</span>
+                            <h4>The Word of God</h4>
+                            <p>We hold the Bible as the inspired, infallible Word of God — the final authority for how we live, think, and lead. We preach it without apology, in every season.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="belief-card">
+                            <span class="belief-symbol">&#10013;&#65038;</span>
+                            <h4>Jesus Christ</h4>
+                            <p>We believe in the death, burial, and resurrection of Jesus Christ of Nazareth — that He is the Son of God, the only path to salvation, and the Lord of all creation.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="belief-card">
+                            <span class="belief-symbol">&#9654;&#65038;</span>
+                            <h4>The Kingdom</h4>
+                            <p>We preach the Kingdom of God — the rule and reign of Jesus here and now. We believe in a victorious, Spirit-filled life that reflects heaven on earth.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="belief-card">
+                            <span class="belief-symbol">&#9829;&#65038;</span>
+                            <h4>Community</h4>
+                            <p>We are a family. We carry one another's burdens, celebrate each other's breakthroughs, and walk through life together — just as the early church did.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="belief-card">
+                            <span class="belief-symbol">[ + ]</span>
+                            <h4>Non-Denominational</h4>
+                            <p>N-Vizion is not affiliated with any denomination. We are bound to Scripture alone — welcoming all who are seeking Jesus, regardless of background or tradition.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="belief-card">
+                            <span class="belief-symbol">&#9651;&#65038;</span>
+                            <h4>Eternal Hope</h4>
+                            <p>Everything we do is shaped by eternity. Our greatest goal is to make heaven our home — and to bring as many people with us as we possibly can.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Life at N-Vizion photo gallery -->
+        <section class="page-section gallery-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 text-center">
+                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">Life at N-Vizion</h3>
+                        <div class="divider-gold"></div>
+                    </div>
+                </div>
+
+                <!-- Top row: stage photo full width -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <img src="assets/img/about-stage.jpg"
+                             alt="Worship and teaching at N-Vizion Church"
+                             class="gallery-photo"
+                             style="height:420px; width:100%; object-fit:cover; object-position: center 30%;" />
+                        <p class="gallery-caption">Sunday at N-Vizion</p>
+                    </div>
+                </div>
+
+                <!-- Bottom row: three photos -->
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <img src="assets/img/about-fellowship.jpg"
+                             alt="N-Vizion Church community fellowship"
+                             class="gallery-photo gallery-photo-tall" />
+                        <p class="gallery-caption">Fellowship &amp; Community</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="assets/img/about-baptism.jpg"
+                             alt="Baptism at N-Vizion Church"
+                             class="gallery-photo gallery-photo-tall" />
+                        <p class="gallery-caption">New Beginnings — Baptism</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="assets/img/about-community.jpg"
+                             alt="N-Vizion Church — Activation Completed"
+                             class="gallery-photo gallery-photo-tall" />
+                        <p class="gallery-caption">Growing Together</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visit info strip -->
+        <section class="page-section" style="padding-top: 1rem; padding-bottom: 3rem;">
+            <div class="container">
+                <div class="row justify-content-center mb-4">
+                    <div class="col-12 text-center">
+                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">Plan Your Visit</h3>
+                        <div class="divider-gold"></div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="visit-strip">
+                            <div class="row text-center g-0">
+                                <div class="col-md-4 visit-item">
+                                    <div class="v-label">Sunday Service</div>
+                                    <div class="v-value">11:00 AM</div>
+                                    <div class="v-sub">Central Time</div>
+                                </div>
+                                <div class="col-md-4 visit-item">
+                                    <div class="v-label">Location</div>
+                                    <div class="v-value">180 Churchill Drive</div>
+                                    <div class="v-sub">Sparta, TN 38583</div>
+                                </div>
+                                <div class="col-md-4 visit-item">
+                                    <div class="v-label">Dress Code</div>
+                                    <div class="v-value">Come As You Are</div>
+                                    <div class="v-sub">No reservation needed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="page-section cta" style="margin-top: 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-4">
+                                <span class="section-heading-upper">Ready to Take a Step?</span>
+                                <span class="section-heading-lower">We'd Love to Meet You</span>
+                            </h2>
+                            <p class="mb-0" style="font-family:'Lora',serif;">
+                                Join us any Sunday at 11:00 AM. You don't need to have it all figured out — just come. There is a seat for you at N-Vizion.
+                            </p>
                         </div>
                     </div>
                 </div>
