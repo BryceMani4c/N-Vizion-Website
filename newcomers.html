@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="New to N-Vizion Church? We'd love to connect with you before your first Sunday." />
+    <title>I'm New — N-Vizion Church</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #000; color: #fff; font-family: 'Raleway', sans-serif; overflow-x: hidden; }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
+    .reveal.delay-1 { transition-delay: 0.12s; }
+    .reveal.delay-2 { transition-delay: 0.24s; }
+    .reveal.delay-3 { transition-delay: 0.38s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* NAV */
+    #mainNav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+        background: rgba(0,0,0,0.94); backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(201,168,76,0.12); padding: 0.6rem 0;
+    }
+    .nav-logo { height: 50px; width: auto; display: block; }
+    #mainNav .nav-link {
+        font-family: 'Raleway', sans-serif; font-weight: 800;
+        font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+        color: rgba(255,255,255,0.62) !important; padding: 0.35rem 0.7rem; transition: color 0.2s;
+    }
+    #mainNav .nav-link:hover, #mainNav .nav-item.active .nav-link { color: #c9a84c !important; }
+    .btn-nav-new {
+        font-family: 'Raleway', sans-serif; font-weight: 800;
+        font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+        color: #000 !important; background: #c9a84c; border: none;
+        padding: 0.45rem 1.1rem; transition: background 0.2s; white-space: nowrap;
+    }
+    .btn-nav-new:hover { background: #e8c86a; color: #000 !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+        padding-top: 130px; padding-bottom: 5rem;
+        background: #000; text-align: center;
+        border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .page-hero .hero-logo { width: min(180px, 42vw); height: auto; margin: 0 auto 1.75rem; display: block; }
+    .eyebrow {
+        font-weight: 800; font-size: 0.62rem; letter-spacing: 0.28em;
+        text-transform: uppercase; color: #c9a84c; margin-bottom: 0.65rem;
+    }
+    .page-title {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: clamp(3rem, 9vw, 8rem);
+        text-transform: uppercase; color: #fff; line-height: 0.9;
+        margin-bottom: 1rem;
+    }
+    .page-title em { font-style: normal; color: #c9a84c; }
+    .page-sub {
+        font-family: 'Lora', serif; font-style: italic;
+        font-size: 1.05rem; color: rgba(255,255,255,0.45);
+        max-width: 520px; margin: 0 auto; line-height: 1.85;
+    }
+
+    /* WHAT TO EXPECT */
+    .expect-section { background: #080808; padding: 6rem 2rem; }
+    .expect-card {
+        padding: 2rem; border-left: 2px solid rgba(201,168,76,0.25);
+        transition: border-color 0.3s;
+    }
+    .expect-card:hover { border-left-color: #c9a84c; }
+    .expect-num {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: 2.5rem; color: rgba(201,168,76,0.15); line-height: 1;
+    }
+    .expect-title {
+        font-family: 'Oswald', sans-serif; font-weight: 600;
+        font-size: 1.15rem; text-transform: uppercase; color: #fff;
+        margin-bottom: 0.65rem;
+    }
+    .expect-body {
+        font-family: 'Lora', serif; font-size: 0.9rem;
+        color: rgba(255,255,255,0.45); line-height: 1.8;
+    }
+
+    /* SERVICE BAND */
+    .service-band {
+        background: #000; border-top: 1px solid rgba(201,168,76,0.15);
+        border-bottom: 1px solid rgba(201,168,76,0.15); padding: 3.5rem 2rem;
+    }
+    .service-grid { display: flex; justify-content: center; flex-wrap: wrap; }
+    .service-item { text-align: center; padding: 1rem 3rem; border-right: 1px solid rgba(201,168,76,0.15); }
+    .service-item:last-child { border-right: none; }
+    .s-label { font-weight: 800; font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase; color: #c9a84c; margin-bottom: 0.4rem; }
+    .s-value { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 1.6rem; color: #fff; line-height: 1.2; }
+    .s-sub { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-top: 0.25rem; }
+    @media(max-width:576px){
+        .service-item { border-right:none; border-bottom:1px solid rgba(201,168,76,0.15); padding:1.25rem 2rem; width:100%; }
+        .service-item:last-child { border-bottom:none; }
+    }
+
+    /* CONNECT FORM */
+    .connect-form-section { background: #080808; padding: 6rem 2rem; }
+    .form-wrap {
+        background: #0e0e0e; border: 1px solid rgba(201,168,76,0.15);
+        padding: 3rem 2.5rem; max-width: 620px; margin: 0 auto;
+    }
+    .form-label {
+        font-weight: 800; font-size: 0.62rem; letter-spacing: 0.18em;
+        text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem;
+        display: block;
+    }
+    .form-control-dark {
+        width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.1);
+        color: #fff; font-family: 'Lora', serif; font-size: 0.95rem;
+        padding: 0.8rem 1rem; margin-bottom: 1.25rem; outline: none;
+        transition: border-color 0.2s;
+    }
+    .form-control-dark:focus { border-color: #c9a84c; }
+    .form-control-dark::placeholder { color: rgba(255,255,255,0.2); }
+    textarea.form-control-dark { resize: vertical; min-height: 100px; }
+    .btn-submit {
+        width: 100%; font-family: 'Raleway', sans-serif; font-weight: 800;
+        font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+        color: #000; background: #c9a84c; border: none; padding: 1rem;
+        cursor: pointer; transition: background 0.2s, transform 0.15s;
+        margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: #e8c86a; transform: translateY(-2px); }
+    .form-note {
+        font-family: 'Lora', serif; font-style: italic;
+        font-size: 0.8rem; color: rgba(255,255,255,0.25);
+        text-align: center; margin-top: 1rem; line-height: 1.6;
+    }
+
+    /* FOOTER */
+    .site-footer {
+        background: #000; border-top: 1px solid rgba(201,168,76,0.1);
+        padding: 4rem 2rem 2.5rem; text-align: center;
+    }
+    .site-footer .footer-logo { width: min(180px, 48%); height: auto; margin: 0 auto 2rem; display: block; opacity: 0.75; }
+    .site-footer .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.5rem; margin-bottom: 1.5rem; }
+    .site-footer .footer-nav a { font-weight: 800; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.2s; }
+    .site-footer .footer-nav a:hover { color: #c9a84c; }
+    .site-footer .footer-address { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 0.35rem; }
+    .site-footer .footer-copy { font-size: 0.6rem; color: rgba(255,255,255,0.12); letter-spacing: 0.1em; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+    <div class="container-fluid px-3 px-lg-4">
+        <a class="navbar-brand p-0" href="index.html">
+            </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-lg-center gap-lg-1 me-lg-3">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="Media.html">Messages</a></li>
+                <li class="nav-item"><a class="nav-link" href="Prayer Request.html">Prayer</a></li>
+                <li class="nav-item"><a class="nav-link" href="Give.html">Give</a></li>
+            </ul>
+            <a class="btn-nav-new ms-lg-2 mt-2 mt-lg-0 active" href="newcomers.html">I'm New</a>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+    <p class="eyebrow reveal delay-1">Welcome</p>
+    <h1 class="page-title reveal delay-2">We've Been<br><em>Expecting You</em></h1>
+    <p class="page-sub reveal delay-3">N-Vizion Church is a place where everybody is somebody. Here's everything you need to know before your first Sunday.</p>
+</div>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col reveal">
+                <p class="eyebrow">Before You Arrive</p>
+                <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;color:#fff;line-height:1;">What to <span style="color:#c9a84c;">Expect</span></h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal delay-1">
+                <div class="expect-card">
+                    <div class="expect-num">01</div>
+                    <div class="expect-title">Warm Welcome</div>
+                    <p class="expect-body">Our team will meet you at the door. We want to know your name and make sure you feel at home from the moment you walk in.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal delay-2">
+                <div class="expect-card">
+                    <div class="expect-num">02</div>
+                    <div class="expect-title">Powerful Worship</div>
+                    <p class="expect-body">Spirit-filled, passionate worship that draws you into God's presence. Come ready to experience something real.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal delay-3">
+                <div class="expect-card">
+                    <div class="expect-num">03</div>
+                    <div class="expect-title">Word-Based Message</div>
+                    <p class="expect-body">Every message is anchored in Scripture and built to apply to your real life, right now. No fluff — just the Kingdom.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal delay-3">
+                <div class="expect-card">
+                    <div class="expect-num">04</div>
+                    <div class="expect-title">Come As You Are</div>
+                    <p class="expect-body">Dress comfortably. There's no dress code. We care about your heart, not your outfit. Just show up — we'll handle the rest.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE INFO -->
+<div class="service-band">
+    <div class="container">
+        <div class="service-grid reveal">
+            <div class="service-item">
+                <div class="s-label">Sunday Service</div>
+                <div class="s-value">11:00 AM</div>
+                <div class="s-sub">Central Time</div>
+            </div>
+            <div class="service-item">
+                <div class="s-label">Address</div>
+                <div class="s-value">180 Churchill Drive</div>
+                <div class="s-sub">Sparta, TN 38583</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- CONNECT FORM -->
+<section class="connect-form-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-auto text-center reveal">
+                <p class="eyebrow">Let's Connect</p>
+                <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;color:#fff;line-height:1;">Have Our Team<br><span style="color:#c9a84c;">Reach Out</span></h2>
+            </div>
+        </div>
+        <div class="reveal delay-1">
+            <div class="form-wrap" style="max-width:660px; margin:0 auto;">
+                <form id="connectForm" novalidate>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem 1.5rem; margin-bottom:1.25rem;">
+                        <div>
+                            <label class="form-label">First Name <span style="color:#c9a84c;">*</span></label>
+                            <input type="text" name="entry.155529087" class="form-control-dark" placeholder="Your first name" required />
+                        </div>
+                        <div>
+                            <label class="form-label">Last Name <span style="color:#c9a84c;">*</span></label>
+                            <input type="text" name="entry.162567798" class="form-control-dark" placeholder="Your last name" required />
+                        </div>
+                        <div>
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="entry.625010165" class="form-control-dark" placeholder="(000) 000-0000" />
+                        </div>
+                        <div>
+                            <label class="form-label">Email Address <span style="color:#c9a84c;">*</span></label>
+                            <input type="email" name="entry.1954846084" class="form-control-dark" placeholder="your@email.com" required />
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:1.75rem;">
+                        <label class="form-label">Anything you'd like us to know?</label>
+                        <textarea name="entry.251927341" class="form-control-dark" rows="4" placeholder="Questions, prayer needs, how we can best connect with you…"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">Have Our Team Reach Out</button>
+
+                    <div id="formSuccess" style="display:none; margin-top:1.5rem; padding:1.25rem 1.5rem; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:3px; text-align:center;">
+                        <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:#c9a84c; margin:0 0 0.4rem;">We Got It</p>
+                        <p style="font-family:'Lora',serif; font-size:0.95rem; color:rgba(255,255,255,0.6); margin:0;">Our team will be in touch soon. You are welcome here — we mean that.</p>
+                    </div>
+                    <div id="formError" style="display:none; margin-top:1.5rem; padding:1rem 1.5rem; background:rgba(180,50,50,0.1); border:1px solid rgba(180,50,50,0.3); border-radius:3px; text-align:center;">
+                        <p style="font-family:'Lora',serif; font-size:0.9rem; color:rgba(255,255,255,0.5); margin:0;">Something went wrong — please try again or reach out on Facebook.</p>
+                    </div>
+                </form>
+
+                <script>
+                (function(){
+                    var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSflaJqsZTmb2iZB8PrBRa677NUcZP3jJydGKQdTwpDjizHqKg/formResponse';
+                    document.getElementById('connectForm').addEventListener('submit', function(e){
+                        e.preventDefault();
+                        var btn = document.getElementById('submitBtn');
+                        btn.disabled = true;
+                        btn.textContent = 'Sending…';
+
+                        var data = new FormData(this);
+                        fetch(FORM_URL, { method:'POST', body:data, mode:'no-cors' })
+                            .then(function(){
+                                document.getElementById('connectForm').style.display = 'none';
+                                document.getElementById('formSuccess').style.display = 'block';
+                            })
+                            .catch(function(){
+                                btn.disabled = false;
+                                btn.textContent = 'Have Our Team Reach Out';
+                                document.getElementById('formError').style.display = 'block';
+                            });
+                    });
+                })();
+                </script>
+            </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Events.html">Events</a>
+        <a href="Media.html">Messages</a>
+        <a href="newcomers.html">I'm New</a>
+        <a href="Prayer Request.html">Prayer</a>
+        <a href="Give.html">Give</a>
+    </div>
+    <p class="footer-address">180 Churchill Drive &bull; Sparta, TN 38583</p>
+    <p class="footer-copy">Copyright &copy; N-Vizion Church 2026 &bull; Where Everybody Is Somebody</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const revEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revEls.forEach(el => obs.observe(el));
+setTimeout(() => { document.querySelectorAll('.page-hero .reveal').forEach(el => el.classList.add('visible')); }, 80);
+</script>
+</body>
+</html>

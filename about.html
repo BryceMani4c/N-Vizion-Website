@@ -1,448 +1,802 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="About N-Vizion Church — Pastor Derek and Jody Bolinger, Sparta, TN" />
-        <meta name="author" content="" />
-        <title>N-Vizion Church - About</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/mobile.css" rel="stylesheet" />
-        <style>
-            .divider-gold {
-                width: 60px;
-                height: 2px;
-                background-color: #c9a84c;
-                margin: 1.5rem auto;
-            }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="About N-Vizion Church — Who we are, our mission, values, and team. Sparta, TN." />
+    <title>About — N-Vizion Church</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-            /* ── Scripture / quote band ── */
-            .scripture-band {
-                background: linear-gradient(135deg, rgba(201,168,76,0.13) 0%, rgba(201,168,76,0.04) 100%);
-                border-top: 1px solid rgba(201,168,76,0.27);
-                border-bottom: 1px solid rgba(201,168,76,0.27);
-                padding: 3rem 0;
-            }
-            .scripture-text {
-                font-family: 'Lora', serif;
-                font-style: italic;
-                font-size: 1.25rem;
-                line-height: 1.9;
-                color: #e8e8e8;
-                max-width: 660px;
-                margin: 0 auto;
-            }
-            .scripture-ref {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 700;
-                font-size: 0.8rem;
-                letter-spacing: 0.15em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                margin-top: 1rem;
-            }
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #e8c86a;
+            --black: #000;
+            --surface: #0e0e0e;
+            --card: #111111;
+            --text: rgba(255,255,255,0.82);
+            --muted: rgba(255,255,255,0.42);
+        }
 
-            /* ── Welcome section ── */
-            .welcome-card {
-                background-color: #111111;
-                border: 1px solid rgba(201,168,76,0.2);
-                border-radius: 0.5rem;
-                padding: 3rem 3.25rem;
-                box-shadow: 0 12px 48px rgba(0,0,0,0.5);
-            }
-            .welcome-card p {
-                font-family: 'Lora', serif;
-                font-size: 1.05rem;
-                color: #b0b0b0;
-                line-height: 1.9;
-                margin-bottom: 1.25rem;
-            }
-            .welcome-card p:last-child { margin-bottom: 0; }
-            .welcome-signature {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 800;
-                font-size: 0.78rem;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                margin-top: 2rem;
-                padding-top: 1.5rem;
-                border-top: 1px solid rgba(201,168,76,0.15);
-            }
+        html { scroll-behavior: smooth; }
+        body { background: var(--black); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; }
+        img { max-width: 100%; }
 
-            /* ── Belief pillars ── */
-            .belief-card {
-                background-color: #111111;
-                border: 1px solid rgba(201,168,76,0.12);
-                border-radius: 0.4rem;
-                padding: 2rem 1.75rem;
-                height: 100%;
-                transition: border-color 0.2s ease;
-            }
-            .belief-card:hover {
-                border-color: rgba(201,168,76,0.4);
-            }
-            .belief-symbol {
-                font-family: 'Raleway', sans-serif;
-                font-size: 1.3rem;
-                font-weight: 900;
-                color: #c9a84c;
-                display: block;
-                margin-bottom: 1rem;
-            }
-            .belief-card h4 {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 800;
-                font-size: 0.8rem;
-                letter-spacing: 0.17em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                margin-bottom: 0.75rem;
-            }
-            .belief-card p {
-                font-family: 'Lora', serif;
-                font-size: 0.92rem;
-                color: #8a8a8a;
-                line-height: 1.8;
-                margin-bottom: 0;
-            }
+        /* ── Scroll reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(48px);
+            transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.12s; }
+        .reveal-delay-2 { transition-delay: 0.24s; }
+        .reveal-delay-3 { transition-delay: 0.36s; }
+        .reveal-delay-4 { transition-delay: 0.48s; }
 
-            /* ── Visit info strip ── */
-            .visit-strip {
-                background-color: #111111;
-                border: 1px solid rgba(201,168,76,0.15);
-                border-radius: 0.375rem;
-                padding: 2rem 2.5rem;
-            }
-            .visit-item {
-                text-align: center;
-                padding: 0.75rem 1.5rem;
-                border-right: 1px solid rgba(201,168,76,0.15);
-            }
-            .visit-item:last-child { border-right: none; }
-            @media (max-width: 768px) {
-                .visit-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
-                .visit-item:last-child { border-bottom: none; }
-            }
-            .visit-item .v-label {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 800;
-                font-size: 0.68rem;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                margin-bottom: 0.35rem;
-            }
-            .visit-item .v-value {
-                font-family: 'Lora', serif;
-                font-size: 1rem;
-                color: #e8e8e8;
-                line-height: 1.5;
-            }
-            .visit-item .v-sub {
-                font-family: 'Raleway', sans-serif;
-                font-size: 0.68rem;
-                color: #555;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                margin-top: 0.15rem;
-            }
+        /* ── Nav ── */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0.85rem 0;
+            background: rgba(0,0,0,0);
+            transition: background 0.4s ease, padding 0.4s ease;
+        }
+        .site-nav.scrolled {
+            background: rgba(0,0,0,0.94);
+            backdrop-filter: blur(12px);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(201,168,76,0.13);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .nav-logo-wrap a { display: flex; align-items: center; text-decoration: none; }
+        .nav-logo { height: 48px; width: auto; object-fit: contain; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        .nav-cta {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--black) !important;
+            background: var(--gold);
+            padding: 0.55rem 1.3rem;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .nav-cta:hover { background: var(--gold-light); color: var(--black) !important; }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            background: rgba(0,0,0,0.97);
+            padding: 1.5rem 1.5rem 2rem;
+            border-top: 1px solid rgba(201,168,76,0.15);
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: color 0.2s;
+        }
+        .mobile-menu a:hover { color: #fff; }
+        .mobile-menu .nav-cta {
+            margin-top: 1.25rem;
+            text-align: center;
+            padding: 0.8rem;
+            border-bottom: none;
+            border-radius: 2px;
+        }
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+        }
 
-            /* ── Pastor photo ── */
-            .pastor-photo {
-                width: 100%;
-                border-radius: 0.5rem;
-                border: 1px solid rgba(201,168,76,0.2);
-                box-shadow: 0 12px 40px rgba(0,0,0,0.55);
-                object-fit: cover;
-                max-height: 520px;
-            }
+        /* ── Page hero ── */
+        .page-hero {
+            position: relative;
+            min-height: 52vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 90px;
+        }
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/img/about-stage.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            filter: brightness(0.22);
+            transform-origin: center;
+            will-change: transform;
+        }
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+        .page-hero-eyebrow {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.1rem;
+        }
+        .page-hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.95;
+            letter-spacing: -0.01em;
+            color: #fff;
+        }
+        .page-hero-line {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1.5rem auto 0;
+        }
 
-            /* ── Life at N-Vizion gallery ── */
-            .gallery-section { padding: 1rem 0 2rem; }
-            .gallery-photo {
-                width: 100%;
-                border-radius: 0.4rem;
-                border: 1px solid rgba(201,168,76,0.15);
-                object-fit: cover;
-                display: block;
-                transition: border-color 0.2s ease, transform 0.2s ease;
-                box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-            }
-            .gallery-photo:hover {
-                border-color: rgba(201,168,76,0.45);
-                transform: translateY(-3px);
-            }
-            .gallery-photo-tall  { height: 380px; }
-            .gallery-photo-short { height: 240px; }
-            .gallery-caption {
-                font-family: 'Raleway', sans-serif;
-                font-size: 0.65rem;
-                font-weight: 700;
-                letter-spacing: 0.14em;
-                text-transform: uppercase;
-                color: #444;
-                text-align: center;
-                margin-top: 0.6rem;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1 class="site-heading text-center text-faded d-none d-lg-block">
-                <span class="site-heading-upper text-primary mb-3">Our Story</span>
-                <span class="site-heading-lower">About</span>
-            </h1>
-        </header>
+        /* ── Section headings ── */
+        .section-eyebrow {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.9rem;
+        }
+        .section-headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .divider-gold {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1.25rem auto;
+        }
 
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">N-Vizion</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
-                        <li class="nav-item active px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Events.html">Events</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Media.html">Messages</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Prayer Request.html">Prayer Request</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Give.html">Give</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        /* ── Body text ── */
+        .body-text {
+            font-family: 'Lora', serif;
+            font-size: 1.05rem;
+            color: var(--muted);
+            line-height: 1.9;
+        }
 
-        <!-- Hero intro -->
-        <section class="page-section" style="padding-bottom: 2rem;">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="section-heading mb-3">
-                            <span class="section-heading-upper">You Are Welcome Here</span>
-                            <span class="section-heading-lower">Who We Are</span>
-                        </h2>
-                        <div class="divider-gold"></div>
-                        <p style="font-family:'Lora',serif; color:#b0b0b0; font-size:1.05rem; max-width:580px; margin:0 auto; line-height:1.85;">
-                            N-Vizion Church is a non-denominational body of believers in Sparta, Tennessee — built on the uncompromised Word of God and the proclamation of His Kingdom.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        /* ── Statement band ── */
+        .statement-band {
+            background: var(--gold);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        .statement-band p {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #000;
+            margin: 0;
+        }
 
-        <!-- Scripture band -->
-        <div class="scripture-band">
-            <div class="container text-center">
-                <p class="scripture-text">"Your kingdom come, your will be done, on earth as it is in heaven."</p>
-                <p class="scripture-ref">Matthew 6:10</p>
+        /* ── Who we are cards ── */
+        .pillar-card {
+            background: var(--card);
+            border: 1px solid rgba(201,168,76,0.12);
+            border-radius: 3px;
+            padding: 2.5rem 2rem;
+            height: 100%;
+            transition: border-color 0.25s;
+        }
+        .pillar-card:hover { border-color: rgba(201,168,76,0.4); }
+        .pillar-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(201,168,76,0.18);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .pillar-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .pillar-card p {
+            font-family: 'Lora', serif;
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.85;
+            margin: 0;
+        }
+
+        /* ── Pastor letter ── */
+        .pastor-card {
+            background: var(--card);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 3px;
+            padding: 3rem 3.5rem;
+        }
+        .pastor-card p {
+            font-family: 'Lora', serif;
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.68);
+            line-height: 1.95;
+            margin-bottom: 1.4rem;
+        }
+        .pastor-card p:last-of-type { margin-bottom: 0; }
+        .pastor-sig {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(201,168,76,0.15);
+        }
+        .pastor-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1px solid rgba(201,168,76,0.2);
+            box-shadow: 0 16px 56px rgba(0,0,0,0.65);
+        }
+        @media (max-width: 768px) {
+            .pastor-card { padding: 2rem 1.5rem; }
+        }
+
+        /* ── Values ── */
+        .value-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .value-row:last-child { border-bottom: none; }
+        .value-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: rgba(201,168,76,0.25);
+            line-height: 1;
+            min-width: 2.5rem;
+            padding-top: 2px;
+        }
+        .value-content h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #fff;
+            margin-bottom: 0.4rem;
+        }
+        .value-content p {
+            font-family: 'Lora', serif;
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.85;
+            margin: 0;
+        }
+
+        /* ── Team ── */
+        .team-card {
+            text-align: center;
+        }
+        .team-photo-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(201,168,76,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+        .team-photo-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 2px solid rgba(201,168,76,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .team-photo-placeholder span {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(201,168,76,0.3);
+        }
+        .team-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #fff;
+            margin-bottom: 0.35rem;
+        }
+        .team-role {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.85rem;
+        }
+        .team-bio {
+            font-family: 'Lora', serif;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* ── Service strip ── */
+        .service-strip {
+            background: var(--card);
+            border-top: 1px solid rgba(201,168,76,0.15);
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            padding: 3.5rem 0;
+        }
+        .svc-item {
+            text-align: center;
+            padding: 1rem 2rem;
+            border-right: 1px solid rgba(201,168,76,0.12);
+        }
+        .svc-item:last-child { border-right: none; }
+        @media (max-width: 767px) {
+            .svc-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.12); }
+            .svc-item:last-child { border-bottom: none; }
+        }
+        .svc-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .svc-value {
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: #e8e8e8;
+            line-height: 1.5;
+        }
+        .svc-sub {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            color: #555;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        /* ── CTA section ── */
+        .new-cta {
+            text-align: center;
+            padding: 6rem 1.5rem;
+            background: var(--surface);
+        }
+        .new-cta .headline {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .new-cta .sub {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+        .btn-gold {
+            display: inline-block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #000;
+            background: var(--gold);
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-gold:hover {
+            background: var(--gold-light);
+            color: #000;
+            transform: translateY(-2px);
+        }
+        .btn-outline-gold {
+            display: inline-block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: transparent;
+            border: 1px solid var(--gold);
+            padding: 1rem 2.5rem;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            margin-left: 1rem;
+        }
+        .btn-outline-gold:hover {
+            background: rgba(201,168,76,0.1);
+            color: var(--gold-light);
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            background: #000;
+            border-top: 1px solid rgba(201,168,76,0.1);
+            padding: 4rem 0 2.5rem;
+            text-align: center;
+        }
+        .footer-logo { height: 52px; width: auto; margin-bottom: 2rem; opacity: 0.85; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: rgba(255,255,255,0.75); }
+        .footer-address {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.2);
+        }
+        .footer-address p { margin: 0.2rem 0; }
+
+        /* ── Sections spacing ── */
+        .section { padding: 6rem 0; }
+        .section-sm { padding: 4rem 0; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+        <div class="nav-logo-wrap">
+            <a href="index.html">
+                </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="Media.html">Messages</a></li>
+            <li><a href="Prayer Request.html">Prayer</a></li>
+            <li><a href="Give.html">Give</a></li>
+            <li><a href="newcomers.html" class="nav-cta">I'm New</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Events.html">Events</a>
+        <a href="Media.html">Messages</a>
+        <a href="Prayer Request.html">Prayer Request</a>
+        <a href="Give.html">Give</a>
+        <a href="newcomers.html" class="nav-cta">I'm New</a>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="page-hero-bg" id="heroBg"></div>
+    <div class="page-hero-content">
+        <p class="page-hero-eyebrow">Everybody Is Somebody &nbsp;&mdash;&nbsp; N-Vizion Church, Sparta, TN</p>
+        <h1>Our Story</h1>
+        <div class="page-hero-line"></div>
+    </div>
+</section>
+
+<!-- STATEMENT BAND -->
+<div class="statement-band">
+    <div class="container">
+        <p>Everybody Is Somebody &nbsp;&bull;&nbsp; We Love You Too Much to Leave You As You Are</p>
+    </div>
+</div>
+
+<!-- WHO WE ARE -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+                <p class="section-eyebrow">Who We Are</p>
+                <h2 class="section-headline">A People Called<br>to the Kingdom</h2>
+                <div class="divider-gold"></div>
+                <p class="body-text" style="max-width:620px; margin:0 auto;">
+                    N-Vizion Church is a non-denominational body of believers in Sparta, Tennessee. Everybody is somebody here — regardless of background, tradition, or where you've been. We welcome you as you are, and we love you too much to leave you that way. The Kingdom of God changes people, and we are committed to preaching it without compromise.
+                </p>
             </div>
         </div>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4 reveal reveal-delay-1">
+                <div class="pillar-card">
+                    <div class="pillar-num">01</div>
+                    <h3>The Gospel</h3>
+                    <p>We preach the death, burial, and resurrection of Jesus Christ. The Gospel is the power of God for transformation — and we deliver it without compromise, without apology, in every season.</p>
+                </div>
+            </div>
+            <div class="col-md-4 reveal reveal-delay-2">
+                <div class="pillar-card">
+                    <div class="pillar-num">02</div>
+                    <h3>The Kingdom</h3>
+                    <p>We believe God's Kingdom is not only coming — it is here now. We live and preach the rule and reign of Jesus Christ on earth as it is in heaven.</p>
+                </div>
+            </div>
+            <div class="col-md-4 reveal reveal-delay-3">
+                <div class="pillar-card">
+                    <div class="pillar-num">03</div>
+                    <h3>Family</h3>
+                    <p>We are not a program — we are a family. Everybody is somebody here. We carry each other's burdens, celebrate each other's breakthroughs, and nobody walks alone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <!-- Welcome from the Bolingers -->
-        <section class="page-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-12 text-center">
-                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">A Word from Our Pastor</h3>
-                        <div class="divider-gold"></div>
+<!-- OUR MISSION & VALUES -->
+<section class="section">
+    <div class="container">
+        <div class="row g-5 align-items-start">
+            <!-- Mission -->
+            <div class="col-lg-5 reveal">
+                <p class="section-eyebrow">Mission</p>
+                <h2 class="section-headline">Why We Exist</h2>
+                <div class="divider-gold" style="margin-left:0;"></div>
+                <p class="body-text" style="margin-bottom: 1.5rem;">
+                    To preach the Gospel of the Kingdom — the rule and reign of Jesus Christ — and to make disciples who are transformed by it. We believe everybody is somebody, and we love people too much to leave them where they are. Every message, every service, every connection exists to see lives changed by the power of God.
+                </p>
+                <p class="body-text">
+                    We believe Matthew 6:33 is not just a verse to memorize — it is a way of life. We seek first His Kingdom, trusting that He provides everything else. Every service, every message, every connection is ordered around that one pursuit.
+                </p>
+                <blockquote style="margin: 2.5rem 0; padding-left: 1.5rem; border-left: 3px solid var(--gold);">
+                    <p style="font-family:'Lora',serif; font-style:italic; color:rgba(255,255,255,0.6); line-height:1.8; font-size:1rem; margin:0;">
+                        "But seek first the kingdom of God and his righteousness, and all these things will be added to you."
+                    </p>
+                    <footer style="font-family:'Raleway',sans-serif; font-size:0.68rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-top:0.75rem;">Matthew 6:33</footer>
+                </blockquote>
+            </div>
+
+            <!-- Values -->
+            <div class="col-lg-6 offset-lg-1 reveal reveal-delay-1">
+                <p class="section-eyebrow">Our Values</p>
+                <h2 class="section-headline">What Drives Us</h2>
+                <div class="divider-gold" style="margin-left:0;"></div>
+
+                <div class="value-row">
+                    <div class="value-num">01</div>
+                    <div class="value-content">
+                        <h4>The Word, Uncompromised</h4>
+                        <p>We hold the Bible as the inspired, infallible Word of God — the final authority for how we live, think, and lead. We preach it without apology, in every season.</p>
                     </div>
                 </div>
-                <div class="row align-items-center g-5 justify-content-center">
-                    <!-- Family photo -->
-                    <div class="col-lg-4 col-md-6 text-center">
-                        <img src="assets/img/about-family.jpg" alt="Pastor Derek and Jody Bolinger and their family" class="pastor-photo" />
-                        <p class="gallery-caption" style="margin-top:0.75rem;">The Bolinger Family</p>
+                <div class="value-row">
+                    <div class="value-num">02</div>
+                    <div class="value-content">
+                        <h4>Spirit-Led, Kingdom-Focused</h4>
+                        <p>We believe in a Spirit-filled life that reflects heaven on earth. We pursue the presence of God in every gathering, not just a program or performance.</p>
                     </div>
-                    <!-- Welcome letter -->
-                    <div class="col-lg-7 col-md-10">
-                        <div class="welcome-card">
-                            <p>
-                                On behalf of our family — myself, my wife Jody, and our children — welcome to N-Vizion Church. Whether you are searching for the first time, returning after a long season away, or simply hungry for more of God, you have found a place where you are wanted, where you belong, and where the door is always open.
-                            </p>
-                            <p>
-                                Our heart is for every person who walks through our doors to encounter the living God — not a religion, not a set of rules, but the person of Jesus Christ of Nazareth. We believe that a real encounter with Him changes everything: your past, your present, and your eternity.
-                            </p>
-                            <p>
-                                Our ultimate goal is to make heaven our home and to spend eternity with our Lord and Savior Jesus Christ. But we also believe God never intended for His people to simply endure life until then. He calls us to a victorious, Kingdom life — here, on this earth, right now. "On earth as it is in heaven" is not just a line in a prayer. It is a promise and a commission.
-                            </p>
-                            <p>
-                                If you are seeking, if you are hungry, or even if you just want to see what this is all about — come as you are. We would love to walk this journey with you.
-                            </p>
-                            <div class="welcome-signature">
-                                Pastor Derek Bolinger &bull; N-Vizion Church &bull; Sparta, TN
-                            </div>
-                        </div>
+                </div>
+                <div class="value-row">
+                    <div class="value-num">03</div>
+                    <div class="value-content">
+                        <h4>Radical Hospitality</h4>
+                    </div>
+                </div>
+                <div class="value-row">
+                    <div class="value-num">04</div>
+                    <div class="value-content">
+                        <h4>Eternity in View</h4>
+                        <p>Everything we do is shaped by eternity. Our greatest goal is to make heaven our home — and to bring as many people with us as we possibly can.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <!-- What we believe -->
-        <section class="page-section" style="padding-top: 1rem;">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-12 text-center">
-                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">What We Believe</h3>
-                        <div class="divider-gold"></div>
-                    </div>
-                </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="belief-card">
-                            <span class="belief-symbol">&#9670;&#65038;</span>
-                            <h4>The Word of God</h4>
-                            <p>We hold the Bible as the inspired, infallible Word of God — the final authority for how we live, think, and lead. We preach it without apology, in every season.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="belief-card">
-                            <span class="belief-symbol">&#10013;&#65038;</span>
-                            <h4>Jesus Christ</h4>
-                            <p>We believe in the death, burial, and resurrection of Jesus Christ of Nazareth — that He is the Son of God, the only path to salvation, and the Lord of all creation.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="belief-card">
-                            <span class="belief-symbol">&#9654;&#65038;</span>
-                            <h4>The Kingdom</h4>
-                            <p>We preach the Kingdom of God — the rule and reign of Jesus here and now. We believe in a victorious, Spirit-filled life that reflects heaven on earth.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="belief-card">
-                            <span class="belief-symbol">&#9829;&#65038;</span>
-                            <h4>Community</h4>
-                            <p>We are a family. We carry one another's burdens, celebrate each other's breakthroughs, and walk through life together — just as the early church did.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="belief-card">
-                            <span class="belief-symbol">[ + ]</span>
-                            <h4>Non-Denominational</h4>
-                            <p>N-Vizion is not affiliated with any denomination. We are bound to Scripture alone — welcoming all who are seeking Jesus, regardless of background or tradition.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="belief-card">
-                            <span class="belief-symbol">&#9651;&#65038;</span>
-                            <h4>Eternal Hope</h4>
-                            <p>Everything we do is shaped by eternity. Our greatest goal is to make heaven our home — and to bring as many people with us as we possibly can.</p>
-                        </div>
-                    </div>
-                </div>
+<!-- MEET THE TEAM -->
+<section class="section" style="background: var(--surface);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center reveal">
+                <p class="section-eyebrow">The People Behind N-Vizion</p>
+                <h2 class="section-headline">Meet the Team</h2>
+                <div class="divider-gold"></div>
+                <p class="body-text" style="max-width:500px; margin:0 auto 2.5rem;">
+                    Real people, pursuing God together. Team bios coming soon — we'd love for you to get to know us in person first. Join us any Sunday.
+                </p>
+                <a href="newcomers.html" style="display:inline-block; font-family:'Raleway',sans-serif; font-size:0.72rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:#000; background:#c9a84c; padding:0.9rem 2.2rem; border-radius:2px; text-decoration:none;">I'm New — Connect with Us</a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <!-- Life at N-Vizion photo gallery -->
-        <section class="page-section gallery-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-12 text-center">
-                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">Life at N-Vizion</h3>
-                        <div class="divider-gold"></div>
-                    </div>
-                </div>
-
-                <!-- Top row: stage photo full width -->
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <img src="assets/img/about-stage.jpg"
-                             alt="Worship and teaching at N-Vizion Church"
-                             class="gallery-photo"
-                             style="height:420px; width:100%; object-fit:cover; object-position: center 30%;" />
-                        <p class="gallery-caption">Sunday at N-Vizion</p>
-                    </div>
-                </div>
-
-                <!-- Bottom row: three photos -->
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <img src="assets/img/about-fellowship.jpg"
-                             alt="N-Vizion Church community fellowship"
-                             class="gallery-photo gallery-photo-tall" />
-                        <p class="gallery-caption">Fellowship &amp; Community</p>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="assets/img/about-baptism.jpg"
-                             alt="Baptism at N-Vizion Church"
-                             class="gallery-photo gallery-photo-tall" />
-                        <p class="gallery-caption">New Beginnings — Baptism</p>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="assets/img/about-community.jpg"
-                             alt="N-Vizion Church — Activation Completed"
-                             class="gallery-photo gallery-photo-tall" />
-                        <p class="gallery-caption">Growing Together</p>
-                    </div>
-                </div>
+<!-- SERVICE INFO STRIP -->
+<div class="service-strip">
+    <div class="container">
+        <div class="row g-0 justify-content-center">
+            <div class="col-md-4 svc-item reveal">
+                <div class="svc-label">Sunday Service</div>
+                <div class="svc-value">11:00 AM</div>
+                <div class="svc-sub">Central Time</div>
             </div>
-        </section>
-
-        <!-- Visit info strip -->
-        <section class="page-section" style="padding-top: 1rem; padding-bottom: 3rem;">
-            <div class="container">
-                <div class="row justify-content-center mb-4">
-                    <div class="col-12 text-center">
-                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">Plan Your Visit</h3>
-                        <div class="divider-gold"></div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <div class="visit-strip">
-                            <div class="row text-center g-0">
-                                <div class="col-md-4 visit-item">
-                                    <div class="v-label">Sunday Service</div>
-                                    <div class="v-value">11:00 AM</div>
-                                    <div class="v-sub">Central Time</div>
-                                </div>
-                                <div class="col-md-4 visit-item">
-                                    <div class="v-label">Location</div>
-                                    <div class="v-value">180 Churchill Drive</div>
-                                    <div class="v-sub">Sparta, TN 38583</div>
-                                </div>
-                                <div class="col-md-4 visit-item">
-                                    <div class="v-label">Dress Code</div>
-                                    <div class="v-value">Come As You Are</div>
-                                    <div class="v-sub">No reservation needed</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-4 svc-item reveal reveal-delay-1">
+                <div class="svc-label">Location</div>
+                <div class="svc-value">180 Churchill Drive</div>
+                <div class="svc-sub">Sparta, TN 38583</div>
             </div>
-        </section>
-
-        <!-- Bottom CTA -->
-        <section class="page-section cta" style="margin-top: 0;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner bg-faded text-center rounded">
-                            <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Ready to Take a Step?</span>
-                                <span class="section-heading-lower">We'd Love to Meet You</span>
-                            </h2>
-                            <p class="mb-0" style="font-family:'Lora',serif;">
-                                Join us any Sunday at 11:00 AM. You don't need to have it all figured out — just come. There is a seat for you at N-Vizion.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-4 svc-item reveal reveal-delay-2">
+                <div class="svc-label">All Are Welcome</div>
+                <div class="svc-value">Come As You Are</div>
             </div>
-        </section>
+        </div>
+    </div>
+</div>
 
-        <footer class="footer text-faded text-center py-5">
-            <div class="container">
-                <p class="m-0 small">180 Churchill Drive &bull; Sparta, TN 38583</p>
-                <p class="m-0 small mt-1">Copyright &copy; N-Vizion Church 2026</p>
-            </div>
-        </footer>
+<!-- CTA -->
+<div class="new-cta">
+    <p class="section-eyebrow" style="margin-bottom:1rem;">Ready for What's Next?</p>
+    <h2 class="headline">We'd Love to<br>Meet You</h2>
+    <p class="sub">Join us any Sunday at 11:00 AM. You don't need to have it all figured out — just come as you are. Everybody is somebody at N-Vizion, and we love you too much to leave you as you are.</p>
+    <a href="newcomers.html" class="btn-gold">I'm New — Connect with Us</a>
+    <a href="Prayer Request.html" class="btn-outline-gold">Submit a Prayer Request</a>
+</div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="Media.html">Messages</a></li>
+            <li><a href="Prayer Request.html">Prayer</a></li>
+            <li><a href="Give.html">Give</a></li>
+            <li><a href="newcomers.html">I'm New</a></li>
+        </ul>
+        <div class="footer-address">
+            <p>180 Churchill Drive &bull; Sparta, TN 38583</p>
+            <p>&copy; N-Vizion Church 2026</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Nav scroll effect
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Parallax hero
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+        if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+    }, { passive: true });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
 </html>

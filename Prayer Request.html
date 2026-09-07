@@ -7,8 +7,7 @@
         <meta name="author" content="" />
         <title>N-Vizion Church - Prayer Request</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/mobile.css" rel="stylesheet" />
         <style>
@@ -283,32 +282,313 @@
             }
             .field-group.has-error .field-error { display: block; }
         </style>
-    </head>
+
+    <!-- Shared 2819-style overrides -->
+    <style>
+        /* ── BASE ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            background: #000 !important;
+            background-image: none !important;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding-top: 72px;
+        }
+
+        /* ── STICKY NAV ── */
+        #mainNav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(201,168,76,0.12);
+            padding: 0.85rem 0;
+        }
+        #mainNav .navbar-brand {
+            font-family: 'Oswald', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 1.25rem !important;
+            letter-spacing: 0.1em;
+            color: #fff !important;
+            text-transform: uppercase;
+        }
+        #mainNav .nav-link {
+            font-family: 'Raleway', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 0.68rem !important;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.65) !important;
+            transition: color 0.2s;
+            padding: 0.4rem 0.75rem;
+        }
+        #mainNav .nav-link:hover,
+        #mainNav .nav-item.active .nav-link { color: #c9a84c !important; }
+
+        /* ── PAGE HERO BANNER ── */
+        .page-hero {
+            background: #000;
+            border-bottom: 1px solid rgba(201,168,76,0.15);
+            padding: 4.5rem 2rem 3.5rem;
+        }
+        .page-hero .ph-label {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 0.65rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 0.75rem;
+        }
+        .page-hero .ph-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.75rem, 7vw, 6rem);
+            text-transform: uppercase;
+            color: #fff;
+            line-height: 0.95;
+        }
+        .page-hero .ph-title em { font-style: normal; color: #c9a84c; }
+
+        /* ── SECTION LABELS ── */
+        .section-heading .section-heading-upper {
+            font-family: 'Raleway', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 0.68rem !important;
+            letter-spacing: 0.24em;
+            color: #c9a84c;
+        }
+        .section-heading .section-heading-lower {
+            font-family: 'Oswald', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: clamp(2rem, 5vw, 3.5rem) !important;
+            color: #fff;
+            line-height: 1.0;
+        }
+
+        /* ── CARDS & CONTENT BLOCKS ── */
+        .bg-faded { background-color: #0e0e0e !important; border: 1px solid rgba(201,168,76,0.12); }
+        .about-heading .about-heading-content { background: #0e0e0e; }
+        p { color: rgba(255,255,255,0.6); }
+
+        /* ── CTA BAND ── */
+        .cta { background: #c9a84c !important; padding-top: 4rem !important; padding-bottom: 4rem !important; }
+        .cta .section-heading-upper { color: rgba(0,0,0,0.55) !important; }
+        .cta .section-heading-lower { color: #000 !important; }
+        .cta p { color: rgba(0,0,0,0.65) !important; }
+        .cta .bg-faded { background: rgba(255,255,255,0.12) !important; border: none !important; }
+        .cta .cta-inner:before { border-color: rgba(255,255,255,0.5) !important; }
+
+        /* ── BUTTONS ── */
+        .btn-primary {
+            background: #c9a84c !important;
+            border-color: #c9a84c !important;
+            color: #000 !important;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border-radius: 0;
+            padding: 0.85rem 2rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-primary:hover { background: #e8c86a !important; border-color: #e8c86a !important; transform: translateY(-2px); }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            background: #000;
+            border-top: 1px solid rgba(201,168,76,0.12);
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+        .site-footer .footer-wordmark {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(4rem, 12vw, 10rem);
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.05);
+            letter-spacing: 0.04em;
+            line-height: 1;
+            margin-bottom: 2rem;
+            user-select: none;
+        }
+        .site-footer .footer-address {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.28);
+            margin-bottom: 0.4rem;
+        }
+        .site-footer .footer-copy {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.16);
+            letter-spacing: 0.1em;
+        }
+        body > header { display: none !important; }
+    
+        /* ── LOGO ── */
+        .nav-logo {
+            height: 52px;
+            width: auto;
+            display: block;
+        }
+        .footer-logo-img {
+            width: min(260px, 65%);
+            height: auto;
+            margin: 0 auto 2rem;
+            display: block;
+            opacity: 0.85;
+        }
+        .site-footer .footer-wordmark { display: none; }
+</style>
+        <style id="shared-nav-css">
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0.85rem 0;
+            background: rgba(0,0,0,0);
+            transition: background 0.4s ease, padding 0.4s ease;
+        }
+        .site-nav.scrolled {
+            background: rgba(0,0,0,0.94);
+            backdrop-filter: blur(12px);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(201,168,76,0.13);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .nav-logo-wrap a { display: flex; align-items: center; text-decoration: none; }
+        .nav-logo { height: 48px; width: auto; object-fit: contain; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+            margin: 0; padding: 0;
+        }
+        .nav-links a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        .nav-cta {
+            font-family: 'Raleway', sans-serif !important;
+            font-size: 0.68rem !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.18em !important;
+            text-transform: uppercase !important;
+            color: #000 !important;
+            background: #c9a84c !important;
+            padding: 0.55rem 1.3rem !important;
+            border-radius: 2px !important;
+            text-decoration: none !important;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: #e8c86a !important; color: #000 !important; }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            background: rgba(0,0,0,0.97);
+            padding: 1.5rem 1.5rem 2rem;
+            border-top: 1px solid rgba(201,168,76,0.15);
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: color 0.2s;
+        }
+        .mobile-menu a:hover { color: #fff; }
+        .mobile-menu .nav-cta {
+            margin-top: 1.25rem;
+            text-align: center;
+            border-bottom: none !important;
+        }
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+        }
+        /* offset fixed nav */
+        body { padding-top: 80px !important; }
+        /* hide legacy Bootstrap header */
+        header { display: none !important; }
+    </style>
+</head>
     <body>
-        <header>
-            <h1 class="site-heading text-center text-faded d-none d-lg-block">
-                <span class="site-heading-upper text-primary mb-3">We're Believing With You</span>
-                <span class="site-heading-lower">Prayer Request</span>
-            </h1>
-        </header>
+<nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+        <div class="nav-logo-wrap">
+            <a href="index.html">
+                </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="Media.html">Messages</a></li>
+            <li><a href="Prayer Request.html" class="active">Prayer</a></li>
+            <li><a href="Give.html">Give</a></li>
+            <li><a href="newcomers.html" class="nav-cta">I'm New</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Events.html">Events</a>
+        <a href="Media.html">Messages</a>
+        <a href="Prayer Request.html">Prayer Request</a>
+        <a href="Give.html">Give</a>
+        <a href="newcomers.html" class="nav-cta">I'm New</a>
+    </div>
+</nav>
 
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+
+        <!-- Page Hero -->
+        <div class="page-hero">
             <div class="container">
-                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">N-Vizion</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Events.html">Events</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Media.html">Messages</a></li>
-                        <li class="nav-item active px-lg-4"><a class="nav-link text-uppercase" href="Prayer Request.html">Prayer Request</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Give.html">Give</a></li>
-                    </ul>
-                </div>
+                <p class="ph-label">Let Us Pray</p>
+                <h1 class="ph-title">Prayer<br><em>Request</em></h1>
             </div>
-        </nav>
-
+        </div>
         <!-- Hero intro -->
         <section class="page-section" style="padding-bottom:2rem;">
             <div class="container">
@@ -320,7 +600,7 @@
                         </h2>
                         <div class="divider-gold"></div>
                         <p style="font-family:'Lora',serif; color:#b0b0b0; font-size:1.05rem; max-width:560px; margin:0 auto; line-height:1.85;">
-                            Whatever you're carrying — a need, a burden, a breakthrough you're believing for — our prayer team is here to stand with you. Share your request below and we will lift you up in prayer.
+                            Whatever you're carrying — a need, a burden, a breakthrough you're believing for — our intercession team is here to stand in the gap with you. Share your request below and it will go directly to our intercessors, who will lift you up by name in prayer.
                         </p>
                     </div>
                 </div>
@@ -383,7 +663,7 @@
                                 <h3><span>Request Received</span>We're Praying For You</h3>
                                 <p>"The prayer of a righteous person is powerful and effective." — James 5:16</p>
                                 <div class="ty-divider"></div>
-                                <p style="font-size:0.85rem; color:#555; font-style:normal; font-family:'Raleway',sans-serif; letter-spacing:0.05em;">Our team will be lifting you up. You are loved.</p>
+                                <p style="font-size:0.85rem; color:#555; font-style:normal; font-family:'Raleway',sans-serif; letter-spacing:0.05em;">Your request has been received by our intercession team. They will be standing in the gap for you. You are loved and you are covered.</p>
                             </div>
 
                             <!-- The form -->
@@ -416,7 +696,7 @@
 
                                 <div class="field-group" id="group-private">
                                     <label>Keep my identity anonymous? <span class="req">*</span></label>
-                                    <p style="font-family:'Lora',serif; font-size:0.82rem; color:#666; margin:0 0 0.75rem; font-style:italic; line-height:1.6;">Your prayer request will be shared with our congregation. Let us know whether you'd like your name included or kept anonymous.</p>
+                                    <p style="font-family:'Lora',serif; font-size:0.82rem; color:#666; margin:0 0 0.75rem; font-style:italic; line-height:1.6;">Your prayer request will go to our intercession team. Let us know whether you'd like your name included or kept anonymous — either way, it is handled with care and confidentiality.</p>
                                     <div class="radio-group">
                                         <label class="radio-option">
                                             <input type="radio" name="entry.1968436900" value="Yes" required />
@@ -463,7 +743,7 @@
                                 <span class="section-heading-lower">We're Here for You</span>
                             </h2>
                             <p class="mb-0" style="font-family:'Lora',serif;">
-                                If you need immediate support or would like to speak directly with a pastor or prayer team member, please don't hesitate to reach out through our social media or visit us on Sunday.
+                                If you need immediate support or would like to speak directly with a pastor or a member of our intercession team, please don't hesitate to reach out through our social media or visit us on Sunday.
                             </p>
                         </div>
                     </div>
@@ -471,8 +751,9 @@
             </div>
         </section>
 
-        <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; N-Vizion Church 2026</p></div>
+        <footer class="site-footer">
+            <p class="footer-address">180 Churchill Drive &bull; Sparta, TN 38583</p>
+            <p class="footer-copy">Copyright &copy; N-Vizion Church 2026</p>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -524,5 +805,16 @@
                 ty.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         </script>
-    </body>
+        <script id="shared-nav-js">
+        (function(){
+            var nav = document.getElementById('siteNav');
+            if(nav) window.addEventListener('scroll', function(){
+                nav.classList.toggle('scrolled', window.scrollY > 40);
+            }, {passive:true});
+            var toggle = document.getElementById('navToggle');
+            var menu = document.getElementById('mobileMenu');
+            if(toggle && menu) toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+        })();
+    </script>
+</body>
 </html>

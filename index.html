@@ -1,255 +1,814 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="N-Vizion Church — Sunday service at 11:00 AM in Sparta, TN" />
-        <meta name="author" content="" />
-        <title>N-Vizion Church</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/mobile.css" rel="stylesheet" />
-        <style>
-            .divider-gold {
-                width: 60px;
-                height: 2px;
-                background-color: #c9a84c;
-                margin: 1.5rem auto;
-            }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="N-Vizion Church — Where Everybody Is Somebody. Sunday service at 11:00 AM in Sparta, TN." />
+    <title>N-Vizion Church</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    /* ─────────────────────────────────────────
+       BASE
+    ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: #000;
+        color: #fff;
+        font-family: 'Raleway', sans-serif;
+        overflow-x: hidden;
+    }
 
-            /* ── Service info band ── */
-            .service-band {
-                background: linear-gradient(135deg, rgba(201,168,76,0.13) 0%, rgba(201,168,76,0.04) 100%);
-                border-top: 1px solid rgba(201,168,76,0.27);
-                border-bottom: 1px solid rgba(201,168,76,0.27);
-                padding: 3rem 0;
-            }
-            .service-grid {
-                display: flex;
-                justify-content: center;
-                align-items: stretch;
-                gap: 0;
-                flex-wrap: wrap;
-            }
-            .service-item {
-                text-align: center;
-                padding: 1rem 3rem;
-                border-right: 1px solid rgba(201,168,76,0.2);
-            }
-            .service-item:last-child { border-right: none; }
-            @media (max-width: 576px) {
-                .service-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding: 1.25rem 1.5rem; }
-                .service-item:last-child { border-bottom: none; }
-            }
-            .service-item .label {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 800;
-                font-size: 0.72rem;
-                letter-spacing: 0.18em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                margin-bottom: 0.4rem;
-            }
-            .service-item .value {
-                font-family: 'Lora', serif;
-                font-size: 1.1rem;
-                color: #e8e8e8;
-                line-height: 1.5;
-            }
-            .service-item .sub {
-                font-family: 'Raleway', sans-serif;
-                font-size: 0.72rem;
-                color: #666;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                margin-top: 0.2rem;
-            }
+    /* ─────────────────────────────────────────
+       SCROLL REVEAL SYSTEM
+    ───────────────────────────────────────── */
+    .reveal {
+        opacity: 0;
+        transform: translateY(48px);
+        transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.delay-1 { transition-delay: 0.1s; }
+    .reveal.delay-2 { transition-delay: 0.2s; }
+    .reveal.delay-3 { transition-delay: 0.35s; }
+    .reveal.delay-4 { transition-delay: 0.5s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left  { opacity: 0; transform: translateX(-48px); transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
+    .reveal-right { opacity: 0; transform: translateX(48px);  transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
+    .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translate(0); }
 
-            /* ── Quick links row ── */
-            .quick-links {
-                padding: 3rem 0;
-            }
-            .quick-link-card {
-                background-color: #111111;
-                border: 1px solid rgba(201,168,76,0.15);
-                border-radius: 0.375rem;
-                padding: 2rem 1.5rem;
-                text-align: center;
-                text-decoration: none;
-                display: block;
-                height: 100%;
-                transition: border-color 0.2s, transform 0.15s;
-            }
-            .quick-link-card:hover {
-                border-color: rgba(201,168,76,0.5);
-                transform: translateY(-3px);
-                text-decoration: none;
-            }
-            .quick-link-card .ql-symbol {
-                font-family: 'Raleway', sans-serif;
-                font-size: 1.3rem;
-                font-weight: 800;
-                color: #c9a84c;
-                display: block;
-                margin-bottom: 0.75rem;
-            }
-            .quick-link-card h4 {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 800;
-                font-size: 0.78rem;
-                letter-spacing: 0.16em;
-                text-transform: uppercase;
-                color: #c9a84c;
-                margin-bottom: 0.5rem;
-            }
-            .quick-link-card p {
-                font-family: 'Lora', serif;
-                font-size: 0.88rem;
-                color: #6c6c6c;
-                margin-bottom: 0;
-                line-height: 1.65;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1 class="site-heading text-center text-faded d-none d-lg-block">
-                <span class="site-heading-upper text-primary mb-3">You Are Welcome Here</span>
-                <span class="site-heading-lower">N-Vizion Church</span>
-            </h1>
-        </header>
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    #mainNav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+        background: rgba(0,0,0,0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(201,168,76,0.12);
+        padding: 0.6rem 0;
+        transition: background 0.3s;
+    }
+    .nav-logo { height: 50px; width: auto; display: block; }
+    #mainNav .nav-link {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.62) !important;
+        padding: 0.35rem 0.7rem;
+        transition: color 0.2s;
+    }
+    #mainNav .nav-link:hover, #mainNav .nav-item.active .nav-link { color: #c9a84c !important; }
+    .btn-nav-new {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #000 !important;
+        background: #c9a84c;
+        border: none;
+        padding: 0.45rem 1.1rem;
+        transition: background 0.2s;
+        white-space: nowrap;
+    }
+    .btn-nav-new:hover { background: #e8c86a; color: #000 !important; }
 
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">N-Vizion</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item active px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Events.html">Events</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Media.html">Messages</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Prayer Request.html">Prayer Request</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="Give.html">Give</a></li>
-                    </ul>
+    /* ─────────────────────────────────────────
+       HERO  — full-viewport parallax
+    ───────────────────────────────────────── */
+    .hero {
+        position: relative;
+        height: 100vh; min-height: 640px;
+        display: flex; flex-direction: column;
+        justify-content: flex-end;
+        overflow: hidden;
+    }
+    .hero-bg {
+        position: absolute; inset: 0;
+        background-image: url('assets/img/bg.jpg');
+        background-size: cover; background-position: center 30%;
+        filter: brightness(0.3);
+        will-change: transform;
+    }
+    .hero-content {
+        position: relative; z-index: 2;
+        padding: 0 2rem 4.5rem;
+        max-width: 1200px; width: 100%; margin: 0 auto;
+    }
+    .hero-logo-img {
+        width: min(170px, 38vw);
+        height: auto; margin-bottom: 1.5rem; display: block;
+    }
+    .hero-eyebrow {
+        font-weight: 800; font-size: 0.62rem;
+        letter-spacing: 0.3em; text-transform: uppercase;
+        color: #c9a84c; margin-bottom: 1rem;
+    }
+    .hero-headline {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: clamp(3.75rem, 11vw, 10rem);
+        line-height: 0.9; text-transform: uppercase; color: #fff;
+        margin-bottom: 0.35em;
+    }
+    .hero-headline em { font-style: normal; color: #c9a84c; }
+    .hero-sub {
+        font-family: 'Lora', serif; font-style: italic;
+        font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+        color: rgba(255,255,255,0.5);
+        max-width: 500px; line-height: 1.8; margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold {
+        display: inline-block; font-weight: 800;
+        font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+        color: #000; background: #c9a84c; border: 2px solid #c9a84c;
+        padding: 0.9rem 2.1rem; text-decoration: none;
+        transition: background 0.2s, transform 0.15s;
+    }
+    .btn-gold:hover { background: #e8c86a; border-color: #e8c86a; color: #000; transform: translateY(-2px); }
+    .btn-outline-gold {
+        display: inline-block; font-weight: 800;
+        font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+        color: #fff; background: transparent; border: 2px solid rgba(255,255,255,0.28);
+        padding: 0.9rem 2.1rem; text-decoration: none;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline-gold:hover { border-color: #c9a84c; color: #c9a84c; }
+    /* scroll indicator */
+    .scroll-indicator {
+        position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
+        z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 6px;
+        animation: bounce 2s infinite;
+    }
+    .scroll-indicator span {
+        font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase;
+        color: rgba(255,255,255,0.3); font-weight: 800;
+    }
+    .scroll-indicator svg { opacity: 0.3; }
+    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+    /* ─────────────────────────────────────────
+       REUSABLE SECTION ATOMS
+    ───────────────────────────────────────── */
+    .eyebrow {
+        font-weight: 800; font-size: 0.62rem; letter-spacing: 0.28em;
+        text-transform: uppercase; color: #c9a84c; margin-bottom: 0.65rem;
+    }
+    .section-title {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: clamp(2rem, 5.5vw, 4.5rem);
+        text-transform: uppercase; color: #fff; line-height: 0.95;
+    }
+    .section-title em { font-style: normal; color: #c9a84c; }
+    .section-body {
+        font-family: 'Lora', serif; font-size: 1rem;
+        color: rgba(255,255,255,0.5); line-height: 1.85;
+    }
+    .gold-line {
+        width: 48px; height: 2px; background: #c9a84c; margin: 1.25rem 0;
+    }
+    .gold-line.centered { margin: 1.25rem auto; }
+
+    /* ─────────────────────────────────────────
+       STATEMENT BAND
+    ───────────────────────────────────────── */
+    .statement-band {
+        background: #c9a84c; padding: 5rem 2rem; text-align: center;
+        overflow: hidden;
+    }
+    .statement-band .st-label {
+        font-weight: 800; font-size: 0.62rem; letter-spacing: 0.3em;
+        text-transform: uppercase; color: rgba(0,0,0,0.45); margin-bottom: 0.75rem;
+    }
+    .statement-band .st-headline {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: clamp(2.75rem, 7vw, 6.5rem);
+        text-transform: uppercase; color: #000; line-height: 0.92;
+    }
+    .statement-band .st-headline span { color: #fff; }
+
+    /* ─────────────────────────────────────────
+       WHO WE ARE  (3-column pillars)
+    ───────────────────────────────────────── */
+    .about-section { background: #080808; padding: 6rem 2rem; }
+    .pillar-card {
+        background: #111; border: 1px solid rgba(201,168,76,0.1);
+        padding: 2.5rem 2rem; height: 100%;
+        transition: border-color 0.3s, transform 0.25s;
+    }
+    .pillar-card:hover { border-color: rgba(201,168,76,0.45); transform: translateY(-5px); }
+    .pillar-number {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: 3.5rem; color: rgba(201,168,76,0.12);
+        line-height: 1; margin-bottom: 0.5rem;
+    }
+    .pillar-title {
+        font-family: 'Oswald', sans-serif; font-weight: 600;
+        font-size: 1.25rem; text-transform: uppercase; color: #fff;
+        margin-bottom: 0.85rem;
+    }
+    .pillar-body {
+        font-family: 'Lora', serif; font-size: 0.92rem;
+        color: rgba(255,255,255,0.45); line-height: 1.8;
+    }
+
+    /* ─────────────────────────────────────────
+       SERVICE INFO
+    ───────────────────────────────────────── */
+    .service-section {
+        background: #000;
+        border-top: 1px solid rgba(201,168,76,0.15);
+        border-bottom: 1px solid rgba(201,168,76,0.15);
+        padding: 5rem 2rem; overflow: hidden;
+    }
+    .service-grid { display: flex; justify-content: center; flex-wrap: wrap; }
+    .service-item { text-align: center; padding: 1.25rem 3.5rem; border-right: 1px solid rgba(201,168,76,0.15); }
+    .service-item:last-child { border-right: none; }
+    .service-item .s-label {
+        font-weight: 800; font-size: 0.6rem; letter-spacing: 0.26em;
+        text-transform: uppercase; color: #c9a84c; margin-bottom: 0.5rem;
+    }
+    .service-item .s-value {
+        font-family: 'Oswald', sans-serif; font-weight: 600;
+        font-size: 1.75rem; color: #fff; line-height: 1.15;
+    }
+    .service-item .s-sub {
+        font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+        color: rgba(255,255,255,0.28); margin-top: 0.3rem;
+    }
+    @media(max-width:576px){
+        .service-item { border-right:none; border-bottom:1px solid rgba(201,168,76,0.15); padding:1.5rem 2rem; width:100%; }
+        .service-item:last-child { border-bottom:none; }
+    }
+
+    /* ─────────────────────────────────────────
+       I'M NEW
+    ───────────────────────────────────────── */
+    .new-section {
+        position: relative; background: #000; padding: 7rem 2rem;
+        overflow: hidden;
+    }
+    .new-section::before {
+        content: 'NEW';
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: clamp(8rem, 30vw, 22rem);
+        color: rgba(201,168,76,0.04);
+        position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%,-50%);
+        white-space: nowrap; pointer-events: none; user-select: none;
+        letter-spacing: -0.02em; line-height: 1;
+    }
+    .new-section .inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; text-align: center; }
+
+    /* ─────────────────────────────────────────
+       MESSAGES PREVIEW
+    ───────────────────────────────────────── */
+    .messages-section { background: #080808; padding: 6rem 2rem; }
+    .message-card {
+        background: #111; border: 1px solid rgba(255,255,255,0.06);
+        padding: 2rem; text-decoration: none; display: block;
+        transition: border-color 0.25s, transform 0.2s;
+    }
+    .message-card:hover { border-color: rgba(201,168,76,0.45); transform: translateY(-4px); text-decoration: none; }
+    .message-card .mc-tag {
+        font-weight: 800; font-size: 0.58rem; letter-spacing: 0.22em;
+        text-transform: uppercase; color: #c9a84c; margin-bottom: 0.6rem;
+    }
+    .message-card .mc-title {
+        font-family: 'Oswald', sans-serif; font-weight: 600;
+        font-size: 1.2rem; text-transform: uppercase; color: #fff;
+        line-height: 1.2; margin-bottom: 0.6rem;
+    }
+    .message-card .mc-desc {
+        font-family: 'Lora', serif; font-size: 0.85rem;
+        color: rgba(255,255,255,0.38); line-height: 1.7;
+    }
+    .mc-icon {
+        width: 36px; height: 36px; margin-bottom: 1rem;
+    }
+
+    /* ─────────────────────────────────────────
+       EVENTS PREVIEW
+    ───────────────────────────────────────── */
+    .events-section { background: #000; padding: 6rem 2rem; }
+    .event-row {
+        display: flex; align-items: flex-start; gap: 1.5rem;
+        padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .event-row:last-child { border-bottom: none; }
+    .event-date-block {
+        flex-shrink: 0; text-align: center; min-width: 54px;
+    }
+    .event-date-block .edb-month {
+        font-weight: 800; font-size: 0.55rem; letter-spacing: 0.2em;
+        text-transform: uppercase; color: #c9a84c;
+    }
+    .event-date-block .edb-day {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: 2rem; color: #fff; line-height: 1;
+    }
+    .event-info .ei-title {
+        font-family: 'Oswald', sans-serif; font-weight: 600;
+        font-size: 1.1rem; text-transform: uppercase; color: #fff;
+        margin-bottom: 0.3rem;
+    }
+    .event-info .ei-desc {
+        font-size: 0.82rem; color: rgba(255,255,255,0.38);
+        font-family: 'Lora', serif; font-style: italic;
+    }
+
+    /* ─────────────────────────────────────────
+       SCRIPTURE
+    ───────────────────────────────────────── */
+    .scripture-section { background: #080808; padding: 7rem 2rem; text-align: center; }
+    .scripture-section .sc-ref {
+        font-weight: 800; font-size: 0.62rem; letter-spacing: 0.28em;
+        text-transform: uppercase; color: #c9a84c; margin-bottom: 1.5rem;
+    }
+    .scripture-section .sc-verse {
+        font-family: 'Oswald', sans-serif; font-weight: 700;
+        font-size: clamp(2rem, 5.5vw, 5rem);
+        text-transform: uppercase; color: #fff; line-height: 1.0;
+        max-width: 850px; margin: 0 auto 2rem;
+    }
+    .scripture-section .sc-verse em { font-style: normal; color: #c9a84c; }
+    .scripture-section .sc-text {
+        font-family: 'Lora', serif; font-style: italic;
+        font-size: 1rem; color: rgba(255,255,255,0.4);
+        max-width: 500px; margin: 0 auto; line-height: 1.9;
+    }
+
+    /* ─────────────────────────────────────────
+       CONNECT (Give + Socials)
+    ───────────────────────────────────────── */
+    .connect-section { background: #000; padding: 6rem 2rem; }
+    .connect-card {
+        background: #0e0e0e; border: 1px solid rgba(255,255,255,0.06);
+        padding: 2.5rem 2rem; height: 100%; text-decoration: none; display: block;
+        transition: border-color 0.25s, transform 0.2s;
+    }
+    .connect-card:hover { border-color: rgba(201,168,76,0.45); transform: translateY(-4px); text-decoration: none; }
+    .connect-card .cc-icon { display: block; margin-bottom: 1.25rem; }
+    .connect-card .cc-label {
+        font-weight: 800; font-size: 0.62rem; letter-spacing: 0.22em;
+        text-transform: uppercase; color: #c9a84c; margin-bottom: 0.5rem;
+    }
+    .connect-card .cc-title {
+        font-family: 'Oswald', sans-serif; font-weight: 600;
+        font-size: 1.4rem; text-transform: uppercase; color: #fff;
+        margin-bottom: 0.65rem;
+    }
+    .connect-card .cc-desc {
+        font-family: 'Lora', serif; font-size: 0.88rem;
+        color: rgba(255,255,255,0.4); line-height: 1.75;
+    }
+
+    /* ─────────────────────────────────────────
+       FAQ
+    ───────────────────────────────────────── */
+    .faq-section { background: #080808; padding: 6rem 2rem; }
+    .faq-item {
+        border-bottom: 1px solid rgba(201,168,76,0.12);
+        padding: 1.4rem 0; cursor: pointer;
+    }
+    .faq-item:first-child { border-top: 1px solid rgba(201,168,76,0.12); }
+    .faq-question {
+        display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .faq-question span {
+        font-family: 'Oswald', sans-serif; font-weight: 500;
+        font-size: 1.05rem; text-transform: uppercase; color: #fff;
+        transition: color 0.2s;
+    }
+    .faq-item.open .faq-question span { color: #c9a84c; }
+    .faq-toggle {
+        flex-shrink: 0; width: 22px; height: 22px;
+        border: 1px solid rgba(201,168,76,0.3); border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        transition: background 0.2s, border-color 0.2s;
+    }
+    .faq-item.open .faq-toggle { background: #c9a84c; border-color: #c9a84c; }
+    .faq-toggle svg { transition: transform 0.3s; }
+    .faq-item.open .faq-toggle svg { transform: rotate(45deg); }
+    .faq-toggle svg path { stroke: rgba(255,255,255,0.5); }
+    .faq-item.open .faq-toggle svg path { stroke: #000; }
+    .faq-answer {
+        font-family: 'Lora', serif; font-size: 0.92rem;
+        color: rgba(255,255,255,0.45); line-height: 1.85;
+        max-height: 0; overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.3s ease;
+        padding-top: 0;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding-top: 1rem; }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    .site-footer {
+        background: #000; border-top: 1px solid rgba(201,168,76,0.1);
+        padding: 5rem 2rem 3rem; text-align: center;
+    }
+    .site-footer .footer-logo {
+        width: min(220px, 55%); height: auto;
+        margin: 0 auto 2.5rem; display: block; opacity: 0.8;
+    }
+    .site-footer .footer-nav {
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .site-footer .footer-nav a {
+        font-weight: 800; font-size: 0.58rem; letter-spacing: 0.2em;
+        text-transform: uppercase; color: rgba(255,255,255,0.3);
+        text-decoration: none; transition: color 0.2s;
+    }
+    .site-footer .footer-nav a:hover { color: #c9a84c; }
+    .site-footer .footer-address {
+        font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+        color: rgba(255,255,255,0.22); margin-bottom: 0.4rem;
+    }
+    .site-footer .footer-copy {
+        font-size: 0.62rem; color: rgba(255,255,255,0.14); letter-spacing: 0.1em;
+    }
+    </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+    <div class="container-fluid px-3 px-lg-4">
+        <a class="navbar-brand p-0" href="index.html">
+            </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-lg-center gap-lg-1 me-lg-3">
+                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="Media.html">Messages</a></li>
+                <li class="nav-item"><a class="nav-link" href="Prayer Request.html">Prayer</a></li>
+                <li class="nav-item"><a class="nav-link" href="Give.html">Give</a></li>
+            </ul>
+            <a class="btn-nav-new ms-lg-2 mt-2 mt-lg-0" href="newcomers.html">I'm New</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow reveal delay-1">Sparta, Tennessee &mdash; Sundays at 11 AM</p>
+        <h1 class="hero-headline reveal delay-2">Preaching<br>the <em>Kingdom</em></h1>
+        <p class="hero-sub reveal delay-3">At N-Vizion Church we are unapologetically committed to the uncompromised Word of God — every season, every service, every message.</p>
+        <div class="hero-ctas reveal delay-4">
+            <a class="btn-gold" href="newcomers.html">I'm New Here</a>
+            <a class="btn-outline-gold" href="Media.html">Watch &amp; Listen</a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+</section>
+
+<!-- ─── STATEMENT ─── -->
+<div class="statement-band">
+    <p class="st-label reveal">Our Mission</p>
+    <h2 class="st-headline reveal delay-1">The Gospel.<br><span>Nothing Less.</span></h2>
+</div>
+
+<!-- ─── WHO WE ARE ─── -->
+<section class="about-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 reveal">
+                <p class="eyebrow">Our Story</p>
+                <h2 class="section-title">Who We <em>Are</em></h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 reveal delay-1">
+                <div class="pillar-card">
+                    <div class="pillar-number">01</div>
+                    <div class="pillar-title">Who We Are</div>
+                    <p class="pillar-body">N-Vizion Church is a Spirit-filled community rooted in the Word of God, located in Sparta, Tennessee. Under the leadership of Pastor Derek and Jody Bolinger, we exist to make the Kingdom of God visible in every life we touch.</p>
                 </div>
             </div>
-        </nav>
-
-        <!-- Intro image + Kingdom message -->
-        <section class="page-section clearfix">
-            <div class="container">
-                <div class="intro">
-                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg" alt="N-Vizion Church" style="object-fit:cover; object-position: center 30%;" />
-                    <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                        <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Preaching the Gospel</span>
-                            <span class="section-heading-lower">of the Kingdom</span>
-                        </h2>
-                        <p class="mb-3" style="font-family:'Lora',serif; color:#b0b0b0; line-height:1.8;">
-                            At N-Vizion Church we are unapologetically committed to the uncompromised Word of God. We preach the Kingdom — the rule and reign of Jesus Christ — in every season, every service, every message.
-                        </p>
-                        <div class="intro-button mx-auto">
-                            <a class="btn btn-primary btn-xl" href="Media.html">Watch &amp; Listen</a>
-                        </div>
-                    </div>
+            <div class="col-md-4 reveal delay-2">
+                <div class="pillar-card">
+                    <div class="pillar-number">02</div>
+                    <div class="pillar-title">Our Values</div>
+                    <p class="pillar-body">We value the uncompromised Word, authentic community, passionate worship, and Spirit-led ministry. Every person who walks through our doors matters — because where everybody is somebody.</p>
                 </div>
             </div>
-        </section>
+            <div class="col-md-4 reveal delay-3">
+                <div class="pillar-card">
+                    <div class="pillar-number">03</div>
+                    <div class="pillar-title">Our Mission</div>
+                    <p class="pillar-body">To preach the Gospel of the Kingdom without compromise, make disciples who make disciples, and build a house where every person encounters the living God and finds their God-given purpose.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center reveal delay-4">
+                <a class="btn-gold" href="about.html">Meet the Team</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <!-- Service info band -->
-        <div class="service-band">
-            <div class="container">
-                <div class="service-grid">
-                    <div class="service-item">
-                        <div class="label">Sunday Service</div>
-                        <div class="value">11:00 AM</div>
-                        <div class="sub">Central Time</div>
+<!-- ─── SERVICE INFO ─── -->
+<section class="service-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-auto text-center reveal">
+                <p class="eyebrow">Join Us</p>
+                <h2 class="section-title">We Meet<br><em>Every Sunday</em></h2>
+            </div>
+        </div>
+        <div class="service-grid reveal delay-1">
+            <div class="service-item">
+                <div class="s-label">Sunday Service</div>
+                <div class="s-value">11:00 AM</div>
+                <div class="s-sub">Central Time</div>
+            </div>
+            <div class="service-item">
+                <div class="s-label">Location</div>
+                <div class="s-value">180 Churchill Drive</div>
+                <div class="s-sub">Sparta, TN 38583</div>
+            </div>
+            <div class="service-item">
+                <div class="s-label">Every Week</div>
+                <div class="s-value">All Are Welcome</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── I'M NEW ─── -->
+<section class="new-section">
+    <div class="inner">
+        <p class="eyebrow reveal">First Time?</p>
+        <h2 class="section-title reveal delay-1" style="text-align:center; margin-bottom:1rem;">You Belong<br><em>Here</em></h2>
+        <div class="gold-line centered reveal delay-2"></div>
+        <p class="section-body reveal delay-3" style="text-align:center; max-width:520px; margin:0 auto 2.5rem;">
+            We know visiting a new church can feel like a big step. Let us make it easy. Click below, tell us a little about yourself, and our team will personally reach out before your first Sunday.
+        </p>
+        <div class="reveal delay-4" style="text-align:center;">
+            <a class="btn-gold" href="newcomers.html">Connect With Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- ─── MESSAGES PREVIEW ─── -->
+<section class="messages-section">
+    <div class="container">
+        <div class="row align-items-end mb-5">
+            <div class="col reveal">
+                <p class="eyebrow">Recent Sermons</p>
+                <h2 class="section-title">Catch Up on<br><em>Messages</em></h2>
+            </div>
+            <div class="col-auto reveal delay-1">
+                <a class="btn-outline-gold" href="Media.html">View All</a>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 reveal delay-1">
+                <a class="message-card" href="Media.html">
+                    <svg class="mc-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17.5" stroke="#c9a84c" stroke-opacity=".3"/><path d="M14 12l12 6-12 6V12z" fill="#c9a84c"/></svg>
+                    <div class="mc-tag">Latest Message</div>
+                    <div class="mc-title">Kingdom First</div>
+                    <p class="mc-desc">What does it really mean to seek the Kingdom above everything else? A message on Matthew 6:33.</p>
+                </a>
+            </div>
+            <div class="col-md-4 reveal delay-2">
+                <a class="message-card" href="Media.html">
+                    <svg class="mc-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17.5" stroke="#c9a84c" stroke-opacity=".3"/><path d="M14 12l12 6-12 6V12z" fill="#c9a84c"/></svg>
+                    <div class="mc-tag">Series</div>
+                    <div class="mc-title">Uncompromised</div>
+                    <p class="mc-desc">A bold look at what it means to live without compromise in a world that demands it constantly.</p>
+                </a>
+            </div>
+            <div class="col-md-4 reveal delay-3">
+                <a class="message-card" href="https://www.youtube.com/@nvizionchurch" target="_blank" rel="noopener">
+                    <svg class="mc-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17.5" stroke="#ff0000" stroke-opacity=".4"/><path d="M14 12l12 6-12 6V12z" fill="#ff0000"/></svg>
+                    <div class="mc-tag">YouTube</div>
+                    <div class="mc-title">Watch Live & On-Demand</div>
+                    <p class="mc-desc">Subscribe to @nvizionchurch on YouTube and never miss a message, service, or special event.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── EVENTS PREVIEW ─── -->
+<section class="events-section">
+    <div class="container">
+        <div class="row align-items-end mb-5">
+            <div class="col reveal">
+                <p class="eyebrow">What's Coming</p>
+                <h2 class="section-title">Community<br><em>Events</em></h2>
+            </div>
+            <div class="col-auto reveal delay-1">
+                <a class="btn-outline-gold" href="Events.html">All Events</a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 reveal delay-1">
+                <div class="event-row">
+                    <div class="event-date-block">
+                        <div class="edb-month">Sun</div>
+                        <div class="edb-day">Weekly</div>
                     </div>
-                    <div class="service-item">
-                        <div class="label">Location</div>
-                        <div class="value">180 Churchill Drive</div>
-                        <div class="sub">Sparta, TN 38583</div>
+                    <div class="event-info">
+                        <div class="ei-title">Sunday Morning Service</div>
+                        <p class="ei-desc">Worship, Word, and community every Sunday at 11:00 AM — 180 Churchill Drive, Sparta, TN</p>
                     </div>
-                    <div class="service-item">
-                        <div class="label">Every Week</div>
-                        <div class="value">All Are Welcome</div>
-                        <div class="sub">No reservation needed</div>
+                </div>
+                <div class="event-row">
+                    <div class="event-date-block">
+                        <div class="edb-month">Upcoming</div>
+                        <div class="edb-day">TBA</div>
+                    </div>
+                    <div class="event-info">
+                        <div class="ei-title">Community Wide Events</div>
+                        <p class="ei-desc">Stay connected for special services, outreach events, and community gatherings throughout the year.</p>
+                    </div>
+                </div>
+                <div class="event-row">
+                    <div class="event-date-block">
+                        <div class="edb-month">Always</div>
+                        <div class="edb-day">Open</div>
+                    </div>
+                    <div class="event-info">
+                        <div class="ei-title">Prayer Requests</div>
+                        <p class="ei-desc">Submit your prayer request any time — our team prays over every single one.</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Scripture CTA band -->
-        <section class="page-section cta">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner bg-faded text-center rounded">
-                            <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Matthew 6:33</span>
-                                <span class="section-heading-lower">Seek First His Kingdom</span>
-                            </h2>
-                            <p class="mb-0" style="font-family:'Lora',serif; font-style:italic;">
-                                "But seek first the kingdom of God and his righteousness, and all these things will be added to you."
-                            </p>
-                        </div>
+<!-- ─── SCRIPTURE ─── -->
+<section class="scripture-section">
+    <p class="sc-ref reveal">Matthew 6:33</p>
+    <h2 class="sc-verse reveal delay-1">Seek First<br>His <em>Kingdom</em></h2>
+    <p class="sc-text reveal delay-2">"But seek first the kingdom of God and his righteousness, and all these things will be added to you."</p>
+</section>
+
+<!-- ─── CONNECT ─── -->
+<section class="connect-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-auto text-center reveal">
+                <p class="eyebrow">Stay Connected</p>
+                <h2 class="section-title">Follow <em>Along</em></h2>
+            </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3 col-sm-6 reveal delay-1">
+                <a class="connect-card" href="https://www.youtube.com/@nvizionchurch" target="_blank" rel="noopener">
+                    <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:#ff0000;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
+                    <div class="cc-label">YouTube</div>
+                    <div class="cc-title">@nvizionchurch</div>
+                    <p class="cc-desc">Watch messages and live services</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 reveal delay-2">
+                <a class="connect-card" href="https://www.facebook.com/profile.php?id=100090860762618&mibextid=ZbWKwL" target="_blank" rel="noopener">
+                    <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:#1877f2;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
+                    <div class="cc-label">Facebook</div>
+                    <div class="cc-title">N-Vizion Church</div>
+                    <p class="cc-desc">Announcements &amp; community updates</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 reveal delay-3">
+                <a class="connect-card" href="Give.html">
+                    <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:none;stroke:#c9a84c;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 21.5C12 21.5 3 16 3 9.5a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z"/></svg></span>
+                    <div class="cc-label">Support</div>
+                    <div class="cc-title">Give Online</div>
+                    <p class="cc-desc">Partner with the ministry and sow into the Kingdom</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-6 reveal delay-4">
+                <a class="connect-card" href="Prayer Request.html">
+                    <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:none;stroke:#c9a84c;stroke-width:1.5;stroke-linecap:round;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                    <div class="cc-label">Prayer</div>
+                    <div class="cc-title">Request Prayer</div>
+                    <p class="cc-desc">Submit your request — our team prays over every one</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+                <p class="eyebrow">Got Questions?</p>
+                <h2 class="section-title">Frequently<br><em>Asked</em></h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 reveal delay-1">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What should I expect on my first visit?</span>
+                        <div class="faq-toggle"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
                     </div>
+                    <div class="faq-answer">Expect a warm welcome, Spirit-led worship, and a Word-based message that applies to real life. Services typically run about 90 minutes. Dress however you're comfortable — we care about your heart, not your outfit.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>When and where do you meet?</span>
+                        <div class="faq-toggle"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                    </div>
+                    <div class="faq-answer">We gather every Sunday at 11:00 AM at 180 Churchill Drive, Sparta, TN 38583. Doors open at 10:30 AM — come early, stay late, and bring someone with you.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is there anything for my kids?</span>
+                        <div class="faq-toggle"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                    </div>
+                    <div class="faq-answer">We love families. Reach out to us through the "I'm New" form and we'll let you know exactly what we have available for your children during services.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I watch services online?</span>
+                        <div class="faq-toggle"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                    </div>
+                    <div class="faq-answer">We are not currently streaming or posting services online, but that is coming soon. Follow us on Facebook for updates and announcements as we get that set up.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I give or support the ministry?</span>
+                        <div class="faq-toggle"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                    </div>
+                    <div class="faq-answer">You can give online through our Give page. Every gift goes directly toward advancing the Kingdom of God through N-Vizion Church's ministry and community outreach.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I get connected with the team?</span>
+                        <div class="faq-toggle"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+                    </div>
+                    <div class="faq-answer">Visit our "I'm New" page, fill out the short form, and a member of our team will personally reach out to you. We want to know your name before you walk through the door.</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <!-- Get Connected — Socials -->
-        <section class="quick-links">
-            <div class="container">
-                <div class="row justify-content-center mb-4">
-                    <div class="col-12 text-center">
-                        <h3 style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c;">Get Connected</h3>
-                        <div class="divider-gold"></div>
-                    </div>
-                </div>
-                <div class="row g-4 justify-content-center">
+<!-- ─── FOOTER ─── -->
+<footer class="site-footer">
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Events.html">Events</a>
+        <a href="Media.html">Messages</a>
+        <a href="newcomers.html">I'm New</a>
+        <a href="Prayer Request.html">Prayer</a>
+        <a href="Give.html">Give</a>
+    </div>
+    <p class="footer-address">180 Churchill Drive &bull; Sparta, TN 38583</p>
+    <p class="footer-copy">Copyright &copy; N-Vizion Church 2026 &bull; Where Everybody Is Somebody</p>
+</footer>
 
-                    <!-- YouTube -->
-                    <div class="col-md-5 col-sm-10">
-                        <a class="quick-link-card social-card" href="https://www.youtube.com/@nvizionchurch" target="_blank" rel="noopener noreferrer">
-                            <span class="ql-symbol social-icon yt-icon">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:2rem;height:2rem;fill:#ff0000;display:inline-block;vertical-align:middle;">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                                </svg>
-                            </span>
-                            <h4>YouTube</h4>
-                            <p>Subscribe to our channel and be the first to watch our messages when they go live — @nvizionchurch</p>
-                        </a>
-                    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
 
-                    <!-- Facebook -->
-                    <div class="col-md-5 col-sm-10">
-                        <a class="quick-link-card social-card" href="https://www.facebook.com/profile.php?id=100090860762618&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
-                            <span class="ql-symbol social-icon fb-icon">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:2rem;height:2rem;fill:#1877f2;display:inline-block;vertical-align:middle;">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
-                            </span>
-                            <h4>Facebook</h4>
-                            <p>Follow our Facebook page for announcements, updates, and what God is doing at N-Vizion Church.</p>
-                        </a>
-                    </div>
+// Trigger hero reveals immediately
+setTimeout(() => {
+    document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+}, 100);
 
-                </div>
-            </div>
-        </section>
+// ── Parallax hero ──
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+    if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+}, { passive: true });
 
-        <footer class="footer text-faded text-center py-5">
-            <div class="container">
-                <p class="m-0 small">180 Churchill Drive &bull; Sparta, TN 38583</p>
-                <p class="m-0 small mt-1">Copyright &copy; N-Vizion Church 2026</p>
-            </div>
-        </footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+// ── FAQ accordion ──
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+</script>
+</body>
 </html>
