@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="About N-Vizion Church — Who we are, our mission, values, and team. Sparta, TN." />
+    <meta name="description" content="About N-Vizion Church — Our story, mission, and values. Sparta, TN. Where Everybody Is Somebody." />
     <title>About — N-Vizion Church</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         :root {
             --gold: #c9a84c;
             --gold-light: #e8c86a;
@@ -22,539 +21,139 @@
             --text: rgba(255,255,255,0.82);
             --muted: rgba(255,255,255,0.42);
         }
-
         html { scroll-behavior: smooth; }
         body { background: var(--black); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; }
         img { max-width: 100%; }
 
-        /* ── Scroll reveal ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(48px);
-            transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.12s; }
-        .reveal-delay-2 { transition-delay: 0.24s; }
-        .reveal-delay-3 { transition-delay: 0.36s; }
-        .reveal-delay-4 { transition-delay: 0.48s; }
+        /* Scroll reveal */
+        .reveal { opacity:0; transform:translateY(48px); transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1); }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .reveal-delay-1 { transition-delay:.12s; }
+        .reveal-delay-2 { transition-delay:.24s; }
+        .reveal-delay-3 { transition-delay:.36s; }
+        .reveal-delay-4 { transition-delay:.48s; }
+        .reveal-delay-5 { transition-delay:.60s; }
+        .reveal-delay-6 { transition-delay:.72s; }
+        .reveal-delay-7 { transition-delay:.84s; }
 
-        /* ── Nav ── */
-        .site-nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 0.85rem 0;
-            background: rgba(0,0,0,0);
-            transition: background 0.4s ease, padding 0.4s ease;
-        }
-        .site-nav.scrolled {
-            background: rgba(0,0,0,0.94);
-            backdrop-filter: blur(12px);
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(201,168,76,0.13);
-        }
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .nav-logo-wrap a { display: flex; align-items: center; text-decoration: none; }
-        .nav-logo { height: 48px; width: auto; object-fit: contain; }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2.2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.65);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active { color: #fff; }
-        .nav-cta {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--black) !important;
-            background: var(--gold);
-            padding: 0.55rem 1.3rem;
-            border-radius: 2px;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-        .nav-cta:hover { background: var(--gold-light); color: var(--black) !important; }
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-        }
-        .nav-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: #fff;
-            transition: all 0.3s;
-        }
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 0;
-            background: rgba(0,0,0,0.97);
-            padding: 1.5rem 1.5rem 2rem;
-            border-top: 1px solid rgba(201,168,76,0.15);
-        }
-        .mobile-menu.open { display: flex; }
-        .mobile-menu a {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            padding: 0.85rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            transition: color 0.2s;
-        }
-        .mobile-menu a:hover { color: #fff; }
-        .mobile-menu .nav-cta {
-            margin-top: 1.25rem;
-            text-align: center;
-            padding: 0.8rem;
-            border-bottom: none;
-            border-radius: 2px;
-        }
-        @media (max-width: 900px) {
-            .nav-links { display: none; }
-            .nav-toggle { display: flex; }
-        }
+        /* Nav */
+        .site-nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:.85rem 0; background:rgba(0,0,0,0); transition:background .4s ease,padding .4s ease; }
+        .site-nav.scrolled { background:rgba(0,0,0,.94); backdrop-filter:blur(12px); padding:.5rem 0; border-bottom:1px solid rgba(201,168,76,.13); }
+        .nav-inner { display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+        .nav-logo-wrap a { display:flex; align-items:center; text-decoration:none; }
+        .nav-logo { height:48px; width:auto; object-fit:contain; }
+        .nav-links { display:flex; align-items:center; gap:2.2rem; list-style:none; }
+        .nav-links a { font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none; transition:color .2s; }
+        .nav-links a:hover, .nav-links a.active { color:#fff; }
+        .nav-cta { font-family:'Raleway',sans-serif; font-size:.68rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--black) !important; background:var(--gold); padding:.55rem 1.3rem; border-radius:2px; text-decoration:none; transition:background .2s; }
+        .nav-cta:hover { background:var(--gold-light); color:var(--black) !important; }
+        .nav-toggle { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+        .nav-toggle span { display:block; width:24px; height:2px; background:#fff; transition:all .3s; }
+        .mobile-menu { display:none; flex-direction:column; gap:0; background:rgba(0,0,0,.97); padding:1.5rem 1.5rem 2rem; border-top:1px solid rgba(201,168,76,.15); }
+        .mobile-menu.open { display:flex; }
+        .mobile-menu a { font-family:'Raleway',sans-serif; font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.7); text-decoration:none; padding:.85rem 0; border-bottom:1px solid rgba(255,255,255,.06); transition:color .2s; }
+        .mobile-menu a:hover { color:#fff; }
+        .mobile-menu .nav-cta { margin-top:1.25rem; text-align:center; padding:.8rem; border-bottom:none; border-radius:2px; }
+        @media (max-width:900px) { .nav-links { display:none; } .nav-toggle { display:flex; } }
 
-        /* ── Page hero ── */
-        .page-hero {
-            position: relative;
-            min-height: 52vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding-top: 90px;
-        }
-        .page-hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('assets/img/about-stage.jpg');
-            background-size: cover;
-            background-position: center 30%;
-            filter: brightness(0.22);
-            transform-origin: center;
-            will-change: transform;
-        }
-        .page-hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 4rem 1.5rem;
-        }
-        .page-hero-eyebrow {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 1.1rem;
-        }
-        .page-hero h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(3rem, 8vw, 6.5rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 0.95;
-            letter-spacing: -0.01em;
-            color: #fff;
-        }
-        .page-hero-line {
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-            margin: 1.5rem auto 0;
-        }
+        /* Page hero */
+        .page-hero { position:relative; min-height:52vh; display:flex; align-items:center; justify-content:center; overflow:hidden; padding-top:90px; }
+        .page-hero-bg { position:absolute; inset:0; background-image:url('assets/img/about-stage.jpg'); background-size:cover; background-position:center 30%; filter:brightness(.22); transform-origin:center; will-change:transform; }
+        .page-hero-content { position:relative; z-index:2; text-align:center; padding:4rem 1.5rem; }
+        .page-hero-eyebrow { font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:800; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem; }
+        .page-hero h1 { font-family:'Oswald',sans-serif; font-size:clamp(3rem,8vw,6.5rem); font-weight:700; text-transform:uppercase; line-height:.95; letter-spacing:-.01em; color:#fff; }
+        .page-hero-line { width:50px; height:2px; background:var(--gold); margin:1.5rem auto 0; }
 
-        /* ── Section headings ── */
-        .section-eyebrow {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.9rem;
-        }
-        .section-headline {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 1;
-            color: #fff;
-            margin-bottom: 1.5rem;
-        }
-        .divider-gold {
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-            margin: 1.25rem auto;
-        }
+        /* Section headings */
+        .section-eyebrow { font-family:'Raleway',sans-serif; font-size:.7rem; font-weight:800; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); margin-bottom:.9rem; }
+        .section-headline { font-family:'Oswald',sans-serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:700; text-transform:uppercase; line-height:1; color:#fff; margin-bottom:1.5rem; }
+        .divider-gold { width:50px; height:2px; background:var(--gold); margin:1.25rem auto; }
 
-        /* ── Body text ── */
-        .body-text {
-            font-family: 'Lora', serif;
-            font-size: 1.05rem;
-            color: var(--muted);
-            line-height: 1.9;
-        }
+        /* Body text */
+        .body-text { font-family:'Lora',serif; font-size:1.05rem; color:var(--muted); line-height:1.9; }
 
-        /* ── Statement band ── */
-        .statement-band {
-            background: var(--gold);
-            padding: 1.5rem 0;
-            text-align: center;
-        }
-        .statement-band p {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: #000;
-            margin: 0;
-        }
+        /* Statement band */
+        .statement-band { background:var(--gold); padding:1.5rem 0; text-align:center; }
+        .statement-band p { font-family:'Oswald',sans-serif; font-size:clamp(.95rem,2.5vw,1.1rem); font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:#000; margin:0; }
 
-        /* ── Who we are cards ── */
-        .pillar-card {
-            background: var(--card);
-            border: 1px solid rgba(201,168,76,0.12);
-            border-radius: 3px;
-            padding: 2.5rem 2rem;
-            height: 100%;
-            transition: border-color 0.25s;
-        }
-        .pillar-card:hover { border-color: rgba(201,168,76,0.4); }
-        .pillar-num {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(201,168,76,0.18);
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-        .pillar-card h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-        .pillar-card p {
-            font-family: 'Lora', serif;
-            font-size: 0.92rem;
-            color: var(--muted);
-            line-height: 1.85;
-            margin: 0;
-        }
+        /* Scripture blockquote */
+        .scripture-block { margin:1.5rem 0; padding:1.1rem 1.5rem; border-left:3px solid var(--gold); background:rgba(201,168,76,.04); }
+        .scripture-block p { font-family:'Lora',serif; font-style:italic; font-size:.95rem; color:rgba(255,255,255,.6); line-height:1.85; margin:0 0 .4rem; }
+        .scripture-block footer { font-family:'Raleway',sans-serif; font-size:.65rem; font-weight:800; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); }
 
-        /* ── Pastor letter ── */
-        .pastor-card {
-            background: var(--card);
-            border: 1px solid rgba(201,168,76,0.2);
-            border-radius: 3px;
-            padding: 3rem 3.5rem;
-        }
-        .pastor-card p {
-            font-family: 'Lora', serif;
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.68);
-            line-height: 1.95;
-            margin-bottom: 1.4rem;
-        }
-        .pastor-card p:last-of-type { margin-bottom: 0; }
-        .pastor-sig {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--gold);
-            padding-top: 1.5rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(201,168,76,0.15);
-        }
-        .pastor-photo {
-            width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-            border-radius: 3px;
-            border: 1px solid rgba(201,168,76,0.2);
-            box-shadow: 0 16px 56px rgba(0,0,0,0.65);
-        }
-        @media (max-width: 768px) {
-            .pastor-card { padding: 2rem 1.5rem; }
-        }
+        /* History card */
+        .history-card { background:var(--card); border:1px solid rgba(201,168,76,.2); border-radius:3px; padding:3rem 3.5rem; }
+        .history-card p { font-family:'Lora',serif; font-size:1rem; color:rgba(255,255,255,.65); line-height:2; margin-bottom:1.4rem; }
+        .history-card p:last-of-type { margin-bottom:0; }
+        .history-sig { font-family:'Oswald',sans-serif; font-size:1.3rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--gold); padding-top:1.5rem; margin-top:2rem; border-top:1px solid rgba(201,168,76,.15); }
+        @media (max-width:768px) { .history-card { padding:2rem 1.5rem; } }
 
-        /* ── Values ── */
-        .value-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            padding: 1.75rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .value-row:last-child { border-bottom: none; }
-        .value-num {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: rgba(201,168,76,0.25);
-            line-height: 1;
-            min-width: 2.5rem;
-            padding-top: 2px;
-        }
-        .value-content h4 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #fff;
-            margin-bottom: 0.4rem;
-        }
-        .value-content p {
-            font-family: 'Lora', serif;
-            font-size: 0.92rem;
-            color: var(--muted);
-            line-height: 1.85;
-            margin: 0;
-        }
+        /* Journey step cards */
+        .step-card { background:var(--card); border:1px solid rgba(201,168,76,.12); border-radius:3px; padding:2.2rem 1.8rem; height:100%; transition:border-color .25s; }
+        .step-card:hover { border-color:rgba(201,168,76,.4); }
+        .step-num { font-family:'Oswald',sans-serif; font-size:2.8rem; font-weight:700; color:rgba(201,168,76,.18); line-height:1; margin-bottom:.6rem; }
+        .step-card h3 { font-family:'Oswald',sans-serif; font-size:1.1rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:#fff; margin-bottom:.9rem; }
+        .step-card .step-anchor { font-family:'Lora',serif; font-style:italic; font-size:.88rem; color:rgba(255,255,255,.45); line-height:1.7; margin-bottom:.8rem; }
+        .step-card .step-verse { font-family:'Lora',serif; font-style:italic; font-size:.85rem; color:rgba(255,255,255,.55); line-height:1.75; margin-bottom:.35rem; }
+        .step-card .step-ref { font-family:'Raleway',sans-serif; font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
 
-        /* ── Team ── */
-        .team-card {
-            text-align: center;
-        }
-        .team-photo-wrap {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-        .team-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(201,168,76,0.3);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-        }
-        .team-photo-placeholder {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: #1a1a1a;
-            border: 2px solid rgba(201,168,76,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .team-photo-placeholder span {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(201,168,76,0.3);
-        }
-        .team-name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #fff;
-            margin-bottom: 0.35rem;
-        }
-        .team-role {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.85rem;
-        }
-        .team-bio {
-            font-family: 'Lora', serif;
-            font-size: 0.88rem;
-            color: var(--muted);
-            line-height: 1.8;
-        }
+        /* Value rows */
+        .value-row { display:flex; align-items:flex-start; gap:1.5rem; padding:1.75rem 0; border-bottom:1px solid rgba(255,255,255,.05); }
+        .value-row:last-child { border-bottom:none; }
+        .value-num { font-family:'Oswald',sans-serif; font-size:2.2rem; font-weight:700; color:rgba(201,168,76,.25); line-height:1; min-width:2.5rem; padding-top:2px; }
+        .value-content h4 { font-family:'Oswald',sans-serif; font-size:1rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:#fff; margin-bottom:.4rem; }
+        .value-content p { font-family:'Lora',serif; font-size:.92rem; color:var(--muted); line-height:1.85; margin:0 0 .5rem; }
+        .value-content .ref { font-family:'Raleway',sans-serif; font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
 
-        /* ── Service strip ── */
-        .service-strip {
-            background: var(--card);
-            border-top: 1px solid rgba(201,168,76,0.15);
-            border-bottom: 1px solid rgba(201,168,76,0.15);
-            padding: 3.5rem 0;
-        }
-        .svc-item {
-            text-align: center;
-            padding: 1rem 2rem;
-            border-right: 1px solid rgba(201,168,76,0.12);
-        }
-        .svc-item:last-child { border-right: none; }
-        @media (max-width: 767px) {
-            .svc-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.12); }
-            .svc-item:last-child { border-bottom: none; }
-        }
-        .svc-label {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-        .svc-value {
-            font-family: 'Lora', serif;
-            font-size: 1.1rem;
-            color: #e8e8e8;
-            line-height: 1.5;
-        }
-        .svc-sub {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.65rem;
-            color: #555;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-top: 0.2rem;
-        }
+        /* Eight R cards */
+        .r-card { background:var(--card); border:1px solid rgba(201,168,76,.12); border-radius:3px; padding:2rem 1.6rem; height:100%; transition:border-color .25s; }
+        .r-card:hover { border-color:rgba(201,168,76,.4); }
+        .r-card h3 { font-family:'Oswald',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--gold); margin-bottom:.75rem; }
+        .r-card p { font-family:'Lora',serif; font-size:.88rem; color:var(--muted); line-height:1.8; margin:0; }
 
-        /* ── CTA section ── */
-        .new-cta {
-            text-align: center;
-            padding: 6rem 1.5rem;
-            background: var(--surface);
-        }
-        .new-cta .headline {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-        .new-cta .sub {
-            font-family: 'Lora', serif;
-            font-size: 1rem;
-            color: var(--muted);
-            max-width: 500px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-        }
-        .btn-gold {
-            display: inline-block;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #000;
-            background: var(--gold);
-            padding: 1rem 2.5rem;
-            border-radius: 2px;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
-        }
-        .btn-gold:hover {
-            background: var(--gold-light);
-            color: #000;
-            transform: translateY(-2px);
-        }
-        .btn-outline-gold {
-            display: inline-block;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gold);
-            background: transparent;
-            border: 1px solid var(--gold);
-            padding: 1rem 2.5rem;
-            border-radius: 2px;
-            text-decoration: none;
-            transition: background 0.2s, color 0.2s;
-            margin-left: 1rem;
-        }
-        .btn-outline-gold:hover {
-            background: rgba(201,168,76,0.1);
-            color: var(--gold-light);
-        }
+        /* Service strip */
+        .service-strip { background:var(--card); border-top:1px solid rgba(201,168,76,.15); border-bottom:1px solid rgba(201,168,76,.15); padding:3.5rem 0; }
+        .svc-item { text-align:center; padding:1rem 2rem; border-right:1px solid rgba(201,168,76,.12); }
+        .svc-item:last-child { border-right:none; }
+        @media (max-width:767px) { .svc-item { border-right:none; border-bottom:1px solid rgba(201,168,76,.12); } .svc-item:last-child { border-bottom:none; } }
+        .svc-label { font-family:'Raleway',sans-serif; font-size:.65rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
+        .svc-value { font-family:'Lora',serif; font-size:1.1rem; color:#e8e8e8; line-height:1.5; }
+        .svc-sub { font-family:'Raleway',sans-serif; font-size:.65rem; color:#555; letter-spacing:.1em; text-transform:uppercase; margin-top:.2rem; }
 
-        /* ── Footer ── */
-        .site-footer {
-            background: #000;
-            border-top: 1px solid rgba(201,168,76,0.1);
-            padding: 4rem 0 2.5rem;
-            text-align: center;
-        }
-        .footer-logo { height: 52px; width: auto; margin-bottom: 2rem; opacity: 0.85; }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            list-style: none;
-            padding: 0;
-        }
-        .footer-links a {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.35);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: rgba(255,255,255,0.75); }
-        .footer-address {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            color: rgba(255,255,255,0.2);
-        }
-        .footer-address p { margin: 0.2rem 0; }
+        /* CTA */
+        .new-cta { text-align:center; padding:6rem 1.5rem; background:var(--surface); }
+        .new-cta .headline { font-family:'Oswald',sans-serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:700; text-transform:uppercase; color:#fff; margin-bottom:1rem; }
+        .new-cta .sub { font-family:'Lora',serif; font-size:1rem; color:var(--muted); max-width:500px; margin:0 auto 2.5rem; line-height:1.8; }
+        .btn-gold { display:inline-block; font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:#000; background:var(--gold); padding:1rem 2.5rem; border-radius:2px; text-decoration:none; transition:background .2s,transform .15s; }
+        .btn-gold:hover { background:var(--gold-light); color:#000; transform:translateY(-2px); }
+        .btn-outline-gold { display:inline-block; font-family:'Raleway',sans-serif; font-size:.72rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); background:transparent; border:1px solid var(--gold); padding:1rem 2.5rem; border-radius:2px; text-decoration:none; transition:background .2s,color .2s; }
+        .cta-buttons { display:flex; flex-direction:column; align-items:center; gap:1.25rem; }
+        .btn-outline-gold:hover { background:rgba(201,168,76,.1); color:var(--gold-light); }
 
-        /* ── Sections spacing ── */
-        .section { padding: 6rem 0; }
-        .section-sm { padding: 4rem 0; }
-    </style>
+        /* Footer */
+        .site-footer { background:#000; border-top:1px solid rgba(201,168,76,.1); padding:4rem 0 2.5rem; text-align:center; }
+        .footer-logo { height:52px; width:auto; margin-bottom:2rem; opacity:.85; }
+        .footer-links { display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin-bottom:2rem; list-style:none; padding:0; }
+        .footer-links a { font-family:'Raleway',sans-serif; font-size:.65rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.35); text-decoration:none; transition:color .2s; }
+        .footer-links a:hover { color:rgba(255,255,255,.75); }
+        .footer-address { font-family:'Raleway',sans-serif; font-size:.7rem; letter-spacing:.1em; color:rgba(255,255,255,.2); }
+        .footer-address p { margin:.2rem 0; }
+
+        .section { padding:6rem 0; }
+
+    /* READ MORE TOGGLE */
+    .more-content { display: none; }
+    .more-content.open { display: block; }
+    .read-more-btn {
+        display: inline-block; background: none;
+        border: 1px solid rgba(201,168,76,0.3); border-radius: 2px;
+        padding: 0.3rem 0.85rem; margin-top: 0.8rem;
+        font-family: 'Raleway', sans-serif; font-weight: 800;
+        font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase;
+        color: #c9a84c; cursor: pointer; transition: border-color 0.2s, color 0.2s;
+    }
+    .read-more-btn:hover { border-color: #c9a84c; color: #e8c86a; }
+        </style>
 </head>
 <body>
 
@@ -562,8 +161,7 @@
 <nav class="site-nav" id="siteNav">
     <div class="nav-inner">
         <div class="nav-logo-wrap">
-            <a href="index.html">
-                </a>
+            <a href="index.html"></a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -602,103 +200,171 @@
 <!-- STATEMENT BAND -->
 <div class="statement-band">
     <div class="container">
-        <p>Everybody Is Somebody &nbsp;&bull;&nbsp; We Love You Too Much to Leave You As You Are</p>
+        <p>Where Everybody Is Somebody &nbsp;&bull;&nbsp; N-Vizion Church &bull; Sparta, TN</p>
     </div>
 </div>
 
-<!-- WHO WE ARE -->
-<section class="section">
+<!-- OUR HISTORY -->
+<section class="section" style="background: var(--surface);">
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center reveal">
-                <p class="section-eyebrow">Who We Are</p>
-                <h2 class="section-headline">A People Called<br>to the Kingdom</h2>
+                <p class="section-eyebrow">Our History &hellip; Your Future</p>
+                <h2 class="section-headline">A Life Transformed<br>by Jesus Christ</h2>
                 <div class="divider-gold"></div>
-                <p class="body-text" style="max-width:620px; margin:0 auto;">
-                    N-Vizion Church is a non-denominational body of believers in Sparta, Tennessee. Everybody is somebody here — regardless of background, tradition, or where you've been. We welcome you as you are, and we love you too much to leave you that way. The Kingdom of God changes people, and we are committed to preaching it without compromise.
-                </p>
             </div>
         </div>
-        <div class="row g-4 mt-2">
-            <div class="col-md-4 reveal reveal-delay-1">
-                <div class="pillar-card">
-                    <div class="pillar-num">01</div>
-                    <h3>The Gospel</h3>
-                    <p>We preach the death, burial, and resurrection of Jesus Christ. The Gospel is the power of God for transformation — and we deliver it without compromise, without apology, in every season.</p>
-                </div>
-            </div>
-            <div class="col-md-4 reveal reveal-delay-2">
-                <div class="pillar-card">
-                    <div class="pillar-num">02</div>
-                    <h3>The Kingdom</h3>
-                    <p>We believe God's Kingdom is not only coming — it is here now. We live and preach the rule and reign of Jesus Christ on earth as it is in heaven.</p>
-                </div>
-            </div>
-            <div class="col-md-4 reveal reveal-delay-3">
-                <div class="pillar-card">
-                    <div class="pillar-num">03</div>
-                    <h3>Family</h3>
-                    <p>We are not a program — we are a family. Everybody is somebody here. We carry each other's burdens, celebrate each other's breakthroughs, and nobody walks alone.</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-9 reveal reveal-delay-1">
+                <div class="history-card">
+                    <p>After a life of destruction, drug addiction, crime, and prison gangs, Pastor Derek had a radical encounter with Jesus Christ of Nazareth in 2010 at a maximum-security prison. After having been in solitary confinement for over 2 years at the time Jesus spoke to him — and the radical transformation started. He was born again. Making a promise to God that if He allowed him to walk out of the most dangerous prison in Tennessee at that time, he would do everything he could for Him. God called him on that promise and reminds him of it from time to time.</p>
+                    <p>Pastor Derek's answer to the Call and being chosen to carry out God's will in the earth has led him to where he is today. This was the conception of N-Vizion Church. He got out of prison in 2013 following this Jesus that had changed his whole life. After relocating to a region and land he had never known, in trust that God would do what He said He would, it all began. After a year or so of friendship, prayer and persistence, a lady he had met while in ministry became his wife. May of 2016, Pastor Derek and Jody were married and began ministry together.</p>
+
+                                        <div id="history-more" class="more-content">
+                    <p>In 2020, when the world was shutting down and doubt and despair had gripped the people, Pastor Derek withdrew from a denominational ministry program to sit in his living room with Jody and 2 of their children &mdash; and little did they know, this would be the birth of what we know today as N-Vizion Church. God has placed on them the anointing to destroy the yoke of slavery to religion and traditions of man, to bring forth the Kingdom of our God and His Christ &mdash; the true revelation of what it&rsquo;s all about: relationship with the Father and His will in the earth.</p>
+                    <p>Pastor Derek&rsquo;s heart is to see a body fully formed in Christ and walking in the fullness of the Godhead bodily, influencing every realm of governmental authority &mdash; sitting in the rightful seat that Jesus Christ of Nazareth has paid the price for us to sit. Today, if you have been called to us at N-Vizion Church, we are so honored. We make it our aim to do all we can to see you become all you can be for God &mdash; in life, here, now!</p>
+                    <p>Jesus Christ of Nazareth is our King and Lord forever. We are anointed by His Holy Spirit, founded on the truth of His Holy Word, and led by the love of the Father that has been extended to us. Let&rsquo;s begin this journey of discovery together as we team up to be all we can be in Christ, and allow Him to be all He desires through us.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="history-more">+ Read More</button>
+                    <div class="history-sig">N-Vizion Church &mdash; Where Everybody Is Somebody</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- OUR MISSION & VALUES -->
+<!-- OUR MISSION -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center reveal">
+                <p class="section-eyebrow">Our Mission</p>
+                <h2 class="section-headline">What We&rsquo;re<br>Called to Do</h2>
+                <div class="divider-gold"></div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8 reveal reveal-delay-1">
+                <p class="body-text" style="margin-bottom:1.5rem;">N-Vizion Church&rsquo;s goal is for you to BECOME God&rsquo;s unique expression in this world. Our aim is to do all we can to see you become all you can be for God &mdash; in life, here, now!</p>
+                <p class="body-text" style="margin-bottom:1.5rem;">Our mission is to Love the Lord our God with all our heart &mdash; Love people where they are, but too much to leave them there &mdash; walking with them through their walk with Christ and empowering them in their freedom and purpose &hellip; where many become one.</p>
+                <div class="scripture-block">
+                    <p>&ldquo;I keep asking that the God of our Lord Jesus Christ, the glorious Father, may give you the Spirit of wisdom and revelation, so that you may know Him better. I pray that the eyes of your heart may be enlightened in order that you may know the hope to which He has called you, the riches of His glorious inheritance in His holy people.&rdquo;</p>
+                    <footer>Ephesians 1:17&ndash;18</footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SPIRITUAL JOURNEY -->
+<section class="section" style="background: var(--surface);">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+                <p class="section-eyebrow">Our Spiritual Journey</p>
+                <h2 class="section-headline">Four Steps Forward</h2>
+                <div class="divider-gold"></div>
+                <div class="scripture-block" style="text-align:left; max-width:620px; margin:0 auto;">
+                    <p>&ldquo;I ask the God of our Master, Jesus Christ, the God of glory &mdash; to make you intelligent and discerning in knowing Him personally, your eyes focused and clear, so that you can see exactly what it is He is calling you to do, grasp the immensity of this glorious way of life He has for His followers.&rdquo;</p>
+                    <footer>Ephesians 1:17&ndash;19 MSG</footer>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-1">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3>Know God</h3>
+                    <p class="step-anchor">&ldquo;&hellip;that you may know Him better personally.&rdquo;</p>
+                    <p class="step-verse">&ldquo;Not everyone who says to me, &lsquo;Lord, Lord,&rsquo; will enter the kingdom of heaven, but only he who does the will of my Father&hellip; Then I will tell them plainly, &lsquo;I never knew you.&rsquo;&rdquo;</p>
+                    <p class="step-ref">Matthew 7:21&ndash;23</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-2">
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3>Find Freedom</h3>
+                    <p class="step-anchor">&ldquo;&hellip;that the eyes of your heart may be enlightened, focused and clear.&rdquo;</p>
+                    <p class="step-verse">&ldquo;Therefore, confess your sins to each other and pray for each other so that you may be healed.&rdquo;</p>
+                    <p class="step-ref">James 5:16</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-3">
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3>Discover Purpose</h3>
+                    <p class="step-anchor">&ldquo;&hellip;that you may know the hope to which He has called you.&rdquo;</p>
+                    <p class="step-verse">&ldquo;We have different gifts, according to the grace given us.&rdquo;</p>
+                    <p class="step-ref" style="margin-bottom:.5rem;">Romans 12:6</p>
+                    <p class="step-verse">&ldquo;All of you together are Christ&rsquo;s body, and each of you is a part of it.&rdquo;</p>
+                    <p class="step-ref">1 Corinthians 12:27 NLT</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-4">
+                <div class="step-card">
+                    <div class="step-num">04</div>
+                    <h3>Make a Difference</h3>
+                    <p class="step-anchor">&ldquo;&hellip;grasp the immensity of this glorious way of life He has for His followers.&rdquo;</p>
+                    <p class="step-verse">&ldquo;This is to my Father&rsquo;s glory, that you bear much fruit&hellip; that my joy may be in you, and that your joy may be complete.&rdquo;</p>
+                    <p class="step-ref" style="margin-bottom:.5rem;">John 15:8, 11</p>
+                    <p class="step-verse">&ldquo;God has given gifts to each of you&hellip; Use them well to serve one another.&rdquo;</p>
+                    <p class="step-ref">1 Peter 4:10 NLT</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SUNDAY SERVICE VALUES -->
 <section class="section">
     <div class="container">
         <div class="row g-5 align-items-start">
-            <!-- Mission -->
-            <div class="col-lg-5 reveal">
-                <p class="section-eyebrow">Mission</p>
-                <h2 class="section-headline">Why We Exist</h2>
+            <div class="col-lg-4 reveal">
+                <p class="section-eyebrow">Step 1 &mdash; Know God</p>
+                <h2 class="section-headline">Sunday Service<br>Values</h2>
                 <div class="divider-gold" style="margin-left:0;"></div>
-                <p class="body-text" style="margin-bottom: 1.5rem;">
-                    To preach the Gospel of the Kingdom — the rule and reign of Jesus Christ — and to make disciples who are transformed by it. We believe everybody is somebody, and we love people too much to leave them where they are. Every message, every service, every connection exists to see lives changed by the power of God.
-                </p>
-                <p class="body-text">
-                    We believe Matthew 6:33 is not just a verse to memorize — it is a way of life. We seek first His Kingdom, trusting that He provides everything else. Every service, every message, every connection is ordered around that one pursuit.
-                </p>
-                <blockquote style="margin: 2.5rem 0; padding-left: 1.5rem; border-left: 3px solid var(--gold);">
-                    <p style="font-family:'Lora',serif; font-style:italic; color:rgba(255,255,255,0.6); line-height:1.8; font-size:1rem; margin:0;">
-                        "But seek first the kingdom of God and his righteousness, and all these things will be added to you."
-                    </p>
-                    <footer style="font-family:'Raleway',sans-serif; font-size:0.68rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-top:0.75rem;">Matthew 6:33</footer>
-                </blockquote>
+                <p class="body-text">Our Sunday services are built around five intentional values. Every gathering exists to see these five things happen in your life &mdash; because we believe showing up to church should change you.</p>
             </div>
-
-            <!-- Values -->
-            <div class="col-lg-6 offset-lg-1 reveal reveal-delay-1">
-                <p class="section-eyebrow">Our Values</p>
-                <h2 class="section-headline">What Drives Us</h2>
-                <div class="divider-gold" style="margin-left:0;"></div>
-
+            <div class="col-lg-7 offset-lg-1 reveal reveal-delay-1">
                 <div class="value-row">
                     <div class="value-num">01</div>
                     <div class="value-content">
-                        <h4>The Word, Uncompromised</h4>
-                        <p>We hold the Bible as the inspired, infallible Word of God — the final authority for how we live, think, and lead. We preach it without apology, in every season.</p>
+                        <h4>Celebration</h4>
+                        <p>We believe church should be enjoyable and an environment of praise and expectation.</p>
+                        <span class="ref">&ldquo;I was glad when they said to me, &lsquo;Let us go into the house of the Lord.&rsquo;&rdquo; &mdash; Psalm 122:1</span>
                     </div>
                 </div>
                 <div class="value-row">
                     <div class="value-num">02</div>
                     <div class="value-content">
-                        <h4>Spirit-Led, Kingdom-Focused</h4>
-                        <p>We believe in a Spirit-filled life that reflects heaven on earth. We pursue the presence of God in every gathering, not just a program or performance.</p>
+                        <h4>Inspiration</h4>
+                        <p>We believe church is the place to encounter God&rsquo;s supernatural presence.</p>
+                        <span class="ref">&ldquo;Now the Lord is the Spirit; and where the Spirit of the Lord is, there is liberty.&rdquo; &mdash; 1 Corinthians 3:17</span>
                     </div>
                 </div>
                 <div class="value-row">
                     <div class="value-num">03</div>
                     <div class="value-content">
-                        <h4>Radical Hospitality</h4>
+                        <h4>Preparation</h4>
+                        <p>We believe church should be a place where people learn how the Bible applies to their daily lives.</p>
+                        <span class="ref">&ldquo;To equip His people for works of service, so that the body of Christ may be built up.&rdquo; &mdash; Ephesians 4:11&ndash;12</span>
                     </div>
                 </div>
                 <div class="value-row">
                     <div class="value-num">04</div>
                     <div class="value-content">
-                        <h4>Eternity in View</h4>
-                        <p>Everything we do is shaped by eternity. Our greatest goal is to make heaven our home — and to bring as many people with us as we possibly can.</p>
+                        <h4>Salvation</h4>
+                        <p>We believe church should be a place where people can accept Jesus as their Lord and Savior.</p>
+                        <span class="ref">&ldquo;Everyone who calls on the name of the Lord will be saved.&rdquo; &mdash; Romans 10:13</span>
+                    </div>
+                </div>
+                <div class="value-row">
+                    <div class="value-num">05</div>
+                    <div class="value-content">
+                        <h4>Demonstration</h4>
+                        <p>We believe church is the place to see God&rsquo;s Kingdom word and power demonstrated freely.</p>
+                        <span class="ref">&ldquo;&hellip;in demonstration of the Spirit and of power, that your faith should not be in the wisdom of men but in the power of God.&rdquo; &mdash; 1 Corinthians 2:4&ndash;5</span>
                     </div>
                 </div>
             </div>
@@ -706,18 +372,107 @@
     </div>
 </section>
 
-<!-- MEET THE TEAM -->
+<!-- THE EIGHT R'S -->
 <section class="section" style="background: var(--surface);">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 text-center reveal">
-                <p class="section-eyebrow">The People Behind N-Vizion</p>
-                <h2 class="section-headline">Meet the Team</h2>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+                <p class="section-eyebrow">Who We Are</p>
+                <h2 class="section-headline">The Eight R&rsquo;s<br>of N-Vizion</h2>
                 <div class="divider-gold"></div>
-                <p class="body-text" style="max-width:500px; margin:0 auto 2.5rem;">
-                    Real people, pursuing God together. Team bios coming soon — we'd love for you to get to know us in person first. Join us any Sunday.
-                </p>
-                <a href="newcomers.html" style="display:inline-block; font-family:'Raleway',sans-serif; font-size:0.72rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:#000; background:#c9a84c; padding:0.9rem 2.2rem; border-radius:2px; text-decoration:none;">I'm New — Connect with Us</a>
+                <p class="body-text" style="max-width:580px; margin:0 auto;">Eight values that define how we live, worship, love, and reach our world &mdash; because Everybody Is Somebody, and we take that seriously.</p>
+            </div>
+        </div>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-1">
+                <div class="r-card">
+                    <h3>Relationships</h3>
+
+                                        <div id="r-more-1" class="more-content">
+                    <p style="margin-top:.65rem;">We Love God and Love People. It is the foundation of who we are. Jesus is King and we worship with all our might. We break the spirit of religion and help real people encounter the life-changing presence of Almighty God.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-1">+ Read More</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-2">
+                <div class="r-card">
+                                        <h3>Revelation</h3>
+
+                                        <div id="r-more-2" class="more-content">
+                    <p style="margin-top:.65rem;">We Love His Word. It is a light to our path and a lamp to our feet. We honor the Word with active reverence and respect &mdash; and the Kingdom is our pursuit. We have an undying hunger to seek His Kingdom first.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-2">+ Read More</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-3">
+                <div class="r-card">
+                                        <h3>Relevance</h3>
+
+                                        <div id="r-more-3" class="more-content">
+                    <p style="margin-top:.65rem;">We won&rsquo;t marry our methods. We will marry the move of the Holy Spirit. Our faith is active &mdash; not just for the hereafter, but the here and now. Jesus came that we might have life and life more abundantly.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-3">+ Read More</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-4">
+                <div class="r-card">
+                                        <h3>Reality</h3>
+
+                                        <div id="r-more-4" class="more-content">
+                    <p style="margin-top:.65rem;">We won&rsquo;t limit God to history &mdash; we will see Him manifest His glory here and now. We expect the full manifestation of the Holy Spirit&rsquo;s presence and power. We live radical generosity, because He is worthy.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-4">+ Read More</button>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-1">
+                <div class="r-card">
+                                        <h3>Radical</h3>
+
+                                        <div id="r-more-5" class="more-content">
+                    <p style="margin-top:.65rem;">We will be and do things different from the usual and traditional ways. We are extremely passionate in our service to the Lord and lean in to God&rsquo;s ability to change our existing views, habits, and conditions for His purpose.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-5">+ Read More</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-2">
+                <div class="r-card">
+                                        <h3>Real</h3>
+
+                                        <div id="r-more-6" class="more-content">
+                    <p style="margin-top:.65rem;">We will live with substance, so our lives are what we claim them to be in all areas. The &ldquo;fake&rdquo; will break off our lives. We are authentic &mdash; genuine in our faith, our love, what we are for and what we are against.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-6">+ Read More</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-3">
+                <div class="r-card">
+                                        <h3>Reach</h3>
+
+                                        <div id="r-more-7" class="more-content">
+                    <p style="margin-top:.65rem;">We try hard to achieve or succeed at what we set out to accomplish. We will reach to advance the Kingdom &mdash; for the lost, for the straggler, for every area of success that God has for us. It is His will that we prosper.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-7">+ Read More</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 reveal reveal-delay-4">
+                <div class="r-card">
+                    <h3>Revive</h3>
+
+                                        <div id="r-more-8" class="more-content">
+                    <p style="margin-top:.65rem;">We will live with a burning passion and stay full of the Holy Spirit and His Word, allowing God to revive everyone and everything we come in contact with. We are committed to being active in our service to and for the Lord.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="r-more-8">+ Read More</button>
+                </div>
             </div>
         </div>
     </div>
@@ -747,11 +502,13 @@
 
 <!-- CTA -->
 <div class="new-cta">
-    <p class="section-eyebrow" style="margin-bottom:1rem;">Ready for What's Next?</p>
-    <h2 class="headline">We'd Love to<br>Meet You</h2>
-    <p class="sub">Join us any Sunday at 11:00 AM. You don't need to have it all figured out — just come as you are. Everybody is somebody at N-Vizion, and we love you too much to leave you as you are.</p>
-    <a href="newcomers.html" class="btn-gold">I'm New — Connect with Us</a>
-    <a href="Prayer Request.html" class="btn-outline-gold">Submit a Prayer Request</a>
+    <p class="section-eyebrow" style="margin-bottom:1rem;">Ready for What&rsquo;s Next?</p>
+    <h2 class="headline">We&rsquo;d Love to<br>Meet You</h2>
+    <p class="sub">Join us any Sunday at 11:00 AM. You don&rsquo;t need to have it all figured out &mdash; just come as you are. Everybody is somebody at N-Vizion, and we love you too much to leave you as you are.</p>
+    <div class="cta-buttons">
+        <a href="newcomers.html" class="btn-gold">I&rsquo;m New &mdash; Connect with Us</a>
+        <a href="Prayer Request.html" class="btn-outline-gold">Submit a Prayer Request</a>
+    </div>
 </div>
 
 <!-- FOOTER -->
@@ -764,7 +521,7 @@
             <li><a href="Media.html">Messages</a></li>
             <li><a href="Prayer Request.html">Prayer</a></li>
             <li><a href="Give.html">Give</a></li>
-            <li><a href="newcomers.html">I'm New</a></li>
+            <li><a href="newcomers.html">I&rsquo;m New</a></li>
         </ul>
         <div class="footer-address">
             <p>180 Churchill Drive &bull; Sparta, TN 38583</p>
@@ -774,27 +531,25 @@
 </footer>
 
 <script>
-    // Nav scroll effect
     const nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-
-    // Mobile menu toggle
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('mobileMenu');
     toggle.addEventListener('click', () => menu.classList.toggle('open'));
-
-    // Parallax hero
     const heroBg = document.getElementById('heroBg');
-    window.addEventListener('scroll', () => {
-        if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-    }, { passive: true });
-
-    // Scroll reveal
+    window.addEventListener('scroll', () => { if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`; }, { passive: true });
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
+
+    // Read More toggles
+    document.querySelectorAll('.read-more-btn').forEach(function(btn){
+        btn.addEventListener('click', function(){
+            var t = document.getElementById(btn.dataset.target);
+            var open = t.classList.toggle('open');
+            btn.textContent = open ? '— Read Less' : '+ Read More';
+        });
+    });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 

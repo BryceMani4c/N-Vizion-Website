@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="New to N-Vizion Church? We'd love to connect with you before your first Sunday." />
+    <meta name="description" content="New to N-Vizion Church? Get planted, go all in, and be a witness. Sparta, TN — Where Everybody Is Somebody." />
     <title>I'm New — N-Vizion Church</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Raleway:wght@300;400;600;700;800;900&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -17,6 +17,7 @@
     .reveal.delay-1 { transition-delay: 0.12s; }
     .reveal.delay-2 { transition-delay: 0.24s; }
     .reveal.delay-3 { transition-delay: 0.38s; }
+    .reveal.delay-4 { transition-delay: 0.52s; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* NAV */
@@ -46,7 +47,6 @@
         background: #000; text-align: center;
         border-bottom: 1px solid rgba(201,168,76,0.12);
     }
-    .page-hero .hero-logo { width: min(180px, 42vw); height: auto; margin: 0 auto 1.75rem; display: block; }
     .eyebrow {
         font-weight: 800; font-size: 0.62rem; letter-spacing: 0.28em;
         text-transform: uppercase; color: #c9a84c; margin-bottom: 0.65rem;
@@ -64,26 +64,39 @@
         max-width: 520px; margin: 0 auto; line-height: 1.85;
     }
 
-    /* WHAT TO EXPECT */
-    .expect-section { background: #080808; padding: 6rem 2rem; }
-    .expect-card {
-        padding: 2rem; border-left: 2px solid rgba(201,168,76,0.25);
-        transition: border-color 0.3s;
-    }
-    .expect-card:hover { border-left-color: #c9a84c; }
-    .expect-num {
-        font-family: 'Oswald', sans-serif; font-weight: 700;
-        font-size: 2.5rem; color: rgba(201,168,76,0.15); line-height: 1;
-    }
-    .expect-title {
-        font-family: 'Oswald', sans-serif; font-weight: 600;
-        font-size: 1.15rem; text-transform: uppercase; color: #fff;
-        margin-bottom: 0.65rem;
-    }
-    .expect-body {
-        font-family: 'Lora', serif; font-size: 0.9rem;
-        color: rgba(255,255,255,0.45); line-height: 1.8;
-    }
+    /* SECTION HEADINGS */
+    .sec-eyebrow { font-weight: 800; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: #c9a84c; margin-bottom: 0.65rem; }
+    .sec-headline { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(2rem,5vw,3.5rem); text-transform: uppercase; color: #fff; line-height: 1; margin-bottom: 1.25rem; }
+    .divider-gold { width: 50px; height: 2px; background: #c9a84c; margin: 1.25rem 0; }
+
+    /* SCRIPTURE BLOCK */
+    .scripture-block { margin: 1.25rem 0; padding: 1rem 1.4rem; border-left: 3px solid #c9a84c; background: rgba(201,168,76,0.04); }
+    .scripture-block p { font-family: 'Lora', serif; font-style: italic; font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.85; margin: 0 0 0.35rem; }
+    .scripture-block footer { font-family: 'Raleway', sans-serif; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: #c9a84c; }
+
+    /* BEING PLANTED */
+    .planted-section { background: #080808; padding: 6rem 2rem; }
+    .planted-body { font-family: 'Lora', serif; font-size: 1rem; color: rgba(255,255,255,0.62); line-height: 1.95; margin-bottom: 1.2rem; }
+    .planted-highlight { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #fff; }
+    .planted-em { color: #c9a84c; }
+
+    /* GO ALL IN */
+    .allin-section { background: #000; padding: 6rem 2rem; }
+    .allin-card { background: #0e0e0e; border: 1px solid rgba(201,168,76,0.15); border-radius: 3px; padding: 2.2rem 2rem; height: 100%; transition: border-color 0.25s; }
+    .allin-card:hover { border-color: rgba(201,168,76,0.45); }
+    .allin-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.15rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #c9a84c; margin-bottom: 1.1rem; }
+    .allin-point { font-family: 'Lora', serif; font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 0.5rem; padding-left: 1rem; border-left: 2px solid rgba(201,168,76,0.2); }
+    .allin-verse { font-family: 'Lora', serif; font-style: italic; font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.7; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .allin-ref { font-family: 'Raleway', sans-serif; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; color: #c9a84c; }
+
+    /* BE A WITNESS */
+    .witness-section { background: #080808; padding: 6rem 2rem; }
+    .witness-num { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700; color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 0.5rem; }
+    .witness-card { padding: 2rem 1.75rem; border: 1px solid rgba(201,168,76,0.1); border-radius: 3px; background: #0a0a0a; height: 100%; transition: border-color 0.25s; }
+    .witness-card:hover { border-color: rgba(201,168,76,0.4); }
+    .witness-card h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; margin-bottom: 0.5rem; }
+    .witness-card h4 span { color: #c9a84c; }
+    .witness-card p { font-family: 'Lora', serif; font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin: 0; }
 
     /* SERVICE BAND */
     .service-band {
@@ -103,58 +116,43 @@
 
     /* CONNECT FORM */
     .connect-form-section { background: #080808; padding: 6rem 2rem; }
-    .form-wrap {
-        background: #0e0e0e; border: 1px solid rgba(201,168,76,0.15);
-        padding: 3rem 2.5rem; max-width: 620px; margin: 0 auto;
-    }
-    .form-label {
-        font-weight: 800; font-size: 0.62rem; letter-spacing: 0.18em;
-        text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem;
-        display: block;
-    }
-    .form-control-dark {
-        width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.1);
-        color: #fff; font-family: 'Lora', serif; font-size: 0.95rem;
-        padding: 0.8rem 1rem; margin-bottom: 1.25rem; outline: none;
-        transition: border-color 0.2s;
-    }
+    .form-wrap { background: #0e0e0e; border: 1px solid rgba(201,168,76,0.15); padding: 3rem 2.5rem; max-width: 620px; margin: 0 auto; }
+    .form-label { font-weight: 800; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem; display: block; }
+    .form-control-dark { width: 100%; background: #000; border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: 'Lora', serif; font-size: 0.95rem; padding: 0.8rem 1rem; margin-bottom: 1.25rem; outline: none; transition: border-color 0.2s; }
     .form-control-dark:focus { border-color: #c9a84c; }
     .form-control-dark::placeholder { color: rgba(255,255,255,0.2); }
     textarea.form-control-dark { resize: vertical; min-height: 100px; }
-    .btn-submit {
-        width: 100%; font-family: 'Raleway', sans-serif; font-weight: 800;
-        font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
-        color: #000; background: #c9a84c; border: none; padding: 1rem;
-        cursor: pointer; transition: background 0.2s, transform 0.15s;
-        margin-top: 0.5rem;
-    }
+    .btn-submit { width: 100%; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #000; background: #c9a84c; border: none; padding: 1rem; cursor: pointer; transition: background 0.2s, transform 0.15s; margin-top: 0.5rem; }
     .btn-submit:hover { background: #e8c86a; transform: translateY(-2px); }
-    .form-note {
-        font-family: 'Lora', serif; font-style: italic;
-        font-size: 0.8rem; color: rgba(255,255,255,0.25);
-        text-align: center; margin-top: 1rem; line-height: 1.6;
-    }
 
     /* FOOTER */
-    .site-footer {
-        background: #000; border-top: 1px solid rgba(201,168,76,0.1);
-        padding: 4rem 2rem 2.5rem; text-align: center;
-    }
-    .site-footer .footer-logo { width: min(180px, 48%); height: auto; margin: 0 auto 2rem; display: block; opacity: 0.75; }
+    .site-footer { background: #000; border-top: 1px solid rgba(201,168,76,0.1); padding: 4rem 2rem 2.5rem; text-align: center; }
     .site-footer .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.5rem; margin-bottom: 1.5rem; }
     .site-footer .footer-nav a { font-weight: 800; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.2s; }
     .site-footer .footer-nav a:hover { color: #c9a84c; }
     .site-footer .footer-address { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 0.35rem; }
     .site-footer .footer-copy { font-size: 0.6rem; color: rgba(255,255,255,0.12); letter-spacing: 0.1em; }
-    </style>
+
+    /* READ MORE TOGGLE */
+    .more-content { display: none; }
+    .more-content.open { display: block; }
+    .read-more-btn {
+        display: inline-block; background: none;
+        border: 1px solid rgba(201,168,76,0.3); border-radius: 2px;
+        padding: 0.3rem 0.85rem; margin-top: 0.8rem;
+        font-family: 'Raleway', sans-serif; font-weight: 800;
+        font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase;
+        color: #c9a84c; cursor: pointer; transition: border-color 0.2s, color 0.2s;
+    }
+    .read-more-btn:hover { border-color: #c9a84c; color: #e8c86a; }
+        </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
     <div class="container-fluid px-3 px-lg-4">
-        <a class="navbar-brand p-0" href="index.html">
-            </a>
+        <a class="navbar-brand p-0" href="index.html"></a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -174,47 +172,187 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-    <p class="eyebrow reveal delay-1">Welcome</p>
-    <h1 class="page-title reveal delay-2">We've Been<br><em>Expecting You</em></h1>
-    <p class="page-sub reveal delay-3">N-Vizion Church is a place where everybody is somebody. Here's everything you need to know before your first Sunday.</p>
+    <p class="eyebrow reveal delay-1">Welcome to N-Vizion Church</p>
+    <h1 class="page-title reveal delay-2">Where Everybody<br><em>Is Somebody</em></h1>
+    <p class="page-sub reveal delay-3">We&rsquo;re so glad you&rsquo;re here. This is where your journey begins &mdash; get planted, go all in, and watch God do what only He can do.</p>
 </div>
 
-<!-- WHAT TO EXPECT -->
-<section class="expect-section">
+<!-- BEING PLANTED -->
+<section class="planted-section">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col reveal">
-                <p class="eyebrow">Before You Arrive</p>
-                <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;color:#fff;line-height:1;">What to <span style="color:#c9a84c;">Expect</span></h2>
+        <div class="row g-5 align-items-start">
+            <div class="col-lg-5 reveal">
+                <p class="sec-eyebrow">Let&rsquo;s Review</p>
+                <h2 class="sec-headline">Being<br>Planted</h2>
+                <div class="divider-gold"></div>
+                <div class="scripture-block">
+                    <p>&ldquo;Those who are planted in the house of the Lord shall flourish in the courts of our God.&rdquo;</p>
+                    <footer>Psalm 92:13</footer>
+                </div>
+                <p class="planted-body">Your potential and purpose start off in seed-form. <span class="planted-em planted-highlight">Start with what you have &mdash; take just the next step.</span> Build roots and cultivate your potential by being a part of our N-Vizion Church family.</p>
+
+                                <div id="planted-more" class="more-content">
+                <p class="planted-body" style="margin-top:1rem;">Being planted means to take root. A seed turns into harvest when it remains in the environment that nurtures its growth. We believe as you grow roots here at N-Vizion, that you will begin to flourish in every area of your life.</p>
+                <p class="planted-body"><strong style="color:#fff;">We want to see you thriving in your personal life, in your calling, and in your relationships.</strong></p>
+                </div>
+
+                <button class="read-more-btn" data-target="planted-more">+ Read More</button>
+            </div>
+            <div class="col-lg-6 offset-lg-1 reveal delay-1">
+                <h3 style="font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:1.5rem;">A healthy church is a healthy body.</h3>
+
+                                <div id="body-more" class="more-content">
+                <p class="planted-body" style="margin-top:1rem;">All of us were created by God to make a difference in the life of another person. God has a place for you where your unique abilities and passions can touch the lives of others. We believe that your life will never make sense until you find, develop, and fulfill that purpose.</p>
+                <div class="scripture-block">
+                    <p>&ldquo;For we are God&rsquo;s workmanship, created in Christ Jesus to do good works, which God prepared in advance for us to do.&rdquo;</p>
+                    <footer>Ephesians 2:10</footer>
+                </div>
+
+                <button class="read-more-btn" data-target="body-more">+ Read More</button>
+                <div class="scripture-block">
+                    <p>&ldquo;However, I consider my life worth nothing to me, if only I may finish the race and complete the task the Lord Jesus has given me.&rdquo;</p>
+                    <footer>Acts 20:24</footer>
+                </div>
+                <div class="scripture-block">
+                    <p>&ldquo;Now God gives us many kinds of special abilities&hellip; and there are different kinds of service to God (ministry)&hellip; All of you together are the one Body of Christ and each of you is a separate and necessary part of it.&rdquo;</p>
+                    <footer>1 Corinthians 12:4&ndash;5, 27</footer>
+                </div>
+                <p style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#c9a84c;margin-top:1.5rem;">At N-Vizion Church: Every person ministers in a special way. Every task is important. Every person is a &ldquo;10&rdquo; in some area.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GO ALL IN -->
+<section class="allin-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+                <p class="sec-eyebrow">The Next Step</p>
+                <h2 class="sec-headline">Go &ldquo;All In&rdquo;<br>at N-Vizion Church</h2>
+                <div class="divider-gold" style="margin:1.25rem auto;"></div>
+                <p style="font-family:'Lora',serif;font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.9;max-width:580px;margin:0 auto;">No one has arrived or mastered the places God has called us to. We are all on a journey. We aren&rsquo;t perfect people &mdash; we are just people in pursuit of being our best in building life together according to God&rsquo;s plan.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-4 reveal delay-1">
+                <div class="allin-card">
+                    <h3>Love | Honor | Trust</h3>
+                    <p class="allin-point">Acting in love toward other members.</p>
+                    <p class="allin-point">Choosing to honor those I serve with, and who I am connected to.</p>
+                    <p class="allin-point">Following the leaders and team we have been gifted with.</p>
+
+                                        <div id="allin-more-1" class="more-content">
+                    <div class="allin-verse" style="margin-top:.85rem;">
+                        <p>&ldquo;So let us concentrate on the things which make for harmony and on the growth of our fellowship together.&rdquo; <span class="allin-ref">Romans 14:19 PH</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;Have a sincere love for other believers, love one another earnestly with all your heart.&rdquo; <span class="allin-ref">1 Peter 1:22 GNT</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;Have confidence in your leaders and submit to their authority, because they keep watch over you as those who must give an account.&rdquo; <span class="allin-ref">Hebrews 13:17</span></p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="allin-more-1">+ Read More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-lg-4 reveal delay-2">
+                <div class="allin-card">
+                    <h3>Pray | Invite | Give</h3>
+                    <p class="allin-point">Pray for N-Vizion&rsquo;s health and growth.</p>
+                    <p class="allin-point">Inviting my family and friends to attend.</p>
+                    <p class="allin-point">We, as a collective, sow our time, energy, finances, and resources to build God&rsquo;s house and advance the Kingdom.</p>
+
+                                        <div id="allin-more-2" class="more-content">
+                    <div class="allin-verse" style="margin-top:.85rem;">
+                        <p>&ldquo;To the church&hellip; we always thank God for all of you and continually mention you in our prayers.&rdquo; <span class="allin-ref">1 Thessalonians 1:1&ndash;2</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;So, warmly welcome each other into the church, just as Christ has warmly welcomed you; then God will be glorified.&rdquo; <span class="allin-ref">Romans 15:7 TLB</span></p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="allin-more-2">+ Read More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-lg-4 reveal delay-3">
+                <div class="allin-card">
+                    <h3>Discover | Develop | Deploy</h3>
+                    <p class="allin-point">Discovering my gifts and talents.</p>
+                    <p class="allin-point">Developing a heart to serve.</p>
+                    <p class="allin-point">Using my God-given gifts to make a difference.</p>
+
+                                        <div id="allin-more-3" class="more-content">
+                    <div class="allin-verse" style="margin-top:.85rem;">
+                        <p>&ldquo;Serve one another with the particular gifts God has given each of you.&rdquo; <span class="allin-ref">1 Peter 4:10 PH</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;Let each of you look out not only for his own interests, but also for the interests of others. Let this mind be in you which was also in Christ Jesus&hellip; taking the form of a bondservant.&rdquo; <span class="allin-ref">Philippians 2:4&ndash;5, 7 NKJV</span></p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="allin-more-3">+ Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BE A WITNESS -->
+<section class="witness-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+                <p class="sec-eyebrow">Our Primary Purpose</p>
+                <h2 class="sec-headline">Be a Witness</h2>
+                <div class="divider-gold" style="margin:1.25rem auto;"></div>
+                <p style="font-family:'Lora',serif;font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.9;max-width:540px;margin:0 auto;">One of our primary purposes is to reach people far from God. Every one of us can do our part by following these four principles to win people to Christ.</p>
             </div>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-3 reveal delay-1">
-                <div class="expect-card">
-                    <div class="expect-num">01</div>
-                    <div class="expect-title">Warm Welcome</div>
-                    <p class="expect-body">Our team will meet you at the door. We want to know your name and make sure you feel at home from the moment you walk in.</p>
+                <div class="witness-card">
+                    <div class="witness-num">01</div>
+                    <h4>Personal <span>Responsibility</span></h4>
+
+                                        <div id="witness-more-1" class="more-content">
+                    <p style="margin-top:.65rem;">Accept that it is your role &mdash; not someone else&rsquo;s &mdash; to reach the people God has placed in your life. The harvest is ready; the laborers are needed.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="witness-more-1">+ Read More</button>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 reveal delay-2">
-                <div class="expect-card">
-                    <div class="expect-num">02</div>
-                    <div class="expect-title">Powerful Worship</div>
-                    <p class="expect-body">Spirit-filled, passionate worship that draws you into God's presence. Come ready to experience something real.</p>
+                <div class="witness-card">
+                    <div class="witness-num">02</div>
+                    <h4>Personal <span>Relationship</span></h4>
+
+                                        <div id="witness-more-2" class="more-content">
+                    <p style="margin-top:.65rem;">Build a genuine connection with people before you preach at them. Love people where they are. Relationship is the bridge the Gospel walks across.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="witness-more-2">+ Read More</button>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 reveal delay-3">
-                <div class="expect-card">
-                    <div class="expect-num">03</div>
-                    <div class="expect-title">Word-Based Message</div>
-                    <p class="expect-body">Every message is anchored in Scripture and built to apply to your real life, right now. No fluff — just the Kingdom.</p>
+                <div class="witness-card">
+                    <div class="witness-num">03</div>
+                    <h4>Personal <span>Story</span></h4>
+
+                                        <div id="witness-more-3" class="more-content">
+                    <p style="margin-top:.65rem;">Share your personal testimony. Nobody can argue with what God has done in your own life. Your story is your most powerful tool &mdash; use it freely.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="witness-more-3">+ Read More</button>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 reveal delay-3">
-                <div class="expect-card">
-                    <div class="expect-num">04</div>
-                    <div class="expect-title">Come As You Are</div>
-                    <p class="expect-body">Dress comfortably. There's no dress code. We care about your heart, not your outfit. Just show up — we'll handle the rest.</p>
+            <div class="col-md-6 col-lg-3 reveal delay-4">
+                <div class="witness-card">
+                    <div class="witness-num">04</div>
+                    <h4>Personal <span>Invitation</span></h4>
+
+                                        <div id="witness-more-4" class="more-content">
+                    <p style="margin-top:.65rem;">Give a personal invitation to join you here at N-Vizion. Warmly welcome people in. This is where Everybody Is Somebody &mdash; let&rsquo;s fill these seats together.</p>
+                    </div>
+
+                    <button class="read-more-btn" data-target="witness-more-4">+ Read More</button>
                 </div>
             </div>
         </div>
@@ -235,7 +373,6 @@
                 <div class="s-value">180 Churchill Drive</div>
                 <div class="s-sub">Sparta, TN 38583</div>
             </div>
-            
         </div>
     </div>
 </div>
@@ -245,14 +382,13 @@
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-auto text-center reveal">
-                <p class="eyebrow">Let's Connect</p>
+                <p class="eyebrow">Let&rsquo;s Connect</p>
                 <h2 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,4rem);text-transform:uppercase;color:#fff;line-height:1;">Have Our Team<br><span style="color:#c9a84c;">Reach Out</span></h2>
             </div>
         </div>
         <div class="reveal delay-1">
             <div class="form-wrap" style="max-width:660px; margin:0 auto;">
                 <form id="connectForm" novalidate>
-
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem 1.5rem; margin-bottom:1.25rem;">
                         <div>
                             <label class="form-label">First Name <span style="color:#c9a84c;">*</span></label>
@@ -271,23 +407,19 @@
                             <input type="email" name="entry.1954846084" class="form-control-dark" placeholder="your@email.com" required />
                         </div>
                     </div>
-
                     <div style="margin-bottom:1.75rem;">
-                        <label class="form-label">Anything you'd like us to know?</label>
-                        <textarea name="entry.251927341" class="form-control-dark" rows="4" placeholder="Questions, prayer needs, how we can best connect with you…"></textarea>
+                        <label class="form-label">Anything you&rsquo;d like us to know?</label>
+                        <textarea name="entry.251927341" class="form-control-dark" rows="4" placeholder="Questions, prayer needs, how we can best connect with you&hellip;"></textarea>
                     </div>
-
                     <button type="submit" class="btn-submit" id="submitBtn">Have Our Team Reach Out</button>
-
                     <div id="formSuccess" style="display:none; margin-top:1.5rem; padding:1.25rem 1.5rem; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:3px; text-align:center;">
                         <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:#c9a84c; margin:0 0 0.4rem;">We Got It</p>
-                        <p style="font-family:'Lora',serif; font-size:0.95rem; color:rgba(255,255,255,0.6); margin:0;">Our team will be in touch soon. You are welcome here — we mean that.</p>
+                        <p style="font-family:'Lora',serif; font-size:0.95rem; color:rgba(255,255,255,0.6); margin:0;">Our team will be in touch soon. You are welcome here &mdash; we mean that.</p>
                     </div>
                     <div id="formError" style="display:none; margin-top:1.5rem; padding:1rem 1.5rem; background:rgba(180,50,50,0.1); border:1px solid rgba(180,50,50,0.3); border-radius:3px; text-align:center;">
-                        <p style="font-family:'Lora',serif; font-size:0.9rem; color:rgba(255,255,255,0.5); margin:0;">Something went wrong — please try again or reach out on Facebook.</p>
+                        <p style="font-family:'Lora',serif; font-size:0.9rem; color:rgba(255,255,255,0.5); margin:0;">Something went wrong &mdash; please try again or reach out on Facebook.</p>
                     </div>
                 </form>
-
                 <script>
                 (function(){
                     var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSflaJqsZTmb2iZB8PrBRa677NUcZP3jJydGKQdTwpDjizHqKg/formResponse';
@@ -296,7 +428,6 @@
                         var btn = document.getElementById('submitBtn');
                         btn.disabled = true;
                         btn.textContent = 'Sending…';
-
                         var data = new FormData(this);
                         fetch(FORM_URL, { method:'POST', body:data, mode:'no-cors' })
                             .then(function(){
@@ -312,9 +443,9 @@
                 })();
                 </script>
             </div>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -323,7 +454,7 @@
         <a href="about.html">About</a>
         <a href="Events.html">Events</a>
         <a href="Media.html">Messages</a>
-        <a href="newcomers.html">I'm New</a>
+        <a href="newcomers.html">I&rsquo;m New</a>
         <a href="Prayer Request.html">Prayer</a>
         <a href="Give.html">Give</a>
     </div>
@@ -332,6 +463,16 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.querySelectorAll('.read-more-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+        var t = document.getElementById(btn.dataset.target);
+        var open = t.classList.toggle('open');
+        btn.textContent = open ? '— Read Less' : '+ Read More';
+    });
+});
+</script>
+
 <script>
 const revEls = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver(entries => {
