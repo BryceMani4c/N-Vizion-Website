@@ -38,43 +38,24 @@
     .reveal-right { opacity: 0; transform: translateX(48px);  transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
     .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translate(0); }
 
-    /* ─────────────────────────────────────────
-       NAV
-    ───────────────────────────────────────── */
-    #mainNav {
-        position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-        background: rgba(0,0,0,0.92);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(201,168,76,0.12);
-        padding: 0.6rem 0;
-        transition: background 0.3s;
-    }
-    .nav-logo { height: 50px; width: auto; display: block; }
-    #mainNav .nav-link {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 800;
-        font-size: 0.65rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.62) !important;
-        padding: 0.35rem 0.7rem;
-        transition: color 0.2s;
-    }
-    #mainNav .nav-link:hover, #mainNav .nav-item.active .nav-link { color: #c9a84c !important; }
-    .btn-nav-new {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 800;
-        font-size: 0.62rem;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: #000 !important;
-        background: #c9a84c;
-        border: none;
-        padding: 0.45rem 1.1rem;
-        transition: background 0.2s;
-        white-space: nowrap;
-    }
-    .btn-nav-new:hover { background: #e8c86a; color: #000 !important; }
+    /* ─── NAV ─── */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(0,0,0,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.13); padding: 0.8rem 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav-logo-wrap a { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo { height: 44px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-family: 'Raleway', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-cta { font-family: 'Raleway', sans-serif !important; font-size: 0.65rem !important; font-weight: 800 !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: #000 !important; background: #c9a84c !important; padding: 0.5rem 1.2rem !important; border-radius: 2px !important; text-decoration: none !important; }
+    .nav-cta:hover { background: #e8c86a !important; color: #000 !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 1px; }
+    .mobile-menu { display: none; flex-direction: column; background: rgba(0,0,0,0.97); padding: 1.5rem 1.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu .nav-cta { margin-top: 1rem; text-align: center; border-bottom: none !important; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
 
     /* ─────────────────────────────────────────
        HERO  — full-viewport parallax
@@ -437,24 +418,34 @@
 <body>
 
 <!-- ─── NAV ─── -->
-<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
-    <div class="container-fluid px-3 px-lg-4">
-        <a class="navbar-brand p-0" href="index.html">
+<nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+        <div class="nav-logo-wrap">
+            <a href="index.html">
+                <img src="assets/img/logo-gold.png" alt="N-Vizion Church" class="nav-logo" />
             </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav align-items-lg-center gap-lg-1 me-lg-3">
-                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
-                <li class="nav-item"><a class="nav-link" href="Media.html">Messages</a></li>
-                <li class="nav-item"><a class="nav-link" href="Prayer Request.html">Prayer</a></li>
-                <li class="nav-item"><a class="nav-link" href="Give.html">Give</a></li>
-            </ul>
-            <a class="btn-nav-new ms-lg-2 mt-2 mt-lg-0" href="newcomers.html">I'm New</a>
         </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="Media.html">Messages</a></li>
+            <li><a href="Prayer Request.html">Prayer</a></li>
+            <li><a href="Give.html">Give</a></li>
+            <li><a href="newcomers.html" class="nav-cta">I'm New</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="Events.html">Events</a>
+        <a href="Media.html">Messages</a>
+        <a href="Prayer Request.html">Prayer</a>
+        <a href="Give.html">Give</a>
+        <a href="newcomers.html" class="nav-cta">I'm New</a>
     </div>
 </nav>
 
@@ -514,11 +505,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
-            <div class="col-12 text-center reveal delay-4">
-                <a class="btn-gold" href="about.html">Meet the Team</a>
-            </div>
-        </div>
+
     </div>
 </section>
 
@@ -528,13 +515,18 @@
         <div class="row justify-content-center mb-5">
             <div class="col-auto text-center reveal">
                 <p class="eyebrow">Join Us</p>
-                <h2 class="section-title">We Meet<br><em>Every Sunday</em></h2>
+                <h2 class="section-title">We Meet<br><em>Every Week</em></h2>
             </div>
         </div>
         <div class="service-grid reveal delay-1">
             <div class="service-item">
                 <div class="s-label">Sunday Service</div>
                 <div class="s-value">11:00 AM</div>
+                <div class="s-sub">Central Time</div>
+            </div>
+            <div class="service-item">
+                <div class="s-label">Wednesday Service</div>
+                <div class="s-value">7:00 PM</div>
                 <div class="s-sub">Central Time</div>
             </div>
             <div class="service-item">
@@ -565,54 +557,14 @@
     </div>
 </section>
 
-<!-- ─── MESSAGES PREVIEW ─── -->
-<section class="messages-section">
-    <div class="container">
-        <div class="row align-items-end mb-5">
-            <div class="col reveal">
-                <p class="eyebrow">Recent Sermons</p>
-                <h2 class="section-title">Catch Up on<br><em>Messages</em></h2>
-            </div>
-            <div class="col-auto reveal delay-1">
-                <a class="btn-outline-gold" href="Media.html">View All</a>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-4 reveal delay-1">
-                <a class="message-card" href="Media.html">
-                    <svg class="mc-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17.5" stroke="#c9a84c" stroke-opacity=".3"/><path d="M14 12l12 6-12 6V12z" fill="#c9a84c"/></svg>
-                    <div class="mc-tag">Latest Message</div>
-                    <div class="mc-title">Kingdom First</div>
-                    <p class="mc-desc">What does it really mean to seek the Kingdom above everything else? A message on Matthew 6:33.</p>
-                </a>
-            </div>
-            <div class="col-md-4 reveal delay-2">
-                <a class="message-card" href="Media.html">
-                    <svg class="mc-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17.5" stroke="#c9a84c" stroke-opacity=".3"/><path d="M14 12l12 6-12 6V12z" fill="#c9a84c"/></svg>
-                    <div class="mc-tag">Series</div>
-                    <div class="mc-title">Uncompromised</div>
-                    <p class="mc-desc">A bold look at what it means to live without compromise in a world that demands it constantly.</p>
-                </a>
-            </div>
-            <div class="col-md-4 reveal delay-3">
-                <a class="message-card" href="https://www.youtube.com/@nvizionchurch" target="_blank" rel="noopener">
-                    <svg class="mc-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="17.5" stroke="#ff0000" stroke-opacity=".4"/><path d="M14 12l12 6-12 6V12z" fill="#ff0000"/></svg>
-                    <div class="mc-tag">YouTube</div>
-                    <div class="mc-title">Watch Live & On-Demand</div>
-                    <p class="mc-desc">Subscribe to @nvizionchurch on YouTube and never miss a message, service, or special event.</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- ─── EVENTS PREVIEW ─── -->
 <section class="events-section">
     <div class="container">
         <div class="row align-items-end mb-5">
             <div class="col reveal">
-                <p class="eyebrow">What's Coming</p>
-                <h2 class="section-title">Community<br><em>Events</em></h2>
+                <p class="eyebrow">Join Us</p>
+                <h2 class="section-title">Service<br><em>Times</em></h2>
             </div>
             <div class="col-auto reveal delay-1">
                 <a class="btn-outline-gold" href="Events.html">All Events</a>
@@ -623,21 +575,21 @@
                 <div class="event-row">
                     <div class="event-date-block">
                         <div class="edb-month">Sun</div>
-                        <div class="edb-day">Weekly</div>
+                        <div class="edb-day">11 AM</div>
                     </div>
                     <div class="event-info">
                         <div class="ei-title">Sunday Morning Service</div>
-                        <p class="ei-desc">Worship, Word, and community every Sunday at 11:00 AM — 180 Churchill Drive, Sparta, TN</p>
+                        <p class="ei-desc">Every Sunday at 11:00 AM &mdash; until God is done moving. 180 Churchill Drive, Sparta, TN</p>
                     </div>
                 </div>
                 <div class="event-row">
                     <div class="event-date-block">
-                        <div class="edb-month">Upcoming</div>
-                        <div class="edb-day">TBA</div>
+                        <div class="edb-month">Wed</div>
+                        <div class="edb-day">7 PM</div>
                     </div>
                     <div class="event-info">
-                        <div class="ei-title">Community Wide Events</div>
-                        <p class="ei-desc">Stay connected for special services, outreach events, and community gatherings throughout the year.</p>
+                        <div class="ei-title">Wednesday Night Service</div>
+                        <p class="ei-desc">Every Wednesday at 7:00 PM &mdash; until God is done moving. 180 Churchill Drive, Sparta, TN</p>
                     </div>
                 </div>
                 <div class="event-row">
@@ -647,9 +599,10 @@
                     </div>
                     <div class="event-info">
                         <div class="ei-title">Prayer Requests</div>
-                        <p class="ei-desc">Submit your prayer request any time — our team prays over every single one.</p>
+                        <p class="ei-desc">Submit your prayer request any time &mdash; our intercession team lifts every one by name.</p>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -673,14 +626,6 @@
         </div>
         <div class="row g-4 justify-content-center">
             <div class="col-md-3 col-sm-6 reveal delay-1">
-                <a class="connect-card" href="https://www.youtube.com/@nvizionchurch" target="_blank" rel="noopener">
-                    <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:#ff0000;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
-                    <div class="cc-label">YouTube</div>
-                    <div class="cc-title">@nvizionchurch</div>
-                    <p class="cc-desc">Watch messages and live services</p>
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6 reveal delay-2">
                 <a class="connect-card" href="https://www.facebook.com/profile.php?id=100090860762618&mibextid=ZbWKwL" target="_blank" rel="noopener">
                     <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:#1877f2;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
                     <div class="cc-label">Facebook</div>
@@ -688,7 +633,7 @@
                     <p class="cc-desc">Announcements &amp; community updates</p>
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6 reveal delay-3">
+            <div class="col-md-3 col-sm-6 reveal delay-2">
                 <a class="connect-card" href="Give.html">
                     <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:none;stroke:#c9a84c;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 21.5C12 21.5 3 16 3 9.5a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z"/></svg></span>
                     <div class="cc-label">Support</div>
@@ -696,7 +641,7 @@
                     <p class="cc-desc">Partner with the ministry and sow into the Kingdom</p>
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6 reveal delay-4">
+            <div class="col-md-3 col-sm-6 reveal delay-3">
                 <a class="connect-card" href="Prayer Request.html">
                     <span class="cc-icon"><svg viewBox="0 0 24 24" style="width:2rem;height:2rem;fill:none;stroke:#c9a84c;stroke-width:1.5;stroke-linecap:round;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
                     <div class="cc-label">Prayer</div>
@@ -783,6 +728,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+// ── Nav toggle ──
+(function(){
+    var nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('mobileMenu');
+    if(toggle && menu) toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+})();
+
 // ── Scroll reveal ──
 const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 const observer = new IntersectionObserver((entries) => {
@@ -810,5 +764,19 @@ document.querySelectorAll('.faq-item').forEach(item => {
     });
 });
 </script>
+
+        <script id="shared-nav-js">
+        (function(){
+            var nav = document.getElementById('siteNav');
+            window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+            var toggle = document.getElementById('navToggle');
+            var menu   = document.getElementById('mobileMenu');
+            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+            var observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+        })();
+        </script>
 </body>
 </html>

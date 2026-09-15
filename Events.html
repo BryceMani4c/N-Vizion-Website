@@ -230,7 +230,152 @@
         .footer-links a:hover { color: rgba(255,255,255,0.7); }
         .footer-address { font-family: 'Raleway', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.18); }
         .footer-address p { margin: 0.2rem 0; }
-    </style>
+    
+  /* ── No Upcoming Events Placeholder ── */
+  #no-events-placeholder {
+    display: none;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .service-invite-card {
+    background: #111;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 4px;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+  }
+  .service-invite-card .invite-label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #c9a84c;
+    margin-bottom: 1rem;
+  }
+  .service-invite-card h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .service-invite-card p {
+    font-family: 'Lora', serif;
+    color: #bbb;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .service-times-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+  .service-times-list li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    color: #c9a84c;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .service-times-list li:last-child { border-bottom: none; }
+  .service-times-list .time-detail {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 0.2rem;
+  }
+
+  /* ── Past Events Section ── */
+  #past-events-section {
+    display: none;
+    padding: 4rem 2rem 2rem;
+  }
+  #past-events-section .section-eyebrow {
+    text-align: center;
+  }
+  #past-events-section h2.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .past-event-card {
+    background: #111;
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 4px;
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    opacity: 0.8;
+  }
+  .past-event-card img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+    filter: grayscale(30%);
+  }
+  .past-event-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .past-event-info .past-badge {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.1);
+    color: #c9a84c;
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+  }
+  .past-event-info p {
+    font-family: 'Lora', serif;
+    font-size: 0.88rem;
+    color: #888;
+    line-height: 1.6;
+    margin: 0;
+  }
+  #past-events-toggle-wrap {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  #past-events-toggle {
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: #c9a84c;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  #past-events-toggle:hover {
+    background: rgba(201,168,76,0.1);
+  }
+
+</style>
 </head>
 <body>
 
@@ -258,9 +403,9 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="Events.html">Events</a>
+        <a href="Events.html" class="active">Events</a>
         <a href="Media.html">Messages</a>
-        <a href="Prayer Request.html">Prayer Request</a>
+        <a href="Prayer Request.html">Prayer</a>
         <a href="Give.html">Give</a>
         <a href="newcomers.html" class="nav-cta">I'm New</a>
     </div>
@@ -314,8 +459,39 @@
                 </p>
             </div>
         </div>
+      <div style="text-align:center; margin-top:2rem;">
+      <button onclick="document.getElementById('past-events-section').style.display='none'; document.getElementById('past-events-toggle-wrap').style.display='block';" style="background:transparent; border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.4); font-family:'Raleway',sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.6rem 1.5rem; cursor:pointer; border-radius:2px; transition:all 0.2s;">&#8593; Hide Past Events</button>
     </div>
+  </div>
 </section>
+
+<!-- NO UPCOMING EVENTS PLACEHOLDER -->
+<div id="no-events-placeholder">
+  <div class="service-invite-card reveal">
+    <p class="invite-label">&#9670; What's Coming Up</p>
+    <h2>Join Us This Week</h2>
+    <p>No special events are scheduled right now, but we gather faithfully every week. Come experience kingdom worship and community at N-Vizion Church.</p>
+    <a href="newcomers.html" style="display:inline-block; background:#c9a84c; color:#000; font-family:'Raleway',sans-serif; font-weight:800; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.8rem 2rem; text-decoration:none; border-radius:2px; margin-bottom:2rem;">I'm New &rarr;</a>
+    <p style="font-family:'Raleway',sans-serif; font-weight:800; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#c9a84c; margin:1.5rem 0 1rem;">Regular Gatherings</p>
+    <ul class="service-times-list">
+      <li>
+        Sunday Morning Service
+        <span class="time-detail">Every Sunday &bull; 11:00 AM &bull; 180 Churchill Drive, Sparta, TN</span>
+        <span class="time-detail" style="margin-top:0.5rem;">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=N-Vizion+Church+Sunday+Service&details=Join+us+every+Sunday+at+N-Vizion+Church.+180+Churchill+Drive,+Sparta,+TN&location=180+Churchill+Drive,+Sparta,+TN+38583&recur=RRULE:FREQ=WEEKLY;BYDAY=SU&dates=20260913T160000Z/20260913T180000Z" target="_blank" rel="noopener" style="display:inline-block; border:1px solid rgba(201,168,76,0.4); color:#c9a84c; font-family:'Raleway',sans-serif; font-weight:700; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.9rem; text-decoration:none; border-radius:2px; margin-top:0.4rem;">&#43; Add to Calendar</a>
+        </span>
+      </li>
+      <li>
+        Wednesday Night Service
+        <span class="time-detail">Every Wednesday &bull; 7:00 PM &bull; 180 Churchill Drive, Sparta, TN</span>
+        <span class="time-detail" style="margin-top:0.5rem;">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=N-Vizion+Church+Wednesday+Service&details=Join+us+every+Wednesday+evening+at+N-Vizion+Church.+180+Churchill+Drive,+Sparta,+TN&location=180+Churchill+Drive,+Sparta,+TN+38583&recur=RRULE:FREQ=WEEKLY;BYDAY=WE&dates=20260916T000000Z/20260916T020000Z" target="_blank" rel="noopener" style="display:inline-block; border:1px solid rgba(201,168,76,0.4); color:#c9a84c; font-family:'Raleway',sans-serif; font-weight:700; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.9rem; text-decoration:none; border-radius:2px; margin-top:0.4rem;">&#43; Add to Calendar</a>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+
 
 <!-- WEEKLY SERVICES -->
 <section class="section" style="padding-top: 3rem;">
@@ -328,22 +504,28 @@
 
                 <div class="weekly-event">
                     <div class="weekly-dot"></div>
-                    <div>
+                    <div style="flex:1; min-width:0;">
                         <div class="weekly-label">Every Sunday</div>
-                        <div class="weekly-name">Sunday Morning Service</div>
+                        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.4rem;">
+                            <div class="weekly-name" style="margin-bottom:0;">Sunday Morning Service</div>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sunday+Morning+Service+%E2%80%94+N-Vizion+Church&dates=20260913T110000/20260913T123000&recur=RRULE:FREQ%3DWEEKLY;BYDAY%3DSU&location=180+Churchill+Drive%2C+Sparta%2C+TN+38583&details=Join+us+every+Sunday+at+11+AM.+Everybody+is+somebody." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.3rem 0.85rem;background:transparent;border:1px solid rgba(201,168,76,0.55);color:#c9a84c;font-family:'Raleway',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s,color 0.2s;white-space:nowrap;flex-shrink:0;" onmouseover="this.style.background='#c9a84c';this.style.color='#000'" onmouseout="this.style.background='transparent';this.style.color='#c9a84c'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> + Add to Calendar</a>
+                        </div>
                         <div class="weekly-detail">11:00 AM &bull; 180 Churchill Drive, Sparta, TN &bull; All are welcome</div>
                     </div>
                 </div>
 
                 <div class="weekly-event">
-                    <div class="weekly-dot" style="background: rgba(201,168,76,0.35);"></div>
-                    <div>
-                        <div class="weekly-label" style="color: rgba(201,168,76,0.5);">Stay Connected</div>
-                        <div class="weekly-name" style="color: rgba(255,255,255,0.5);">More Services &mdash; Coming Soon</div>
-                        <div class="weekly-detail">Follow us on Facebook for announcements on midweek gatherings and special services.</div>
-                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sunday+Morning+Service+%E2%80%94+N-Vizion+Church&dates=20260913T110000/20260913T123000&recur=RRULE:FREQ%3DWEEKLY&location=180+Churchill+Drive%2C+Sparta%2C+TN+38583&details=Join+us+every+Sunday+at+11+AM.+Everybody+is+somebody." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1rem;padding:0.55rem 1.25rem;background:transparent;border:1px solid #c9a84c;color:#c9a84c;font-family:'Raleway',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='#c9a84c';this.style.color='#000'" onmouseout="this.style.background='transparent';this.style.color='#c9a84c'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Add to Calendar</a>
+                    <div class="weekly-dot"></div>
+                    <div style="flex:1; min-width:0;">
+                        <div class="weekly-label">Every Wednesday</div>
+                        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.4rem;">
+                            <div class="weekly-name" style="margin-bottom:0;">Wednesday Night Service</div>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wednesday+Night+Service+%E2%80%94+N-Vizion+Church&dates=20260916T000000Z/20260916T020000Z&recur=RRULE:FREQ%3DWEEKLY;BYDAY%3DWE&location=180+Churchill+Drive%2C+Sparta%2C+TN+38583&details=Join+us+every+Wednesday+at+7+PM.+Everybody+is+somebody." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.3rem 0.85rem;background:transparent;border:1px solid rgba(201,168,76,0.55);color:#c9a84c;font-family:'Raleway',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s,color 0.2s;white-space:nowrap;flex-shrink:0;" onmouseover="this.style.background='#c9a84c';this.style.color='#000'" onmouseout="this.style.background='transparent';this.style.color='#c9a84c'"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> + Add to Calendar</a>
+                        </div>
+                        <div class="weekly-detail">7:00 PM &bull; 180 Churchill Drive, Sparta, TN &bull; All are welcome</div>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-lg-4 reveal reveal-delay-1" style="margin-top: 2rem;">
@@ -360,6 +542,30 @@
             </div>
         </div>
     </div>
+</section>
+
+
+<!-- PAST EVENTS TOGGLE -->
+<div id="past-events-toggle-wrap" style="display:none;">
+  <button id="past-events-toggle" onclick="document.getElementById('past-events-section').style.display='block'; this.parentElement.style.display='none';">&#9670; View Past Events</button>
+</div>
+
+<!-- PAST EVENTS SECTION -->
+<section id="past-events-section">
+  <div class="container">
+    <p class="section-eyebrow">Already Happened</p>
+    <h2 class="section-title" style="font-family:'Oswald',sans-serif; font-weight:700; text-transform:uppercase; font-size:clamp(1.6rem,4vw,2.2rem); color:#fff; margin-bottom:2rem;">Past Events</h2>
+    <!-- Dr. D.L. Brown event (Sep 13, 2026) -->
+    <div class="past-event-card reveal">
+      <img src="assets/img/event-dl-brown.jpg" alt="Dr. D.L. Brown" />
+      <div class="past-event-info">
+        <span class="past-badge">&#9670; Already Happened</span>
+        <h3>Dr. D.L. Brown</h3>
+        <p>Sunday, September 13, 2026 &bull; 11:00 AM<br>180 Churchill Drive, Sparta, TN</p>
+        <p style="margin-top:0.5rem; font-style:italic;">We were blessed to host Dr. D.L. Brown for a powerful Sunday morning service.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -381,28 +587,45 @@
     </div>
 </footer>
 
-<script>
-    const nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('mobileMenu');
-    toggle.addEventListener('click', () => menu.classList.toggle('open'));
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
 
 <script>
 // ── Auto-hide past events (24 hrs after event time) ──
-document.querySelectorAll('.event-card-section[data-event-date]').forEach(function(section) {
+(function() {
+  var sections = document.querySelectorAll('.event-card-section[data-event-date]');
+  var hiddenCount = 0;
+  sections.forEach(function(section) {
     var eventDate = new Date(section.getAttribute('data-event-date'));
     var hideAfter = new Date(eventDate.getTime() + 24 * 60 * 60 * 1000); // +24 hours
     if (new Date() > hideAfter) {
-        section.style.display = 'none';
+      section.style.display = 'none';
+      hiddenCount++;
     }
-});
+  });
+  // If all events are past, show the no-upcoming-events placeholder
+  if (hiddenCount === sections.length) {
+    var placeholder = document.getElementById('no-events-placeholder');
+    if (placeholder) placeholder.style.display = 'block';
+  }
+  // Always show the past events toggle button (if any past events exist)
+  if (hiddenCount > 0) {
+    var toggleWrap = document.getElementById('past-events-toggle-wrap');
+    if (toggleWrap) toggleWrap.style.display = 'block';
+  }
+})();
 </script>
+
+        <script id="shared-nav-js">
+        (function(){
+            var nav = document.getElementById('siteNav');
+            window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+            var toggle = document.getElementById('navToggle');
+            var menu   = document.getElementById('mobileMenu');
+            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+            var observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+        })();
+        </script>
 </body>
 </html>

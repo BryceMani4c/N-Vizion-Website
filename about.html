@@ -106,7 +106,7 @@
         .value-content .ref { font-family:'Raleway',sans-serif; font-size:.62rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
 
         /* Eight R cards */
-        .r-card { background:var(--card); border:1px solid rgba(201,168,76,.12); border-radius:3px; padding:2rem 1.6rem; height:100%; transition:border-color .25s; }
+        .r-card { background:var(--card); border:1px solid rgba(201,168,76,.12); border-radius:3px; padding: 1.5rem 1.25rem; height: auto; transition:border-color .25s; }
         .r-card:hover { border-color:rgba(201,168,76,.4); }
         .r-card h3 { font-family:'Oswald',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--gold); margin-bottom:.75rem; }
         .r-card p { font-family:'Lora',serif; font-size:.88rem; color:var(--muted); line-height:1.8; margin:0; }
@@ -161,7 +161,9 @@
 <nav class="site-nav" id="siteNav">
     <div class="nav-inner">
         <div class="nav-logo-wrap">
-            <a href="index.html"></a>
+            <a href="index.html">
+                <img src="assets/img/logo-gold.png" alt="N-Vizion Church" class="nav-logo" />
+            </a>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -178,10 +180,10 @@
     </div>
     <div class="mobile-menu" id="mobileMenu">
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="about.html" class="active">About</a>
         <a href="Events.html">Events</a>
         <a href="Media.html">Messages</a>
-        <a href="Prayer Request.html">Prayer Request</a>
+        <a href="Prayer Request.html">Prayer</a>
         <a href="Give.html">Give</a>
         <a href="newcomers.html" class="nav-cta">I'm New</a>
     </div>
@@ -218,9 +220,9 @@
             <div class="col-lg-9 reveal reveal-delay-1">
                 <div class="history-card">
                     <p>After a life of destruction, drug addiction, crime, and prison gangs, Pastor Derek had a radical encounter with Jesus Christ of Nazareth in 2010 at a maximum-security prison. After having been in solitary confinement for over 2 years at the time Jesus spoke to him — and the radical transformation started. He was born again. Making a promise to God that if He allowed him to walk out of the most dangerous prison in Tennessee at that time, he would do everything he could for Him. God called him on that promise and reminds him of it from time to time.</p>
-                    <p>Pastor Derek's answer to the Call and being chosen to carry out God's will in the earth has led him to where he is today. This was the conception of N-Vizion Church. He got out of prison in 2013 following this Jesus that had changed his whole life. After relocating to a region and land he had never known, in trust that God would do what He said He would, it all began. After a year or so of friendship, prayer and persistence, a lady he had met while in ministry became his wife. May of 2016, Pastor Derek and Jody were married and began ministry together.</p>
 
-                                        <div id="history-more" class="more-content">
+                    <div id="history-more" class="more-content">
+                    <p>Pastor Derek's answer to the Call and being chosen to carry out God's will in the earth has led him to where he is today. This was the conception of N-Vizion Church. He got out of prison in 2013 following this Jesus that had changed his whole life. After relocating to a region and land he had never known, in trust that God would do what He said He would, it all began. After a year or so of friendship, prayer and persistence, a lady he had met while in ministry became his wife. May of 2016, Pastor Derek and Jody were married and began ministry together.</p>
                     <p>In 2020, when the world was shutting down and doubt and despair had gripped the people, Pastor Derek withdrew from a denominational ministry program to sit in his living room with Jody and 2 of their children &mdash; and little did they know, this would be the birth of what we know today as N-Vizion Church. God has placed on them the anointing to destroy the yoke of slavery to religion and traditions of man, to bring forth the Kingdom of our God and His Christ &mdash; the true revelation of what it&rsquo;s all about: relationship with the Father and His will in the earth.</p>
                     <p>Pastor Derek&rsquo;s heart is to see a body fully formed in Christ and walking in the fullness of the Godhead bodily, influencing every realm of governmental authority &mdash; sitting in the rightful seat that Jesus Christ of Nazareth has paid the price for us to sit. Today, if you have been called to us at N-Vizion Church, we are so honored. We make it our aim to do all we can to see you become all you can be for God &mdash; in life, here, now!</p>
                     <p>Jesus Christ of Nazareth is our King and Lord forever. We are anointed by His Holy Spirit, founded on the truth of His Holy Word, and led by the love of the Father that has been extended to us. Let&rsquo;s begin this journey of discovery together as we team up to be all we can be in Christ, and allow Him to be all He desires through us.</p>
@@ -321,7 +323,7 @@
     <div class="container">
         <div class="row g-5 align-items-start">
             <div class="col-lg-4 reveal">
-                <p class="section-eyebrow">Step 1 &mdash; Know God</p>
+                <p class="section-eyebrow">Know God</p>
                 <h2 class="section-headline">Sunday Service<br>Values</h2>
                 <div class="divider-gold" style="margin-left:0;"></div>
                 <p class="body-text">Our Sunday services are built around five intentional values. Every gathering exists to see these five things happen in your life &mdash; because we believe showing up to church should change you.</p>
@@ -530,28 +532,19 @@
     </div>
 </footer>
 
-<script>
-    const nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('mobileMenu');
-    toggle.addEventListener('click', () => menu.classList.toggle('open'));
-    const heroBg = document.getElementById('heroBg');
-    window.addEventListener('scroll', () => { if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`; }, { passive: true });
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.1 });
 
-    // Read More toggles
-    document.querySelectorAll('.read-more-btn').forEach(function(btn){
-        btn.addEventListener('click', function(){
-            var t = document.getElementById(btn.dataset.target);
-            var open = t.classList.toggle('open');
-            btn.textContent = open ? '— Read Less' : '+ Read More';
-        });
-    });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
+        <script id="shared-nav-js">
+        (function(){
+            var nav = document.getElementById('siteNav');
+            window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+            var toggle = document.getElementById('navToggle');
+            var menu   = document.getElementById('mobileMenu');
+            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+            var observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+        })();
+        </script>
 </body>
 </html>

@@ -13,6 +13,36 @@
     html { scroll-behavior: smooth; }
     body { background: #000; color: #fff; font-family: 'Raleway', sans-serif; overflow-x: hidden; }
 
+    /* ── Geometric Confirmation Card ── */
+    .geo-confirm {
+        position: relative;
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 3rem 2.5rem;
+        text-align: center;
+        border: 1px solid rgba(201,168,76,0.2);
+        background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, rgba(0,0,0,0) 60%);
+    }
+    .geo-corner {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-color: #c9a84c;
+        border-style: solid;
+    }
+    .geo-corner.tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+    .geo-corner.tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+    .geo-corner.bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+    .geo-corner.br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+    .geo-icon-wrap { margin: 0 auto 1.75rem; }
+    .geo-rule { display: flex; align-items: center; gap: 0.75rem; margin: 1.25rem 0; }
+    .geo-rule span:not(.geo-diamond-dot) { flex: 1; height: 1px; background: rgba(201,168,76,0.25); }
+    .geo-diamond-dot { font-size: 0.45rem; color: #c9a84c; flex-shrink: 0; line-height: 1; }
+    .geo-eyebrow { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: #c9a84c; margin: 0 0 0.6rem; }
+    .geo-heading { font-family: 'Oswald', sans-serif; font-size: clamp(1.75rem, 5vw, 2.4rem); font-weight: 700; text-transform: uppercase; color: #fff; margin: 0; line-height: 1.1; }
+    .geo-body { font-family: 'Lora', serif; font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.85; max-width: 380px; margin: 0 auto 1.25rem; }
+    .geo-footer { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(201,168,76,0.4); margin: 0; }
+
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
     .reveal.delay-1 { transition-delay: 0.12s; }
     .reveal.delay-2 { transition-delay: 0.24s; }
@@ -145,28 +175,58 @@
         color: #c9a84c; cursor: pointer; transition: border-color 0.2s, color 0.2s;
     }
     .read-more-btn:hover { border-color: #c9a84c; color: #e8c86a; }
-        </style>
+    
+    /* ── SITE NAV ── */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(0,0,0,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.13); padding: 0.8rem 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav-logo-wrap a { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo { height: 44px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-family: 'Raleway', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-cta { font-family: 'Raleway', sans-serif !important; font-size: 0.65rem !important; font-weight: 800 !important; letter-spacing: 0.18em !important; text-transform: uppercase !important; color: #000 !important; background: #c9a84c !important; padding: 0.5rem 1.2rem !important; border-radius: 2px !important; text-decoration: none !important; }
+    .nav-cta:hover { background: #e8c86a !important; color: #000 !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 1px; }
+    .mobile-menu { display: none; flex-direction: column; background: rgba(0,0,0,0.97); padding: 1.5rem 1.5rem 2rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mobile-menu a:hover { color: #fff; }
+    .mobile-menu .nav-cta { margin-top: 1rem; text-align: center; border-bottom: none !important; }
+    @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
+    </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
-    <div class="container-fluid px-3 px-lg-4">
-        <a class="navbar-brand p-0" href="index.html"></a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav align-items-lg-center gap-lg-1 me-lg-3">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="Events.html">Events</a></li>
-                <li class="nav-item"><a class="nav-link" href="Media.html">Messages</a></li>
-                <li class="nav-item"><a class="nav-link" href="Prayer Request.html">Prayer</a></li>
-                <li class="nav-item"><a class="nav-link" href="Give.html">Give</a></li>
-            </ul>
-            <a class="btn-nav-new ms-lg-2 mt-2 mt-lg-0 active" href="newcomers.html">I'm New</a>
+<nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+        <div class="nav-logo-wrap">
+            <a href="index.html">
+                <img src="assets/img/logo-gold.png" alt="N-Vizion Church" class="nav-logo" />
+            </a>
         </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Events.html">Events</a></li>
+            <li><a href="Media.html">Messages</a></li>
+            <li><a href="Prayer Request.html">Prayer</a></li>
+            <li><a href="Give.html">Give</a></li>
+            <li><a href="newcomers.html" class="nav-cta">I'm New</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Events.html">Events</a>
+        <a href="Media.html">Messages</a>
+        <a href="Prayer Request.html">Prayer</a>
+        <a href="Give.html">Give</a>
+        <a href="newcomers.html" class="nav-cta">I'm New</a>
     </div>
 </nav>
 
@@ -174,7 +234,10 @@
 <div class="page-hero">
     <p class="eyebrow reveal delay-1">Welcome to N-Vizion Church</p>
     <h1 class="page-title reveal delay-2">Where Everybody<br><em>Is Somebody</em></h1>
-    <p class="page-sub reveal delay-3">We&rsquo;re so glad you&rsquo;re here. This is where your journey begins &mdash; get planted, go all in, and watch God do what only He can do.</p>
+    <p class="page-sub reveal delay-3">We&rsquo;re so glad you&rsquo;re here. This is where your journey begins &mdash; get planted, grow deep, and watch God do what only He can do.</p>
+    <div class="reveal delay-4" style="text-align:center; margin-top:2rem;">
+        <a href="#connect-form" style="display:inline-block; font-family:'Raleway',sans-serif; font-size:0.72rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:#000; background:#c9a84c; padding:0.8rem 2rem; text-decoration:none; border-radius:2px; transition:background 0.2s;" onmouseover="this.style.background='#e8c86a'" onmouseout="this.style.background='#c9a84c'">Fill Out the Form &darr;</a>
+    </div>
 </div>
 
 <!-- BEING PLANTED -->
@@ -224,76 +287,6 @@
     </div>
 </section>
 
-<!-- GO ALL IN -->
-<section class="allin-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-lg-8 text-center reveal">
-                <p class="sec-eyebrow">The Next Step</p>
-                <h2 class="sec-headline">Go &ldquo;All In&rdquo;<br>at N-Vizion Church</h2>
-                <div class="divider-gold" style="margin:1.25rem auto;"></div>
-                <p style="font-family:'Lora',serif;font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.9;max-width:580px;margin:0 auto;">No one has arrived or mastered the places God has called us to. We are all on a journey. We aren&rsquo;t perfect people &mdash; we are just people in pursuit of being our best in building life together according to God&rsquo;s plan.</p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <!-- Card 1 -->
-            <div class="col-lg-4 reveal delay-1">
-                <div class="allin-card">
-                    <h3>Love | Honor | Trust</h3>
-                    <p class="allin-point">Acting in love toward other members.</p>
-                    <p class="allin-point">Choosing to honor those I serve with, and who I am connected to.</p>
-                    <p class="allin-point">Following the leaders and team we have been gifted with.</p>
-
-                                        <div id="allin-more-1" class="more-content">
-                    <div class="allin-verse" style="margin-top:.85rem;">
-                        <p>&ldquo;So let us concentrate on the things which make for harmony and on the growth of our fellowship together.&rdquo; <span class="allin-ref">Romans 14:19 PH</span></p>
-                        <p style="margin-top:.6rem;">&ldquo;Have a sincere love for other believers, love one another earnestly with all your heart.&rdquo; <span class="allin-ref">1 Peter 1:22 GNT</span></p>
-                        <p style="margin-top:.6rem;">&ldquo;Have confidence in your leaders and submit to their authority, because they keep watch over you as those who must give an account.&rdquo; <span class="allin-ref">Hebrews 13:17</span></p>
-                    </div>
-
-                    <button class="read-more-btn" data-target="allin-more-1">+ Read More</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="col-lg-4 reveal delay-2">
-                <div class="allin-card">
-                    <h3>Pray | Invite | Give</h3>
-                    <p class="allin-point">Pray for N-Vizion&rsquo;s health and growth.</p>
-                    <p class="allin-point">Inviting my family and friends to attend.</p>
-                    <p class="allin-point">We, as a collective, sow our time, energy, finances, and resources to build God&rsquo;s house and advance the Kingdom.</p>
-
-                                        <div id="allin-more-2" class="more-content">
-                    <div class="allin-verse" style="margin-top:.85rem;">
-                        <p>&ldquo;To the church&hellip; we always thank God for all of you and continually mention you in our prayers.&rdquo; <span class="allin-ref">1 Thessalonians 1:1&ndash;2</span></p>
-                        <p style="margin-top:.6rem;">&ldquo;So, warmly welcome each other into the church, just as Christ has warmly welcomed you; then God will be glorified.&rdquo; <span class="allin-ref">Romans 15:7 TLB</span></p>
-                    </div>
-
-                    <button class="read-more-btn" data-target="allin-more-2">+ Read More</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="col-lg-4 reveal delay-3">
-                <div class="allin-card">
-                    <h3>Discover | Develop | Deploy</h3>
-                    <p class="allin-point">Discovering my gifts and talents.</p>
-                    <p class="allin-point">Developing a heart to serve.</p>
-                    <p class="allin-point">Using my God-given gifts to make a difference.</p>
-
-                                        <div id="allin-more-3" class="more-content">
-                    <div class="allin-verse" style="margin-top:.85rem;">
-                        <p>&ldquo;Serve one another with the particular gifts God has given each of you.&rdquo; <span class="allin-ref">1 Peter 4:10 PH</span></p>
-                        <p style="margin-top:.6rem;">&ldquo;Let each of you look out not only for his own interests, but also for the interests of others. Let this mind be in you which was also in Christ Jesus&hellip; taking the form of a bondservant.&rdquo; <span class="allin-ref">Philippians 2:4&ndash;5, 7 NKJV</span></p>
-                    </div>
-
-                    <button class="read-more-btn" data-target="allin-more-3">+ Read More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- BE A WITNESS -->
 <section class="witness-section">
@@ -378,7 +371,7 @@
 </div>
 
 <!-- CONNECT FORM -->
-<section class="connect-form-section">
+<section class="connect-form-section" id="connect-form">
     <div class="container">
         <div class="row justify-content-center mb-5">
             <div class="col-auto text-center reveal">
@@ -398,13 +391,15 @@
                             <label class="form-label">Last Name <span style="color:#c9a84c;">*</span></label>
                             <input type="text" name="entry.162567798" class="form-control-dark" placeholder="Your last name" required />
                         </div>
-                        <div>
-                            <label class="form-label">Phone Number</label>
-                            <input type="tel" name="entry.625010165" class="form-control-dark" placeholder="(000) 000-0000" />
+                        <div id="group-phone">
+                            <label class="form-label">Phone Number <span id="phone-req-star" style="color:#c9a84c;">*</span></label>
+                            <input type="tel" id="phoneInput" name="entry.625010165" class="form-control-dark" placeholder="(000) 000-0000" />
+                            <span id="phone-error" style="display:none; font-family:'Lora',serif; font-size:0.78rem; color:#c9a84c; margin-top:0.35rem; display:block; display:none;">Phone number is required.</span>
                         </div>
                         <div>
-                            <label class="form-label">Email Address <span style="color:#c9a84c;">*</span></label>
-                            <input type="email" name="entry.1954846084" class="form-control-dark" placeholder="your@email.com" required />
+                            <label class="form-label">Email Address <span id="email-req-star" style="color:#c9a84c;">*</span></label>
+                            <input type="email" id="emailInput" name="entry.1954846084" class="form-control-dark" placeholder="your@email.com" />
+                            <span id="email-error" style="display:none; font-family:'Lora',serif; font-size:0.78rem; color:#c9a84c; margin-top:0.35rem; display:none;">Email address is required.</span>
                         </div>
                     </div>
                     <div style="margin-bottom:1.75rem;">
@@ -412,26 +407,113 @@
                         <textarea name="entry.251927341" class="form-control-dark" rows="4" placeholder="Questions, prayer needs, how we can best connect with you&hellip;"></textarea>
                     </div>
                     <button type="submit" class="btn-submit" id="submitBtn">Have Our Team Reach Out</button>
-                    <div id="formSuccess" style="display:none; margin-top:1.5rem; padding:1.25rem 1.5rem; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:3px; text-align:center;">
-                        <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:#c9a84c; margin:0 0 0.4rem;">We Got It</p>
-                        <p style="font-family:'Lora',serif; font-size:0.95rem; color:rgba(255,255,255,0.6); margin:0;">Our team will be in touch soon. You are welcome here &mdash; we mean that.</p>
+                </form>
+                    <div id="formSuccess" style="display:none; padding:3rem 1rem;">
+                      <div class="geo-confirm">
+                        <span class="geo-corner tl"></span>
+                        <span class="geo-corner tr"></span>
+                        <span class="geo-corner bl"></span>
+                        <span class="geo-corner br"></span>
+                        <div class="geo-icon-wrap">
+                          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:72px;height:72px;">
+                            <polygon points="40,4 76,40 40,76 4,40" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.06)"/>
+                            <polyline points="24,40 35,52 56,28" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </div>
+                        <div class="geo-rule"><span></span><span class="geo-diamond-dot">&#9670;</span><span></span></div>
+                        <p class="geo-eyebrow">You&rsquo;re on Our Radar</p>
+                        <h3 class="geo-heading">Welcome to<br>the Family</h3>
+                        <div class="geo-rule"><span></span><span class="geo-diamond-dot">&#9670;</span><span></span></div>
+                        <p class="geo-body">Someone from our team will reach out to you personally. In the meantime, we&rsquo;d love to see you this Sunday &mdash; 11:00 AM at 180 Churchill Drive, Sparta, TN. You are welcome here. We mean that.</p>
+                        <p class="geo-footer">N-Vizion Church &bull; Where Everybody Is Somebody</p>
+                      </div>
                     </div>
                     <div id="formError" style="display:none; margin-top:1.5rem; padding:1rem 1.5rem; background:rgba(180,50,50,0.1); border:1px solid rgba(180,50,50,0.3); border-radius:3px; text-align:center;">
                         <p style="font-family:'Lora',serif; font-size:0.9rem; color:rgba(255,255,255,0.5); margin:0;">Something went wrong &mdash; please try again or reach out on Facebook.</p>
                     </div>
-                </form>
                 <script>
                 (function(){
                     var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSflaJqsZTmb2iZB8PrBRa677NUcZP3jJydGKQdTwpDjizHqKg/formResponse';
-                    document.getElementById('connectForm').addEventListener('submit', function(e){
+                    var form = document.getElementById('connectForm');
+
+                    // Live validation: clear errors as user types
+                    function clearFieldError(el) {
+                        el.style.borderColor = '';
+                        var err = el.parentElement.querySelector('.field-error-msg');
+                        if (err) err.style.display = 'none';
+                    }
+                    ['entry.155529087','entry.162567798'].forEach(function(name){
+                        var el = form.querySelector('[name="' + name + '"]');
+                        if (el) el.addEventListener('input', function(){ clearFieldError(this); });
+                    });
+                    document.getElementById('phoneInput').addEventListener('input', function(){
+                        this.style.borderColor = '';
+                        document.getElementById('phone-error').style.display = 'none';
+                    });
+                    document.getElementById('emailInput').addEventListener('input', function(){
+                        this.style.borderColor = '';
+                        document.getElementById('email-error').style.display = 'none';
+                    });
+
+                    form.addEventListener('submit', function(e){
                         e.preventDefault();
+                        var valid = true;
+                        var firstFocus = null;
+
+                        // First name
+                        var firstName = form.querySelector('[name="entry.155529087"]');
+                        if (!firstName.value.trim()) {
+                            firstName.style.borderColor = '#c9a84c';
+                            if (!firstFocus) firstFocus = firstName;
+                            valid = false;
+                        }
+
+                        // Last name
+                        var lastName = form.querySelector('[name="entry.162567798"]');
+                        if (!lastName.value.trim()) {
+                            lastName.style.borderColor = '#c9a84c';
+                            if (!firstFocus) firstFocus = lastName;
+                            valid = false;
+                        }
+
+                        // Phone — required
+                        var phone = document.getElementById('phoneInput');
+                        var phoneErr = document.getElementById('phone-error');
+                        if (!phone.value.trim()) {
+                            phone.style.borderColor = '#c9a84c';
+                            phoneErr.style.display = 'block';
+                            if (!firstFocus) firstFocus = phone;
+                            valid = false;
+                        } else {
+                            phone.style.borderColor = '';
+                            phoneErr.style.display = 'none';
+                        }
+
+                        // Email — required
+                        var email = document.getElementById('emailInput');
+                        var emailErr = document.getElementById('email-error');
+                        if (!email.value.trim()) {
+                            email.style.borderColor = '#c9a84c';
+                            emailErr.style.display = 'block';
+                            if (!firstFocus) firstFocus = email;
+                            valid = false;
+                        } else {
+                            email.style.borderColor = '';
+                            emailErr.style.display = 'none';
+                        }
+
+                        if (!valid) {
+                            if (firstFocus) firstFocus.focus();
+                            return;
+                        }
+
                         var btn = document.getElementById('submitBtn');
                         btn.disabled = true;
                         btn.textContent = 'Sending…';
-                        var data = new FormData(this);
+                        var data = new FormData(form);
                         fetch(FORM_URL, { method:'POST', body:data, mode:'no-cors' })
                             .then(function(){
-                                document.getElementById('connectForm').style.display = 'none';
+                                form.style.display = 'none';
                                 document.getElementById('formSuccess').style.display = 'block';
                             })
                             .catch(function(){
@@ -463,6 +545,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 document.querySelectorAll('.read-more-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -481,5 +564,19 @@ const obs = new IntersectionObserver(entries => {
 revEls.forEach(el => obs.observe(el));
 setTimeout(() => { document.querySelectorAll('.page-hero .reveal').forEach(el => el.classList.add('visible')); }, 80);
 </script>
+
+        <script id="shared-nav-js">
+        (function(){
+            var nav = document.getElementById('siteNav');
+            window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+            var toggle = document.getElementById('navToggle');
+            var menu   = document.getElementById('mobileMenu');
+            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+            var observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+        })();
+        </script>
 </body>
 </html>
