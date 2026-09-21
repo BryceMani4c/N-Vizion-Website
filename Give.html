@@ -64,7 +64,8 @@
                 display: block;
             }
             .giving-card .give-amount-hint {
-                font-family: 'Lora', serif;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 300;
                 font-size: 1rem;
                 color: #b0b0b0;
                 margin-bottom: 2rem;
@@ -88,11 +89,10 @@
             .btn-give:hover {
                 background-color: #d4b866;
                 color: #0d0d0d;
-                transform: translateY(-2px);
                 box-shadow: 0 8px 28px rgba(201, 168, 76, 0.5);
             }
             .btn-give:active {
-                transform: translateY(0);
+                transform: scale(0.97);
             }
             .secure-badges {
                 display: flex;
@@ -147,7 +147,8 @@
                 margin-bottom: 0.75rem;
             }
             .give-way-card p {
-                font-family: 'Lora', serif;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 300;
                 font-size: 0.95rem;
                 color: #b0b0b0;
                 margin-bottom: 0;
@@ -311,7 +312,8 @@
             padding: 0.85rem 2rem;
             transition: background 0.2s, transform 0.15s;
         }
-        .btn-primary:hover { background: #e8c86a !important; border-color: #e8c86a !important; transform: translateY(-2px); }
+        .btn-primary:hover { background: #e8c86a !important; border-color: #e8c86a !important; }
+        .btn-primary:active { transform: scale(0.97); }
 
         /* ── FOOTER ── */
         .site-footer {
@@ -466,16 +468,16 @@
            ───────────────────────────────────────── */
         .reveal {
                 opacity: 0;
-                transform: translateY(48px);
-                transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1);
+                transform: translateY(24px);
+                transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1);
         }
         .reveal.delay-1 { transition-delay: 0.1s; }
         .reveal.delay-2 { transition-delay: 0.2s; }
         .reveal.delay-3 { transition-delay: 0.35s; }
         .reveal.delay-4 { transition-delay: 0.5s; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-left  { opacity: 0; transform: translateX(-48px); transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
-        .reveal-right { opacity: 0; transform: translateX(48px);  transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
+        .reveal-left  { opacity: 0; transform: translateX(-32px); transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
+        .reveal-right { opacity: 0; transform: translateX(32px);  transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
         .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translate(0); }
 
         /* offset fixed nav */
@@ -536,7 +538,7 @@
                             <span class="section-heading-lower">Sow Into the Kingdom</span>
                         </h2>
                         <div class="divider-gold"></div>
-                        <p class="text-center" style="font-family:'Lora',serif; color:#b0b0b0; font-size:1.05rem; max-width:600px; margin:0 auto;">
+                        <p class="text-center" style="font-family:'Raleway',sans-serif; font-weight:300; color:#b0b0b0; font-size:1.05rem; max-width:600px; margin:0 auto;">
                             When you give to N-Vizion Church, you partner with us in spreading the Gospel, reaching our community, and building the next generation of believers. Every seed planted here has eternal impact.
                         </p>
                     </div>
@@ -584,7 +586,7 @@
                             </div>
                             <span class="pushpay-logo-text">Powered by Pushpay</span>
                         </div>
-                        <p class="text-center mt-3" style="font-family:'Lora',serif; color:#6c757d; font-size:0.85rem;">
+                        <p class="text-center mt-3" style="font-family:'Raleway',sans-serif; font-weight:300; color:#6c757d; font-size:0.85rem;">
                             Prefer to give another way? See the options below.
                         </p>
                     </div>
@@ -631,7 +633,7 @@
                                 <span class="section-heading-upper">Have Questions?</span>
                                 <span class="section-heading-lower">We're Here to Help</span>
                             </h2>
-                            <p class="mb-0" style="font-family:'Lora',serif;">
+                            <p class="mb-0" style="font-family:'Raleway',sans-serif; font-weight:300;">
                                 If you have questions about giving, tax receipts, or how your donation is used, please don't hesitate to reach out. Our team is always happy to help.
                             </p>
                         </div>
@@ -651,15 +653,22 @@
         
         <script id="shared-nav-js">
         (function(){
-            var nav = document.getElementById('siteNav');
-            window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-            var toggle = document.getElementById('navToggle');
-            var menu   = document.getElementById('mobileMenu');
-            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
-            var observer = new IntersectionObserver(function(entries){
-                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+            function initNav() {
+                var nav = document.getElementById('siteNav');
+                if(nav) window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+                var toggle = document.getElementById('navToggle');
+                var menu   = document.getElementById('mobileMenu');
+                if(toggle && menu){
+                    toggle.addEventListener('click', function(e){ e.stopPropagation(); menu.classList.toggle('open'); });
+                    toggle.addEventListener('touchend', function(e){ e.preventDefault(); menu.classList.toggle('open'); });
+                }
+                if(menu) menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+                var observer = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+            }
+            if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', initNav); } else { initNav(); }
         })();
         </script>
 </body>

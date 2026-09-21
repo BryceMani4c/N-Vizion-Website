@@ -21,8 +21,8 @@
             --text: rgba(255,255,255,0.82);
             --muted: rgba(255,255,255,0.42);
         }
-        html { scroll-behavior: smooth; }
-        body { background: var(--black); color: var(--text); font-family: 'Lora', serif; overflow-x: hidden; padding-top: 80px; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { background: var(--black); color: var(--text); font-family: 'Raleway', sans-serif; font-weight: 300; padding-top: 80px; }
 
         /* ── REVEAL ── */
         .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
@@ -165,9 +165,9 @@
             margin-bottom: 0.5rem;
         }
         .event-title {
-            font-family: 'Lora', serif;
-            font-style: italic;
-            font-size: 1.2rem;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            font-size: 1.1rem;
             color: rgba(255,255,255,0.6);
             margin-bottom: 0.4rem;
         }
@@ -181,7 +181,8 @@
             margin-bottom: 2rem;
         }
         .event-desc {
-            font-family: 'Lora', serif;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
             font-size: 0.95rem;
             color: var(--muted);
             line-height: 1.85;
@@ -199,9 +200,10 @@
             padding: 0.9rem 2rem;
             border-radius: 2px;
             text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
+            transition: background 0.2s, border-color 0.2s;
         }
-        .btn-gold:hover { background: var(--gold-light); color: #000; transform: translateY(-2px); }
+        .btn-gold:hover { background: var(--gold-light); color: #000; }
+        .btn-gold:active { transform: scale(0.97); }
 
         /* ── REGULAR EVENTS (weekly) ── */
         .weekly-event {
@@ -215,13 +217,51 @@
         .weekly-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
         .weekly-label { font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem; }
         .weekly-name { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; text-transform: uppercase; color: #fff; margin-bottom: 0.2rem; }
-        .weekly-detail { font-family: 'Lora', serif; font-size: 0.88rem; color: var(--muted); }
+        .weekly-detail { font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 0.88rem; color: var(--muted); }
 
         /* ── SECTION SPACING ── */
         .section { padding: 6rem 0; }
         .section-eyebrow { font-family: 'Raleway', sans-serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
         .section-headline { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: 1.5rem; }
         .divider-gold { width: 50px; height: 2px; background: var(--gold); margin: 1.25rem 0; }
+
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width: 767px) {
+            .page-hero { padding: 3rem 0 2.5rem; }
+            .page-hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+            .section { padding: 3.5rem 0; }
+            .featured-event { min-height: auto; }
+            /* Give the stacked flyer an explicit height so it doesn't collapse */
+            .featured-flyer { height: 300px; min-height: 0; }
+            .featured-flyer img { object-position: center 20%; }
+            .event-org { font-size: 0.65rem; margin-bottom: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero { padding: 2.5rem 0 2rem; }
+            .featured-info { padding: 1.75rem 1.25rem; }
+            .featured-flyer { height: 240px; }
+            .event-speaker { font-size: clamp(1.5rem, 7vw, 2rem); }
+            .event-date-block { gap: 0.75rem; margin-bottom: 1.25rem; }
+            .event-desc { font-size: 0.88rem; line-height: 1.72; margin-bottom: 1.25rem; }
+            .section { padding: 2.5rem 0; }
+            /* Stack past event cards: thumbnail above text */
+            .past-event-card { flex-direction: column; gap: 0.75rem; }
+            .past-event-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                object-position: center top;
+            }
+            #past-events-section { padding: 2rem 0 1rem; }
+            .section-headline { margin-bottom: 1rem; }
+            /* Wrap the inline calendar link below the service name */
+            .weekly-event > div > div[style*="display:flex"] {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
 
         /* ── FOOTER ── */
         .site-footer { background: #000; border-top: 1px solid rgba(201,168,76,0.1); padding: 3rem 0 2rem; text-align: center; }
@@ -263,7 +303,8 @@
     margin-bottom: 0.75rem;
   }
   .service-invite-card p {
-    font-family: 'Lora', serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
     color: #bbb;
     font-size: 1rem;
     line-height: 1.7;
@@ -286,7 +327,8 @@
   .service-times-list li:last-child { border-bottom: none; }
   .service-times-list .time-detail {
     display: block;
-    font-family: 'Lora', serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
     font-size: 0.85rem;
     color: #888;
     text-transform: none;

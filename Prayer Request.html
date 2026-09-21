@@ -68,7 +68,8 @@
                 margin-bottom: 0.6rem;
             }
             .pillar-item p {
-                font-family: 'Lora', serif;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 300;
                 font-size: 0.9rem;
                 color: #8a8a8a;
                 margin-bottom: 0;
@@ -130,7 +131,8 @@
                 border: 1px solid rgba(201,168,76,0.2);
                 border-radius: 0.25rem;
                 color: #e8e8e8;
-                font-family: 'Lora', serif;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 300;
                 font-size: 0.95rem;
                 padding: 0.75rem 1rem;
                 transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -164,8 +166,9 @@
                 align-items: center;
                 gap: 0.6rem;
                 cursor: pointer;
-                font-family: 'Lora', serif;
-                font-size: 0.95rem;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 400;
+                font-size: 0.9rem;
                 color: #b0b0b0;
                 position: relative;
             }
@@ -211,10 +214,9 @@
             }
             .btn-submit:hover {
                 background-color: #d4b866;
-                transform: translateY(-2px);
                 box-shadow: 0 8px 26px rgba(201,168,76,0.45);
             }
-            .btn-submit:active { transform: translateY(0); }
+            .btn-submit:active { transform: scale(0.97); }
             .btn-submit:disabled {
                 background-color: #555;
                 color: #888;
@@ -431,7 +433,8 @@
             padding: 0.85rem 2rem;
             transition: background 0.2s, transform 0.15s;
         }
-        .btn-primary:hover { background: #e8c86a !important; border-color: #e8c86a !important; transform: translateY(-2px); }
+        .btn-primary:hover { background: #e8c86a !important; border-color: #e8c86a !important; }
+        .btn-primary:active { transform: scale(0.97); }
 
         /* ── FOOTER ── */
         .site-footer {
@@ -586,16 +589,16 @@
            ───────────────────────────────────────── */
         .reveal {
                 opacity: 0;
-                transform: translateY(48px);
-                transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1);
+                transform: translateY(24px);
+                transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1);
         }
         .reveal.delay-1 { transition-delay: 0.1s; }
         .reveal.delay-2 { transition-delay: 0.2s; }
         .reveal.delay-3 { transition-delay: 0.35s; }
         .reveal.delay-4 { transition-delay: 0.5s; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-left  { opacity: 0; transform: translateX(-48px); transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
-        .reveal-right { opacity: 0; transform: translateX(48px);  transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
+        .reveal-left  { opacity: 0; transform: translateX(-32px); transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
+        .reveal-right { opacity: 0; transform: translateX(32px);  transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
         .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translate(0); }
 
         /* offset fixed nav */
@@ -795,7 +798,7 @@
                                 <span class="section-heading-upper">Need to Talk to Someone?</span>
                                 <span class="section-heading-lower">We're Here for You</span>
                             </h2>
-                            <p class="mb-0" style="font-family:'Lora',serif;">
+                            <p class="mb-0" style="font-family:'Raleway',sans-serif; font-weight:300;">
                                 If you need immediate support or would like to speak directly with a pastor or a member of our intercession team, please don't hesitate to reach out through our social media or visit us on Sunday.
                             </p>
                         </div>
@@ -861,15 +864,22 @@
         
         <script id="shared-nav-js">
         (function(){
-            var nav = document.getElementById('siteNav');
-            window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-            var toggle = document.getElementById('navToggle');
-            var menu   = document.getElementById('mobileMenu');
-            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
-            var observer = new IntersectionObserver(function(entries){
-                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+            function initNav() {
+                var nav = document.getElementById('siteNav');
+                if(nav) window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+                var toggle = document.getElementById('navToggle');
+                var menu   = document.getElementById('mobileMenu');
+                if(toggle && menu){
+                    toggle.addEventListener('click', function(e){ e.stopPropagation(); menu.classList.toggle('open'); });
+                    toggle.addEventListener('touchend', function(e){ e.preventDefault(); menu.classList.toggle('open'); });
+                }
+                if(menu) menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+                var observer = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+                }, { threshold: 0.1 });
+                document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+            }
+            if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', initNav); } else { initNav(); }
         })();
         </script>
 </body>

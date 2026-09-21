@@ -13,12 +13,11 @@
        BASE
     ───────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
         background: #000;
         color: #fff;
         font-family: 'Raleway', sans-serif;
-        overflow-x: hidden;
     }
 
     /* ─────────────────────────────────────────
@@ -26,16 +25,16 @@
     ───────────────────────────────────────── */
     .reveal {
         opacity: 0;
-        transform: translateY(48px);
-        transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1);
+        transform: translateY(24px);
+        transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1);
     }
-    .reveal.delay-1 { transition-delay: 0.1s; }
-    .reveal.delay-2 { transition-delay: 0.2s; }
-    .reveal.delay-3 { transition-delay: 0.35s; }
-    .reveal.delay-4 { transition-delay: 0.5s; }
+    .reveal.delay-1 { transition-delay: 0.08s; }
+    .reveal.delay-2 { transition-delay: 0.16s; }
+    .reveal.delay-3 { transition-delay: 0.28s; }
+    .reveal.delay-4 { transition-delay: 0.4s; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left  { opacity: 0; transform: translateX(-48px); transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
-    .reveal-right { opacity: 0; transform: translateX(48px);  transition: opacity 0.85s cubic-bezier(.16,1,.3,1), transform 0.85s cubic-bezier(.16,1,.3,1); }
+    .reveal-left  { opacity: 0; transform: translateX(-32px); transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
+    .reveal-right { opacity: 0; transform: translateX(32px);  transition: opacity 0.75s cubic-bezier(.16,1,.3,1), transform 0.75s cubic-bezier(.16,1,.3,1); }
     .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translate(0); }
 
     /* ─── NAV ─── */
@@ -96,10 +95,10 @@
     }
     .hero-headline em { font-style: normal; color: #c9a84c; }
     .hero-sub {
-        font-family: 'Lora', serif; font-style: italic;
-        font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+        font-family: 'Raleway', sans-serif; font-weight: 300;
+        font-size: clamp(0.9rem, 1.8vw, 1.05rem);
         color: rgba(255,255,255,0.5);
-        max-width: 500px; line-height: 1.8; margin-bottom: 2.5rem;
+        max-width: 500px; line-height: 1.85; margin-bottom: 2.5rem;
     }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-gold {
@@ -107,9 +106,10 @@
         font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
         color: #000; background: #c9a84c; border: 2px solid #c9a84c;
         padding: 0.9rem 2.1rem; text-decoration: none;
-        transition: background 0.2s, transform 0.15s;
+        transition: background 0.2s, border-color 0.2s;
     }
-    .btn-gold:hover { background: #e8c86a; border-color: #e8c86a; color: #000; transform: translateY(-2px); }
+    .btn-gold:hover { background: #e8c86a; border-color: #e8c86a; color: #000; }
+    .btn-gold:active { transform: scale(0.97); }
     .btn-outline-gold {
         display: inline-block; font-weight: 800;
         font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
@@ -118,6 +118,7 @@
         transition: border-color 0.2s, color 0.2s;
     }
     .btn-outline-gold:hover { border-color: #c9a84c; color: #c9a84c; }
+    .btn-outline-gold:active { transform: scale(0.97); }
     /* scroll indicator */
     .scroll-indicator {
         position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
@@ -145,7 +146,7 @@
     }
     .section-title em { font-style: normal; color: #c9a84c; }
     .section-body {
-        font-family: 'Lora', serif; font-size: 1rem;
+        font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 1rem;
         color: rgba(255,255,255,0.5); line-height: 1.85;
     }
     .gold-line {
@@ -178,9 +179,9 @@
     .pillar-card {
         background: #111; border: 1px solid rgba(201,168,76,0.1);
         padding: 2.5rem 2rem; height: 100%;
-        transition: border-color 0.3s, transform 0.25s;
+        transition: border-color 0.3s;
     }
-    .pillar-card:hover { border-color: rgba(201,168,76,0.45); transform: translateY(-5px); }
+    .pillar-card:hover { border-color: rgba(201,168,76,0.45); }
     .pillar-number {
         font-family: 'Oswald', sans-serif; font-weight: 700;
         font-size: 3.5rem; color: rgba(201,168,76,0.12);
@@ -192,8 +193,8 @@
         margin-bottom: 0.85rem;
     }
     .pillar-body {
-        font-family: 'Lora', serif; font-size: 0.92rem;
-        color: rgba(255,255,255,0.45); line-height: 1.8;
+        font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 0.9rem;
+        color: rgba(255,255,255,0.5); line-height: 1.8;
     }
 
     /* ─────────────────────────────────────────
@@ -285,8 +286,8 @@
         line-height: 1.2; margin-bottom: 0.6rem;
     }
     .message-card .mc-desc {
-        font-family: 'Lora', serif; font-size: 0.85rem;
-        color: rgba(255,255,255,0.38); line-height: 1.7;
+        font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 0.85rem;
+        color: rgba(255,255,255,0.42); line-height: 1.7;
     }
     .mc-icon {
         width: 36px; height: 36px; margin-bottom: 1rem;
@@ -318,8 +319,8 @@
         margin-bottom: 0.3rem;
     }
     .event-info .ei-desc {
-        font-size: 0.82rem; color: rgba(255,255,255,0.38);
-        font-family: 'Lora', serif; font-style: italic;
+        font-size: 0.82rem; color: rgba(255,255,255,0.42);
+        font-family: 'Raleway', sans-serif; font-weight: 300;
     }
 
     /* ─────────────────────────────────────────
@@ -339,8 +340,8 @@
     .scripture-section .sc-verse em { font-style: normal; color: #c9a84c; }
     .scripture-section .sc-text {
         font-family: 'Lora', serif; font-style: italic;
-        font-size: 1rem; color: rgba(255,255,255,0.4);
-        max-width: 500px; margin: 0 auto; line-height: 1.9;
+        font-size: 1.05rem; color: rgba(255,255,255,0.45);
+        max-width: 520px; margin: 0 auto; line-height: 1.95;
     }
 
     /* ─────────────────────────────────────────
@@ -364,8 +365,8 @@
         margin-bottom: 0.65rem;
     }
     .connect-card .cc-desc {
-        font-family: 'Lora', serif; font-size: 0.88rem;
-        color: rgba(255,255,255,0.4); line-height: 1.75;
+        font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 0.88rem;
+        color: rgba(255,255,255,0.42); line-height: 1.75;
     }
 
     /* ─────────────────────────────────────────
@@ -398,8 +399,8 @@
     .faq-toggle svg path { stroke: rgba(255,255,255,0.5); }
     .faq-item.open .faq-toggle svg path { stroke: #000; }
     .faq-answer {
-        font-family: 'Lora', serif; font-size: 0.92rem;
-        color: rgba(255,255,255,0.45); line-height: 1.85;
+        font-family: 'Raleway', sans-serif; font-weight: 300; font-size: 0.9rem;
+        color: rgba(255,255,255,0.5); line-height: 1.85;
         max-height: 0; overflow: hidden;
         transition: max-height 0.4s ease, padding 0.3s ease;
         padding-top: 0;
@@ -476,7 +477,7 @@
     <div class="hero-content">
         <p class="hero-eyebrow reveal delay-1">Sparta, Tennessee &mdash; Sundays at 11 AM</p>
         <h1 class="hero-headline reveal delay-2">Preaching<br>the <em>Kingdom</em></h1>
-        <p class="hero-sub reveal delay-3">At N-Vizion Church we are unapologetically committed to the uncompromised Word of God — every season, every service, every message.</p>
+        <p class="hero-sub reveal delay-3">At N-Vizion Church we are unapologetically committed to the uncompromised Word of God. Every season, every service, every message.</p>
         <div class="hero-ctas reveal delay-4">
             <a class="btn-gold" href="newcomers.html">I'm New Here</a>
             <a class="btn-outline-gold" href="Media.html">Watch &amp; Listen</a>
@@ -625,7 +626,7 @@
                     </div>
                     <div class="event-info">
                         <div class="ei-title">Sunday Morning Service</div>
-                        <p class="ei-desc">Every Sunday at 11:00 AM &mdash; until God is done moving. 180 Churchill Drive, Sparta, TN</p>
+                        <p class="ei-desc">Every Sunday at 11:00 AM, going until God is done moving. 180 Churchill Drive, Sparta, TN</p>
                     </div>
                 </div>
                 <div class="event-row">
@@ -635,7 +636,7 @@
                     </div>
                     <div class="event-info">
                         <div class="ei-title">Wednesday Night Service</div>
-                        <p class="ei-desc">Every Wednesday at 7:00 PM &mdash; until God is done moving. 180 Churchill Drive, Sparta, TN</p>
+                        <p class="ei-desc">Every Wednesday at 7:00 PM, going until God is done moving. 180 Churchill Drive, Sparta, TN</p>
                     </div>
                 </div>
                 <div class="event-row">
@@ -645,7 +646,7 @@
                     </div>
                     <div class="event-info">
                         <div class="ei-title">Prayer Requests</div>
-                        <p class="ei-desc">Submit your prayer request any time &mdash; our intercession team lifts every one by name.</p>
+                        <p class="ei-desc">Submit your prayer request any time. Our intercession team lifts every one by name.</p>
                     </div>
                 </div>
             </div>
@@ -776,11 +777,19 @@
 <script>
 // ── Nav toggle ──
 (function(){
-    var nav = document.getElementById('siteNav');
-    window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
-    var toggle = document.getElementById('navToggle');
-    var menu = document.getElementById('mobileMenu');
-    if(toggle && menu) toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+    function initNav() {
+        var nav = document.getElementById('siteNav');
+        if(nav) window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, {passive:true});
+        var toggle = document.getElementById('navToggle');
+        var menu = document.getElementById('mobileMenu');
+        if(toggle && menu){
+            toggle.addEventListener('click', function(e){ e.stopPropagation(); menu.classList.toggle('open'); });
+            toggle.addEventListener('touchend', function(e){ e.preventDefault(); menu.classList.toggle('open'); });
+        }
+        // Close menu when a link is tapped
+        if(menu) menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+    }
+    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', initNav); } else { initNav(); }
 })();
 
 // ── Scroll reveal ──
@@ -811,18 +820,5 @@ document.querySelectorAll('.faq-item').forEach(item => {
 });
 </script>
 
-        <script id="shared-nav-js">
-        (function(){
-            var nav = document.getElementById('siteNav');
-            window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-            var toggle = document.getElementById('navToggle');
-            var menu   = document.getElementById('mobileMenu');
-            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
-            var observer = new IntersectionObserver(function(entries){
-                entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
-        })();
-        </script>
 </body>
 </html>
