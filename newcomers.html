@@ -194,6 +194,16 @@
     .mobile-menu a:hover { color: #fff; }
     .mobile-menu .nav-cta { margin-top: 1rem; text-align: center; border-bottom: none !important; }
     @media (max-width: 900px) { .nav-links { display: none; } .nav-toggle { display: flex; } }
+        /* Welcome photo strip */
+        .welcome-photo-strip { background: #000; padding: 0; }
+        .wps-grid { display: grid; grid-template-columns: 1fr 1fr; height: 340px; gap: 3px; max-width: 1400px; margin: 0 auto; }
+        .wps-cell { overflow: hidden; }
+        .wps-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(.16,1,.3,1); }
+        .wps-cell:hover img { transform: scale(1.04); }
+        @media (max-width: 600px) {
+            .wps-grid { grid-template-columns: 1fr; height: auto; }
+            .wps-cell { height: 240px; }
+        }
     </style>
 </head>
 <body>
@@ -287,6 +297,70 @@
     </div>
 </section>
 
+<!-- GO ALL IN -->
+<section class="allin-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center reveal">
+                <p class="sec-eyebrow">The Next Step</p>
+                <h2 class="sec-headline">Go &ldquo;All In&rdquo;<br>at N-Vizion Church</h2>
+                <div class="divider-gold" style="margin:1.25rem auto;"></div>
+                <p style="font-family:'Lora',serif;font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.9;max-width:580px;margin:0 auto;">No one has arrived or mastered the places God has called us to. We are all on a journey. We aren&rsquo;t perfect people &mdash; we are just people in pursuit of being our best in building life together according to God&rsquo;s plan.</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-4 reveal delay-1">
+                <div class="allin-card">
+                    <h3>Love | Honor | Trust</h3>
+                    <p class="allin-point">Acting in love toward other members.</p>
+                    <p class="allin-point">Choosing to honor those I serve with, and who I am connected to.</p>
+                    <p class="allin-point">Following the leaders and team we have been gifted with.</p>
+                    <div id="allin-more-1" class="more-content">
+                    <div class="allin-verse" style="margin-top:.85rem;">
+                        <p>&ldquo;So let us concentrate on the things which make for harmony and on the growth of our fellowship together.&rdquo; <span class="allin-ref">Romans 14:19 PH</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;Have a sincere love for other believers, love one another earnestly with all your heart.&rdquo; <span class="allin-ref">1 Peter 1:22 GNT</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;Have confidence in your leaders and submit to their authority, because they keep watch over you as those who must give an account.&rdquo; <span class="allin-ref">Hebrews 13:17</span></p>
+                    </div>
+                    </div>
+                    <button class="read-more-btn" data-target="allin-more-1">+ Read More</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-lg-4 reveal delay-2">
+                <div class="allin-card">
+                    <h3>Pray | Invite | Give</h3>
+                    <p class="allin-point">Pray for N-Vizion&rsquo;s health and growth.</p>
+                    <p class="allin-point">Inviting my family and friends to attend.</p>
+                    <p class="allin-point">We, as a collective, sow our time, energy, finances, and resources to build God&rsquo;s house and advance the Kingdom.</p>
+                    <div id="allin-more-2" class="more-content">
+                    <div class="allin-verse" style="margin-top:.85rem;">
+                        <p>&ldquo;To the church&hellip; we always thank God for all of you and continually mention you in our prayers.&rdquo; <span class="allin-ref">1 Thessalonians 1:1&ndash;2</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;So, warmly welcome each other into the church, just as Christ has warmly welcomed you; then God will be glorified.&rdquo; <span class="allin-ref">Romans 15:7 TLB</span></p>
+                    </div>
+                    </div>
+                    <button class="read-more-btn" data-target="allin-more-2">+ Read More</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-lg-4 reveal delay-3">
+                <div class="allin-card">
+                    <h3>Discover | Develop | Deploy</h3>
+                    <p class="allin-point">Discovering my gifts and talents.</p>
+                    <p class="allin-point">Developing a heart to serve.</p>
+                    <p class="allin-point">Using my God-given gifts to make a difference.</p>
+                    <div id="allin-more-3" class="more-content">
+                    <div class="allin-verse" style="margin-top:.85rem;">
+                        <p>&ldquo;Serve one another with the particular gifts God has given each of you.&rdquo; <span class="allin-ref">1 Peter 4:10 PH</span></p>
+                        <p style="margin-top:.6rem;">&ldquo;Let each of you look out not only for his own interests, but also for the interests of others. Let this mind be in you which was also in Christ Jesus&hellip; taking the form of a bondservant.&rdquo; <span class="allin-ref">Philippians 2:4&ndash;5, 7 NKJV</span></p>
+                    </div>
+                    </div>
+                    <button class="read-more-btn" data-target="allin-more-3">+ Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- BE A WITNESS -->
 <section class="witness-section">
@@ -371,6 +445,18 @@
 </div>
 
 <!-- CONNECT FORM -->
+<!-- WELCOME PHOTOS -->
+<section class="welcome-photo-strip">
+    <div class="wps-grid">
+        <div class="wps-cell">
+            <img src="assets/img/welcome-team-entrance.jpg" alt="Welcome team at N-Vizion Church entrance" style="object-position:center 30%;" />
+        </div>
+        <div class="wps-cell">
+            <img src="assets/img/congregation-joy-worship.jpg" alt="Joy during worship at N-Vizion" />
+        </div>
+    </div>
+</section>
+
 <section class="connect-form-section" id="connect-form">
     <div class="container">
         <div class="row justify-content-center mb-5">

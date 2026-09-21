@@ -161,6 +161,41 @@
             }
           .give-grid, .give-section > .container { max-width: 900px; margin: 0 auto; }
   .ph-label, .ph-title, .ph-subtitle { text-align: center; }
+
+            /* ── Photo Hero ── */
+            .page-hero { position: relative; overflow: hidden; padding: 9rem 2rem 8rem; min-height: 420px; }
+            .page-hero-bg {
+                position: absolute;
+                inset: 0;
+                background-image: url('assets/img/intro.jpg');
+                background-size: cover;
+                background-position: center 68%;
+                opacity: 0.38;
+                z-index: 0;
+            }
+            .page-hero .container { position: relative; z-index: 1; }
+
+            /* ── Worship team photo strip ── */
+            .give-photo-strip { background: #000; padding: 0; }
+            .gps-wrap {
+                max-width: 1400px;
+                margin: 0 auto;
+                height: 480px;
+                overflow: hidden;
+                position: relative;
+            }
+            .gps-wrap img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center 15%;
+                display: block;
+                transition: transform 0.7s cubic-bezier(.16,1,.3,1);
+            }
+            .gps-wrap:hover img { transform: scale(1.03); }
+            @media (max-width: 600px) {
+                .gps-wrap { height: 320px; }
+            }
 </style>
 
     <!-- Shared 2819-style overrides -->
@@ -485,6 +520,7 @@
 
         <!-- Page Hero -->
         <div class="page-hero">
+            <div class="page-hero-bg"></div>
             <div class="container">
                 <p class="ph-label reveal">Support the Work</p>
                 <h1 class="ph-title reveal delay-1">Give<br><em>Online</em></h1>
@@ -575,6 +611,13 @@
                             <p>Drop your offering in the basket during any of our Sunday services. We'd love to receive your gift in community with you.</p>
                         </div>
                     </div>
+            </div>
+        </section>
+
+        <!-- Worship team photo strip -->
+        <section class="give-photo-strip">
+            <div class="gps-wrap">
+                <img src="assets/img/worship-team-singing.jpg" alt="Worship team at N-Vizion Church" />
             </div>
         </section>
 
