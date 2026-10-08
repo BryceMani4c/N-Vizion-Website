@@ -65,7 +65,7 @@
     <div class="nav-inner">
         <div class="nav-logo-wrap">
             <a href="index.html">
-                <img src="assets/img/logo-gold.png" alt="N-Vizion Church" class="nav-logo" />
+                <img src="assets/img/logo-gold.jpg" alt="N-Vizion Church" class="nav-logo" />
             </a>
         </div>
         <ul class="nav-links">
@@ -108,17 +108,18 @@
 
 
         <script id="shared-nav-js">
-        (function(){
+        document.addEventListener('DOMContentLoaded', function(){
             var nav = document.getElementById('siteNav');
             window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
             var toggle = document.getElementById('navToggle');
             var menu   = document.getElementById('mobileMenu');
-            toggle.addEventListener('click', function(){ menu.classList.toggle('open'); });
+            toggle.addEventListener('click', function(e){ e.stopPropagation(); menu.classList.toggle('open'); });
+            toggle.addEventListener('touchend', function(e){ e.preventDefault(); e.stopPropagation(); menu.classList.toggle('open'); });
             var observer = new IntersectionObserver(function(entries){
                 entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
             }, { threshold: 0.1 });
             document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
-        })();
+        });
         </script>
 </body>
 </html>
